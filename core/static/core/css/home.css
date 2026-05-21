@@ -36,7 +36,7 @@
 .home-hero-content{
   position: absolute;
   z-index: 3;
-  top: 50%;
+  top: 60%;
   left: 7%;
   transform: translateY(-50%);
   max-width: 760px;
@@ -139,11 +139,13 @@
    ========================= */
 
 .home-presentation{
-  padding: 90px 20px;
+  padding: 90px 20px 90px !important;
   background:
     radial-gradient(circle at bottom right, rgba(120,14,106,.45), transparent 34%),
     linear-gradient(180deg, #050505, #111);
 }
+
+
 
 .home-presentation-box{
   max-width: 1180px;
@@ -184,7 +186,7 @@
   .home-carousel .carousel-inner,
   .home-carousel .carousel-item,
   .home-carousel-img{
-    height: 78vh;
+    height: 99vh;
     min-height: 620px;
   }
 
@@ -204,7 +206,7 @@
   }
 
   .home-title{
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     letter-spacing: -1px;
   }
 
