@@ -186,7 +186,7 @@
   .home-carousel .carousel-inner,
   .home-carousel .carousel-item,
   .home-carousel-img{
-    /*height: 99vh;*/
+    /* height: 99vh; */
     min-height: 620px;
   }
 
