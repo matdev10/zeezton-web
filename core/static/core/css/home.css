@@ -180,15 +180,15 @@
    ========================= */
 
 @media (max-width: 768px){
-
   .home-hero,
   .home-carousel,
   .home-carousel .carousel-inner,
   .home-carousel .carousel-item,
   .home-carousel-img{
-    /* height: 99vh; */
-    min-height: 620px;
+    height: auto !important;
+    min-height: 620px !important;
   }
+}
 
   .home-carousel-img{
     object-position: center;
