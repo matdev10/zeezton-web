@@ -260,11 +260,11 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-
+/*ofertas-hero mobile*/
 @media(max-width: 768px){
   .ofertas-hero{
     min-height: 300px;
-    padding: 120px 18px 55px;
+    padding: 160px 18px 55px;
   }
 
   .ofertas-title{

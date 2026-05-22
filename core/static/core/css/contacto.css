@@ -320,11 +320,12 @@
   color:rgba(255,255,255,.65);
 }
 
-@media(max-width:768px){
 
+/* contacto-hero  mobile */
+@media(max-width:768px){
   .contact-hero{
     min-height:320px;
-    padding:120px 18px 60px;
+    padding:160px 18px 60px;
   }
 
   .contact-title{

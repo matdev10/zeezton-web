@@ -36,7 +36,7 @@
 .home-hero-content{
   position: absolute;
   z-index: 3;
-  top: 60%;
+  top: 61%;
   left: 7%;
   transform: translateY(-50%);
   max-width: 760px;
@@ -188,7 +188,6 @@
     height: auto !important;
     min-height: 620px !important;
   }
-}
 
   .home-carousel-img{
     object-position: center;
