@@ -293,3 +293,8 @@
   }
 }
 
+@media (max-width: 600px){
+  body{
+    outline: 10px solid red !important;
+  }
+}
