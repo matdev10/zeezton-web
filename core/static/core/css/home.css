@@ -134,6 +134,28 @@
   width: 6%;
 }
 
+/* botones hero */
+@media (min-width: 992px){
+  .home-actions{
+    width: auto;
+    max-width: 720px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .home-actions .home-btn-primary,
+  .home-actions .home-btn-secondary{
+    width: auto !important;
+    min-width: 210px;
+    max-width: 260px;
+    flex: 0 0 auto;
+  }
+}
+
+
 /* =========================
    PRESENTACIÓN
    ========================= */
