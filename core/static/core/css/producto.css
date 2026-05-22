@@ -245,7 +245,7 @@
 @media(max-width: 768px){
   .catalogo-hero{
     min-height: 300px;
-    padding: 160px 18px 55px;
+    padding: 160px 18px 1px;
   }
 
   .catalogo-title{
@@ -293,8 +293,3 @@
   }
 }
 
-@media (max-width: 600px){
-  body{
-    outline: 10px solid red !important;
-  }
-}
