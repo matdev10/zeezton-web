@@ -1,8 +1,9 @@
 {% load static %}
+{% with version='1006' %}
 
 <!DOCTYPE html>
 <html lang="es">
-
+{% endwith %}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,12 +25,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'core/css/global.css' %}?v=2">
-  <link rel="stylesheet" href="{% static 'core/css/navbar.css' %}?v=2">
-  <link rel="stylesheet" href="{% static 'core/css/footer.css' %}?v=2">
-  <link rel="stylesheet" href="{% static 'core/css/whatsapp.css' %}?v=2">
-  <link rel="stylesheet" href="{% static 'core/css/popup.css' %}?v=2">
-  <link rel="stylesheet" href="{% static 'core/css/home.css' %}?v=1004">
+<link rel="stylesheet" href="{% static 'core/css/global.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'core/css/navbar.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'core/css/footer.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'core/css/whatsapp.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'core/css/popup.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}?v={{ STATIC_VERSION }}">
+
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}?v={{ version }}">
 
   {% block css %}{% endblock %}
 </head>
