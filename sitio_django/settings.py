@@ -36,7 +36,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'zeezton.onrender.com',
+    "zeezton.onrender.com",
     "127.0.0.1",
     "localhost",
     "zeezton.cl",
