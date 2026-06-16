@@ -138,7 +138,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   grid-template-columns:1fr .9fr auto;
   gap:14px;
 
-  padding:16px;
+  padding:7px;
 
   border-radius:100px;
 
@@ -155,7 +155,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 }
 
 .zfiltro-field{
-  min-height:56px;
+  min-height:40px;
 
   display:flex;
   align-items:center;
@@ -214,7 +214,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 }
 
 .zfiltro button{
-  min-height:56px;
+  min-height:40px;
   padding:0 28px;
 
   display:inline-flex;
@@ -383,6 +383,16 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
     inset 0 0 18px rgba(15,207,217,.06);
 }
 
+
+
+
+
+
+
+
+
+
+
 /* =========================================
    DESTACADOS
 ========================================= */
@@ -462,6 +472,23 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================
    PAGINACIÓN
 ========================================= */
@@ -510,6 +537,51 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
   border-color:rgba(15,207,217,.55);
   box-shadow:0 0 24px rgba(15,207,217,.14);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* =========================================
    RESPONSIVE
@@ -602,12 +674,15 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
 
   .swiper-destacados{
     width:100%;
-    padding:8px 0 46px;
+    padding:8px 0 20px;
   }
 
   .swiper-destacados .swiper-slide{
     width:230px;
   }
+  .swiper-destacados .swiper-pagination{
+  display:none !important;
+}
 
   .swiper-pagination-bullet{
     background:rgba(255,255,255,.4);
@@ -669,6 +744,7 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
     width:min(100%, calc(100% - 24px));
     margin-bottom:38px;
     gap:10px;
+    margin-top: 20px;
   }
 
   .catalogo-categorias a{
