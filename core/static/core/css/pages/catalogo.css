@@ -54,8 +54,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 .catalogo-pagination{
   position:relative;
   z-index:2;
-  margin-top: 150px;
-   margin-top: 25px;
+  padding-top: 25px;
 }
 
 /* =========================================
@@ -310,14 +309,14 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
 .catalogo-categorias{
   width:min(1200px, calc(100% - 32px));
-
-  margin:70px auto 80px;
-
+  margin: auto;
   display:flex;
-  align-items:flex-start;
+  align-items: center;
   justify-content:center;
   flex-wrap:wrap;
   gap:26px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .catalogo-categorias-circulares a{
@@ -413,11 +412,12 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   width:min(1320px, calc(100% - 32px));
   margin:0 auto 0px;
   padding:0;
+  margin-top: 74px;
 }
 
 .destacados-header{
   text-align:center;
-  margin-bottom:34px;
+
 }
 
 .destacados-header h2{
@@ -439,10 +439,11 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 .destacados-grid{
   width:min(1120px, 100%);
   margin:0 auto;
-  margin-top: 25px;
+  /* margin-top: 25px; */
   display:grid;
   grid-template-columns:repeat(5, minmax(0, 1fr));
   gap:22px;
+  padding-top: 25px;
 }
 
 .destacados-desktop{
@@ -596,30 +597,12 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE ORDENADO
 ========================================= */
 
+/* TABLET GRANDE */
 @media(max-width:1100px){
 
-
-    .catalogo-categorias{
-    gap:14px;
-    margin:40px auto 45px;
-  }
-
-  .catalogo-categorias-circulares a{
-    width:82px;
-    height:82px;
-    gap:7px;
-  }
-
-  .catalogo-categorias-circulares a i{
-    font-size:1.1rem;
-  }
-
-  .catalogo-categorias-circulares a span{
-    font-size:.42rem;
-  }
   .catalogo-main{
     padding-top:130px;
   }
@@ -635,34 +618,28 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   .destacados-grid{
     grid-template-columns:repeat(4, minmax(0, 1fr));
   }
-}
 
-@media(max-width:820px){
-
-
-    .catalogo-categorias{
-    gap:14px;
-    margin:40px auto 45px;
+  .catalogo-categorias{
+    margin:55px auto 70px;
+    gap:22px;
   }
 
   .catalogo-categorias-circulares a{
-    width:82px;
-    height:82px;
-    gap:7px;
+    width:100px;
+    height:100px;
   }
+}
 
-  .catalogo-categorias-circulares a i{
-    font-size:1.1rem;
-  }
 
-  .catalogo-categorias-circulares a span{
-    font-size:.42rem;
-  }
+/* TABLET / MOBILE HORIZONTAL */
+@media(max-width:820px){
+
   .catalogo-main{
     padding:118px 0 80px;
   }
 
   .catalogo-header{
+    width:min(100%, calc(100% - 28px));
     margin-bottom:34px;
   }
 
@@ -674,10 +651,16 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     font-size:.72rem;
   }
 
+  .zfiltro-wrap{
+    width:min(100%, calc(100% - 28px));
+    margin:25px auto 42px;
+  }
+
   .zfiltro{
     grid-template-columns:1fr;
     padding:13px;
     border-radius:28px;
+    gap:11px;
   }
 
   .zfiltro-field,
@@ -686,18 +669,18 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     border-radius:20px;
   }
 
-  
-
   .catalogo-categorias{
+    width:min(100%, calc(100% - 28px));
+    margin:45px auto 60px;
+
     justify-content:flex-start;
     flex-wrap:nowrap;
+    gap:16px;
 
     overflow-x:auto;
     overflow-y:hidden;
 
-    padding:4px 2px 12px;
-    margin-bottom:48px;
-
+    padding:6px 2px 14px;
     scroll-snap-type:x mandatory;
   }
 
@@ -705,14 +688,21 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     height:0;
   }
 
-  .catalogo-categorias a{
+  .catalogo-categorias-circulares a{
     flex:0 0 auto;
     scroll-snap-align:start;
 
-    min-height:44px;
-    padding:0 22px;
+    width:86px;
+    height:86px;
+    gap:7px;
+  }
 
-    font-size:.62rem;
+  .catalogo-categorias-circulares a i{
+    font-size:1.15rem;
+  }
+
+  .catalogo-categorias-circulares a span{
+    font-size:.43rem;
   }
 
   .destacados-desktop{
@@ -724,180 +714,32 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     overflow:hidden;
   }
 
-  .swiper-destacados{
-    width:100%;
-    padding:8px 0 20px;
-  }
-
-  .swiper-destacados .swiper-slide{
-    width:230px;
-  }
-  .swiper-destacados .swiper-pagination{
-  display:none !important;
-}
-
-  .swiper-pagination-bullet{
-    background:rgba(255,255,255,.4);
-    opacity:1;
-  }
-
-  .swiper-pagination-bullet-active{
-    background:#0fcfd9;
-  }
-}
-
-@media(max-width:520px){
-
-
-    .catalogo-categorias{
-    gap:14px;
-    margin:40px auto 45px;
-  }
-
-  .catalogo-categorias-circulares a{
-    width:82px;
-    height:82px;
-    gap:7px;
-  }
-
-  .catalogo-categorias-circulares a i{
-    font-size:1.1rem;
-  }
-
-  .catalogo-categorias-circulares a span{
-    font-size:.42rem;
-  }
-  .catalogo-main{
-    padding:105px 0 70px;
-  }
-
-  .catalogo-header{
-    width:min(100%, calc(100% - 24px));
-    margin-bottom:28px;
-  }
-
-  .section-badge{
-    min-height:28px;
-    padding:0 14px;
-    font-size:.58rem;
-    margin-bottom:18px;
-  }
-
-  .catalogo-header h2{
-    font-size:1.75rem;
-    line-height:1.16;
-  }
-
-  .catalogo-header p{
-    font-size:.66rem;
-    line-height:1.75;
-  }
-
-  .zfiltro-wrap{
-    width:min(100%, calc(100% - 24px));
-    margin-bottom:28px;
-  }
-
-  .zfiltro{
-    gap:10px;
-    border-radius:24px;
-  }
-
-  .zfiltro input,
-  .zfiltro select{
-    font-size:.62rem;
-  }
-
-  .zfiltro button{
-    font-size:.62rem;
-  }
-
-  .catalogo-categorias{
-    width:min(100%, calc(100% - 24px));
-    margin-bottom:38px;
-    gap:10px;
-    margin-top: 20px;
-  }
-
-  .catalogo-categorias a{
-    min-height:40px;
-    padding:0 18px;
-    font-size:.55rem;
-  }
-
-  .destacados-section{
-    width:min(100%, calc(100% - 24px));
-    margin-bottom:60px;
-  }
-
-  .destacados-header{
-    margin-bottom:22px;
-  }
-
-  .destacados-header h2{
-    font-size:2rem;
-  }
-
-  .swiper-destacados .swiper-slide{
-    width:210px;
-  }
-
-  .catalogo-pagination{
-    margin-top:42px;
-  }
-}
-
-
-/* =========================================
-   DESTACADOS MOBILE — FIX
-========================================= */
-
-@media(max-width:820px){
-
-
-    .catalogo-categorias{
-    gap:14px;
-    margin:40px auto 45px;
-  }
-
-  .catalogo-categorias-circulares a{
-    width:82px;
-    height:82px;
-    gap:7px;
-  }
-
-  .catalogo-categorias-circulares a i{
-    font-size:1.1rem;
-  }
-
-  .catalogo-categorias-circulares a span{
-    font-size:.42rem;
-  }
-
   .destacados-section{
     width:100%;
-    margin:55px auto 60px;
+    margin:50px auto 65px;
     overflow:hidden;
   }
 
   .destacados-header{
-    padding:0 18px;
+
   }
 
   .destacados-header h2{
-    font-size:clamp(1.4rem, 14vw, 1.8rem);
+    font-size:clamp(1.8rem, 10vw, 2.4rem);
     line-height:1.05;
   }
 
   .swiper-destacados{
     width:100%;
-    padding:0 0 50px;
+    padding:0 0 20px;
+    margin-top:18px;
     overflow:visible;
-    margin-top:20px;
   }
 
-  .swiper-destacados .swiper-wrapper{
+   .swiper-destacados .swiper-wrapper{
+    gap: 20px;
     align-items:stretch;
+    padding-top: 25px;
   }
 
   .swiper-destacados .swiper-slide{
@@ -908,7 +750,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
   .swiper-destacados .producto-card{
     min-height:430px;
-    border-radius:2px;
+    border-radius:24px;
   }
 
   .swiper-destacados .producto-img-wrap{
@@ -936,27 +778,91 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     margin-top:auto;
     font-size:1rem;
   }
+
+  .swiper-destacados .swiper-pagination{
+    display:none !important;
+  }
 }
 
-@media(max-width:480px){
 
-    .catalogo-categorias{
-    gap:14px;
-    margin:40px auto 45px;
+/* MOBILE */
+@media(max-width:520px){
+
+  .catalogo-main{
+    padding:105px 0 70px;
+  }
+
+  .catalogo-header{
+    width:min(100%, calc(100% - 24px));
+    margin-bottom:28px;
+  }
+
+  .section-badge{
+    min-height:28px;
+    padding:0 14px;
+    margin-bottom:18px;
+    font-size:.58rem;
+  }
+
+  .catalogo-header h2{
+    font-size:1.75rem;
+    line-height:1.16;
+  }
+
+  .catalogo-header p{
+    font-size:.66rem;
+    line-height:1.75;
+  }
+
+  .zfiltro-wrap{
+    width:min(100%, calc(100% - 24px));
+    margin:22px auto 34px;
+  }
+
+  .zfiltro{
+    gap:10px;
+    border-radius:24px;
+  }
+
+  .zfiltro input,
+  .zfiltro select{
+    font-size:.62rem;
+  }
+
+  .zfiltro button{
+    font-size:.62rem;
+  }
+
+  .catalogo-categorias{
+    width:min(100%, calc(100% - 24px));
+    margin:35px auto 48px;
+    gap:12px;
   }
 
   .catalogo-categorias-circulares a{
-    width:82px;
-    height:82px;
-    gap:7px;
+    width:76px;
+    height:76px;
+    gap:6px;
   }
 
   .catalogo-categorias-circulares a i{
-    font-size:1.1rem;
+    font-size:1rem;
   }
 
   .catalogo-categorias-circulares a span{
-    font-size:.42rem;
+    font-size:.40rem;
+  }
+
+  .destacados-section{
+    margin:42px auto 58px;
+  }
+
+  .destacados-header{
+
+  }
+
+  .destacados-header h2{
+    font-size:1.8rem;
   }
 
   .swiper-destacados .swiper-slide{
@@ -965,8 +871,8 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   }
 
   .swiper-destacados .producto-card{
-    min-height:280px;
-    margin-left: 36px;
+    min-height:405px;
+    border-radius:22px;
   }
 
   .swiper-destacados .producto-img-wrap{
@@ -974,7 +880,8 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   }
 
   .swiper-destacados .producto-info{
-    min-height:0px;
+    min-height:190px;
+    padding:16px;
   }
 
   .swiper-destacados .producto-info h3{
@@ -983,5 +890,31 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
   .swiper-destacados .producto-info p{
     font-size:.58rem;
+  }
+
+  .catalogo-pagination{
+    margin-top:42px;
+  }
+}
+
+
+/* MOBILE PEQUEÑO */
+@media(max-width:390px){
+
+  .catalogo-header h2{
+    font-size:1.55rem;
+  }
+
+  .catalogo-categorias-circulares a{
+    width:70px;
+    height:70px;
+  }
+
+  .catalogo-categorias-circulares a span{
+    font-size:.36rem;
+  }
+
+  .swiper-destacados .swiper-slide{
+    width:78vw;
   }
 }
