@@ -33,6 +33,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "zeezton.onrender.com",
+    "zeezton-test.onrender.com",
     "127.0.0.1",
     "localhost",
     "192.168.1.87",
@@ -160,8 +162,3 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     "https://zeezton.cl",
 ]
-
-
-LOGIN_REDIRECT_URL = "perfil_usuario"
-LOGOUT_REDIRECT_URL = "home"
-LOGIN_URL = "login"
