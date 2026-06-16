@@ -10,7 +10,15 @@ body{
     padding: 0;
 }
 
+body{
+  background: #050505;
+}
 
+main{
+  background:
+    radial-gradient(circle at top, rgba(11,209,234,.08), transparent 35%),
+    #050505;
+}
 
 html,
 body{
