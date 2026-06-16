@@ -8,128 +8,24 @@
 <link rel="stylesheet" href="{% static 'core/css/pages/catalogo.css' %}?v={{ version }}">
 <link rel="stylesheet" href="{% static 'core/css/pages/productos.css' %}?v={{ version }}">
 <link rel="stylesheet" href="{% static 'core/css/components/pagination.css' %}?v={{ version }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 {% endblock %}
 
 {% block main_content %}
 
-<section class="catalogo-hero">
 
-  <div class="catalogo-hero-content">
 
-    <span class="section-badge">
-      Zeezton Store
-    </span>
 
-    <h1>
-      <span>Descubre</span>
-      <span>la innovación</span>
-    </h1>
 
-    <p class="catalogo-subtitle">
-      Repuestos, accesorios y estética automotriz. 
-    </p>
-  </div>
 
-</section>
-{% if productos_destacados %}
-<section class="destacados-section">
 
-  <div class="destacados-header">
-    <span class="section-badge">Selección Zeezton</span>
-    <h2>Exclusivos</h2>
-  </div>
 
-  <!-- DESKTOP DESTACADOS -->
-  <div id="carouselDestacados" class="carousel slide destacados-desktop" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      {% for p in productos_destacados %}
-        {% if forloop.first or forloop.counter0|divisibleby:5 %}
-        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-          <div class="destacados-grid">
-        {% endif %}
 
-            <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
-              <article class="producto-card destacado-card">
-                <div class="producto-img-wrap">
-                  {% with img=p.imagenes.first %}
-                    {% if img %}
-                      <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
-                    {% elif p.imagen %}
-                      <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
-                    {% else %}
-                      <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
-                    {% endif %}
-                  {% endwith %}
-                </div>
-                <div class="producto-info">
-                  <h3>{{ p.nombre }}</h3>
-                  <p>{{ p.descripcion|truncatewords:8 }}</p>
-                  <strong><span>$</span>{{ p.precio|clp }}</strong>
-                </div>
-              </article>
-            </a>
-
-        {% if forloop.counter|divisibleby:5 or forloop.last %}
-          </div>
-        </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestacados" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselDestacados" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-
-  <!-- MOBILE DESTACADOS PREMIUM -->
-  <div class="destacados-mobile">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <div class="swiper swiper-destacados">
-      <div class="swiper-wrapper">
-        {% for p in productos_destacados %}
-        <div class="swiper-slide">
-          <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
-            <article class="producto-card destacado-card">
-              <div class="producto-img-wrap">
-                {% with img=p.imagenes.first %}
-                  {% if img %}
-                    <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
-                  {% elif p.imagen %}
-                    <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
-                  {% else %}
-                    <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
-                  {% endif %}
-                {% endwith %}
-              </div>
-              <div class="producto-info">
-                <h3>{{ p.nombre }}</h3>
-                <p>{{ p.descripcion|truncatewords:6 }}</p>
-                <strong><span>$</span>{{ p.precio|clp }}</strong>
-              </div>
-            </article>
-          </a>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-
-</section>
-{% endif %}
 
 <section class="catalogo-main">
 
   <div class="catalogo-header">
-
-    <span class="section-badge">
-      Explora
-    </span>
+    <span class="section-badge">Explora</span>
 
     <h2>
       Lleva tu vehículo<br>
@@ -140,9 +36,7 @@
       Encuentra repuestos, accesorios y estética automotriz seleccionada para tu BMW.
     </p>
 
-  </div>
-
-  <form method="get" class="zfiltro-wrap">
+      <form method="get" class="zfiltro-wrap">
     <div class="zfiltro">
 
       <div class="zfiltro-field">
@@ -160,10 +54,10 @@
           <option value="">Todas las marcas</option>
 
           {% for marca in marcas %}
-            <option value="{{ marca.id }}"
-              {% if request.GET.marca == marca.id|stringformat:"s" %}selected{% endif %}>
-              {{ marca.nombre }}
-            </option>
+          <option value="{{ marca.id }}"
+            {% if request.GET.marca == marca.id|stringformat:"s" %}selected{% endif %}>
+            {{ marca.nombre }}
+          </option>
           {% endfor %}
         </select>
       </div>
@@ -176,119 +70,254 @@
     </div>
   </form>
 
-<div class="catalogo-categorias">
+  <div class="catalogo-categorias">
+    <a href="{% url 'product' %}"
+       class="{% if not categoria_seleccionada %}active{% endif %}">
+      Todos
+    </a>
 
-  <a href="{% url 'product' %}"
-     class="{% if not categoria_seleccionada %}active{% endif %}">
-    Todos
-  </a>
-
-  {% for categoria in categorias %}
+    {% for categoria in categorias %}
     <a href="?categoria={{ categoria.id }}"
        class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}">
       {{ categoria.nombre }}
     </a>
-  {% endfor %}
+    {% endfor %}
+  </div>
 
-</div>
 
-</div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+{% if productos_destacados %}
+<section class="destacados-section">
+
+  <div class="destacados-header">
+    <span class="section-badge">Selección Zeezton</span>
+    <h2>Exclusivos</h2>
+  </div>
+
+  <div id="carouselDestacados" class="carousel slide destacados-desktop" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      {% for p in productos_destacados %}
+        {% if forloop.first or forloop.counter0|divisibleby:5 %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="destacados-grid">
+        {% endif %}
+
+        <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
+          <article class="producto-card destacado-card">
+            <div class="producto-img-wrap">
+              {% with img=p.imagenes.first %}
+                {% if img %}
+                  <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
+                {% elif p.imagen %}
+                  <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
+                {% else %}
+                  <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
+                {% endif %}
+              {% endwith %}
+            </div>
+
+            <div class="producto-info">
+              <h3>{{ p.nombre }}</h3>
+              <p>{{ p.descripcion|truncatewords:8 }}</p>
+              <strong><span>$</span>{{ p.precio|clp }}</strong>
+            </div>
+          </article>
+        </a>
+
+        {% if forloop.counter|divisibleby:5 or forloop.last %}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestacados" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDestacados" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <div class="destacados-mobile">
+    <div class="swiper swiper-destacados">
+      <div class="swiper-wrapper">
+
+        {% for p in productos_destacados %}
+        <div class="swiper-slide">
+          <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
+            <article class="producto-card destacado-card">
+              <div class="producto-img-wrap">
+                {% with img=p.imagenes.first %}
+                  {% if img %}
+                    <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
+                  {% elif p.imagen %}
+                    <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
+                  {% else %}
+                    <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
+                  {% endif %}
+                {% endwith %}
+              </div>
+
+              <div class="producto-info">
+                <h3>{{ p.nombre }}</h3>
+                <p>{{ p.descripcion|truncatewords:6 }}</p>
+                <strong><span>$</span>{{ p.precio|clp }}</strong>
+              </div>
+            </article>
+          </a>
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+</section>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="productos-grid">
 
     {% for p in productos %}
-      <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
+    <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
 
-        <article class="producto-card">
+      <article class="producto-card">
 
-          <span class="stock-badge stock-{{ p.estado_stock }}">
-            {{ p.estado_stock_display }}
-          </span>
+        <span class="stock-badge stock-{{ p.estado_stock }}">
+          {{ p.estado_stock_display }}
+        </span>
 
-          <div class="producto-img-wrap">
-            {% with img=p.imagenes.first %}
-              {% if img %}
-                <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
-              {% elif p.imagen %}
-                <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
-              {% else %}
-                <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
-              {% endif %}
-            {% endwith %}
+        <div class="producto-img-wrap">
+          {% with img=p.imagenes.first %}
+            {% if img %}
+              <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
+            {% elif p.imagen %}
+              <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
+            {% else %}
+              <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
+            {% endif %}
+          {% endwith %}
+        </div>
+
+        <div class="producto-info">
+          <h3>{{ p.nombre }}</h3>
+          <p>{{ p.descripcion|truncatewords:12 }}</p>
+
+          <div class="producto-bottom">
+            <strong><span>$</span>{{ p.precio|clp }}</strong>
+            <em>Ver más</em>
           </div>
+        </div>
 
-          <div class="producto-info">
-            <h3>{{ p.nombre }}</h3>
-            <p>{{ p.descripcion|truncatewords:12 }}</p>
+      </article>
 
-            <div class="producto-bottom">
-              <strong><span>$</span>{{ p.precio|clp }}</strong>
-              <em>Ver más</em>
-            </div>
-          </div>
-
-        </article>
-
-      </a>
-
+    </a>
     {% empty %}
 
-      <div class="catalogo-empty">
-        <h3>No hay productos para mostrar</h3>
-        <p>Prueba con otra búsqueda o revisa otra marca.</p>
-      </div>
+    <div class="catalogo-empty">
+      <h3>No hay productos para mostrar</h3>
+      <p>Prueba con otra búsqueda o revisa otra marca.</p>
+    </div>
 
     {% endfor %}
 
   </div>
 
   {% if page_obj.paginator.num_pages > 1 %}
-    <nav class="catalogo-pagination">
+  <nav class="catalogo-pagination">
 
-      {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}{% if buscar %}&buscar={{ buscar }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}{% if subcategoria_seleccionada %}&subcategoria={{ subcategoria_seleccionada }}{% endif %}{% if modelo_seleccionado %}&modelo={{ modelo_seleccionado }}{% endif %}"
-           class="pagination-btn">
-          ‹
-        </a>
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}{% if buscar %}&buscar={{ buscar }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}"
+       class="pagination-btn">
+      ‹
+    </a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
+      <a href="?page={{ num }}{% if buscar %}&buscar={{ buscar }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}"
+         class="pagination-btn {% if page_obj.number == num %}active{% endif %}">
+        {{ num }}
+      </a>
       {% endif %}
+    {% endfor %}
 
-      {% for num in page_obj.paginator.page_range %}
-        {% if num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
-          <a href="?page={{ num }}{% if buscar %}&buscar={{ buscar }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}{% if subcategoria_seleccionada %}&subcategoria={{ subcategoria_seleccionada }}{% endif %}{% if modelo_seleccionado %}&modelo={{ modelo_seleccionado }}{% endif %}"
-             class="pagination-btn {% if page_obj.number == num %}active{% endif %}">
-            {{ num }}
-          </a>
-        {% endif %}
-      {% endfor %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}{% if buscar %}&buscar={{ buscar }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}"
+       class="pagination-btn">
+      ›
+    </a>
+    {% endif %}
 
-      {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}{% if buscar %}&buscar={{ buscar }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}{% if subcategoria_seleccionada %}&subcategoria={{ subcategoria_seleccionada }}{% endif %}{% if modelo_seleccionado %}&modelo={{ modelo_seleccionado }}{% endif %}"
-           class="pagination-btn">
-          ›
-        </a>
-      {% endif %}
-
-    </nav>
+  </nav>
   {% endif %}
 
 </section>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    if (document.querySelector('.swiper-destacados')) {
-      const swiperDestacados = new Swiper('.swiper-destacados', {
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        loop: true,
-        slideToClickedSlide: true,
-        spaceBetween: 0,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-    }
-  });
-</script>
 
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector(".swiper-destacados")) {
+    new Swiper(".swiper-destacados", {
+      slidesPerView: "auto",
+      centeredSlides: true,
+      loop: true,
+      slideToClickedSlide: true,
+      spaceBetween: 0,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  }
+});
+</script>
 {% endblock %}
