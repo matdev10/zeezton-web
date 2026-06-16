@@ -1,0 +1,114 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load currency_filters %}
+{% load humanize %} {% block title %}Carrito | Zeezton Store{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/carrito.css' %}?v={{ version }}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="cart-page">
+
+  <div class="cart-container">
+
+    <div class="cart-header">
+      <span>Checkout</span>
+      <h1>Tu carrito</h1>
+      <p>Revisa tus productos antes de continuar al pago.</p>
+      
+      <span class="cliente-badge">
+        Modo: <strong>{{ tipo_cliente|title }}</strong>
+      </span>
+    </div>
+
+    {% if productos %}
+
+    <div class="cart-grid">
+
+      <div class="cart-products">
+
+        {% for item in productos %}
+
+        <article class="cart-card">
+
+          <div class="cart-card-info">
+            <h2>{{ item.producto.nombre }}</h2>
+            <div class="cart-meta">
+              <span>Cantidad: {{ item.cantidad }}</span>
+              <span>Precio: ${{ item.producto.precio|clp }}</span>
+            </div>
+          </div>
+
+          <div class="cart-card-right">
+            <strong>${{ item.subtotal|clp }}</strong>
+            <a href="{% url 'eliminar_carrito' item.producto.id %}" class="cart-delete-link">
+              <i class="fa-solid fa-trash"></i> Eliminar
+            </a>
+          </div>
+
+        </article>
+
+        {% endfor %}
+
+      </div>
+
+      <aside class="carrito-resumen">
+
+        <span class="resumen-badge">
+          Resumen
+        </span>
+
+        <h2>Pedido Zeezton</h2>
+
+        <div class="resumen-linea">
+          <span>Subtotal</span>
+          <strong>${{ subtotal_carrito|clp }}</strong>
+        </div>
+
+        <div class="resumen-linea">
+          <span>Envío</span>
+          {% if costo_envio > 0 %}
+            <strong>${{ costo_envio|clp }}</strong>
+          {% else %}
+            <span class="envio-calculado">Calculado en checkout</span>
+          {% endif %}
+        </div>
+
+        <div class="resumen-total">
+          <span>Total</span>
+          <strong>${{ total|clp }}</strong>
+        </div>
+
+        <a href="{% url 'checkout' %}" class="cart-checkout-btn">
+          Continuar al checkout
+        </a>
+
+      </aside>
+
+    </div>
+
+    {% else %}
+
+    <div class="cart-empty">
+
+      <i class="fa-solid fa-cart-shopping"></i>
+
+      <h2>Tu carrito está vacío</h2>
+
+      <p>Agrega productos para comenzar tu compra.</p>
+
+      <a href="{% url 'product' %}">
+        Ir al catálogo
+      </a>
+
+    </div>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% endblock %}

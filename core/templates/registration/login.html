@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/login.css' %}">
+{% endblock %}
+
+{% block title %}Iniciar sesión | Zeezton{% endblock %}
+
+{% block main_content %}
+
+<section class="login-page">
+
+  <div class="login-card">
+
+    <span>Zeezton Access</span>
+
+    <h1>Iniciar sesión</h1>
+
+    <form method="POST">
+
+      {% csrf_token %}
+
+      <div class="login-group">
+        <label>Usuario</label>
+        {{ form.username }}
+      </div>
+
+      <div class="login-group">
+        <label>Contraseña</label>
+        {{ form.password }}
+      </div>
+
+      <button type="submit">
+        Entrar
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+{% endblock %}

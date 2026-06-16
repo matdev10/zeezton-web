@@ -1,0 +1,90 @@
+/* ========================================
+LOGIN MOBILE
+======================================== */
+
+@media(max-width:768px){
+
+.login-modal{
+padding: 16px;
+align-items: flex-start;
+}
+
+.login-modal-card{
+width: 100%;
+
+```
+margin-top: 80px;
+
+padding: 28px 18px;
+
+border-radius: 26px;
+```
+
+}
+
+.login-modal-card span{
+font-size: .60rem;
+letter-spacing: 2px;
+}
+
+.login-modal-card h2{
+font-size: 1.45rem;
+line-height: 1.2;
+margin-bottom: 10px;
+}
+
+.login-modal-card p{
+font-size: .78rem;
+line-height: 1.6;
+margin-bottom: 22px;
+}
+
+.login-choice button,
+.login-form-box button[type="submit"]{
+padding: 14px;
+border-radius: 16px;
+font-size: .84rem;
+}
+
+.login-form-box input{
+padding: 14px 14px;
+border-radius: 14px;
+font-size: .84rem;
+}
+
+.guest-link{
+font-size: .78rem;
+}
+
+.login-back{
+font-size: .78rem;
+}
+
+.login-modal-close{
+top: 14px;
+right: 14px;
+
+```
+width: 32px;
+height: 32px;
+```
+
+}
+
+}
+
+/* ========================================
+SMALL MOBILE
+======================================== */
+
+@media(max-width:480px){
+
+.login-modal-card{
+padding: 24px 16px;
+}
+
+.login-modal-card h2{
+font-size: 1.3rem;
+}
+
+}

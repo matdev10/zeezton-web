@@ -1,0 +1,231 @@
+/* ===============================
+   ZEEZTON - PERFIL USUARIO
+================================ */
+
+.perfil-page{
+  min-height: 100vh;
+  padding: 130px 18px 80px;
+  color: #fff;
+
+  background:
+    radial-gradient(circle at top left, rgba(0,212,255,.18), transparent 35%),
+    radial-gradient(circle at top right, rgba(255,0,90,.14), transparent 38%),
+    #050505;
+}
+
+.perfil-container{
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+
+/* ===============================
+   TOPBAR
+================================ */
+
+.perfil-topbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.perfil-back{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.perfil-settings{
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+}
+/* ===============================
+   HERO PERFIL
+================================ */
+
+.perfil-hero{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  padding: 34px;
+  margin-bottom: 28px;
+
+  border-radius: 34px;
+
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.12);
+
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  backdrop-filter: blur(18px);
+}
+
+.perfil-avatar{
+  width: 82px;
+  height: 82px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #00d4ff, #ff005c);
+
+  font-size: 32px;
+
+  box-shadow: 0 14px 35px rgba(0,212,255,.22);
+}
+
+.perfil-info span{
+  color: #00eaff;
+
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.perfil-info h1{
+  margin: 8px 0;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: .95;
+  font-weight: 900;
+}
+
+.perfil-info p{
+  margin: 0;
+  color: rgba(255,255,255,.68);
+}
+
+
+/* ===============================
+   CARDS PERFIL
+================================ */
+
+.perfil-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.perfil-card{
+  min-height: 210px;
+  padding: 28px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.12);
+
+  box-shadow: 0 20px 55px rgba(0,0,0,.28);
+  backdrop-filter: blur(18px);
+
+  transition: .25s ease;
+}
+
+.perfil-card-link{
+  color: #fff;
+  text-decoration: none;
+}
+
+.perfil-card:hover{
+  transform: translateY(-6px);
+
+  border-color: rgba(0,234,255,.45);
+
+  box-shadow: 0 28px 70px rgba(0,212,255,.14);
+}
+
+.perfil-card-icon{
+  width: 54px;
+  height: 54px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 22px;
+
+  border-radius: 18px;
+
+  background: rgba(0,234,255,.12);
+  color: #00eaff;
+
+  font-size: 22px;
+}
+
+.perfil-card h3{
+  margin: 0 0 12px;
+  font-size: 25px;
+}
+
+.perfil-card p{
+  margin: 0;
+
+  color: rgba(255,255,255,.68);
+
+  line-height: 1.6;
+}
+
+
+/* ===============================
+   ACCIONES
+================================ */
+
+.perfil-actions{
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.perfil-logout{
+  padding: 14px 22px;
+
+  border: none;
+  border-radius: 999px;
+
+  color: #fff;
+  background: linear-gradient(135deg, #ff005c, #7c1238);
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 16px 35px rgba(255,0,92,.22);
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 850px){
+
+  .perfil-page{
+    padding-top: 110px;
+  }
+
+  .perfil-hero{
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26px;
+  }
+
+  .perfil-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-actions{
+    justify-content: stretch;
+  }
+
+  .perfil-logout{
+    width: 100%;
+  }
+
+}

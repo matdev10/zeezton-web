@@ -1,0 +1,49 @@
+```html
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Pago no completado | Zeezton{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pago_estado.css' %}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="payment-status-page error-status">
+
+  <div class="payment-status-card">
+
+    <div class="payment-status-icon">
+      <i class="fa-solid fa-circle-xmark"></i>
+    </div>
+
+    <span class="payment-status-badge">
+      Zeezton Checkout
+    </span>
+
+    <h1>Ups... algo salió mal</h1>
+
+    <p>
+      El pago no pudo completarse correctamente.
+      Puedes volver al checkout e intentarlo nuevamente.
+    </p>
+
+    <div class="payment-status-actions">
+
+      <a href="{% url 'checkout' %}" class="payment-btn-primary">
+        Volver al checkout
+      </a>
+
+      <a href="{% url 'ver_carrito' %}" class="payment-btn-secondary">
+        Ver carrito
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}
+```

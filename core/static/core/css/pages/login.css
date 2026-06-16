@@ -1,0 +1,268 @@
+/* ========================================
+LOGIN / REGISTER MODAL
+DESKTOP + BASE
+======================================== */
+
+.login-modal{
+position: fixed;
+inset: 0;
+z-index: 10000;
+
+display: none;
+align-items: center;
+justify-content: center;
+
+padding: 20px;
+
+background: rgba(0,0,0,.68);
+
+backdrop-filter: blur(12px);
+}
+
+.login-modal.active{
+display: flex;
+}
+
+.login-modal-card{
+position: relative;
+
+width: min(100%, 440px);
+
+padding: 42px;
+
+border-radius: 32px;
+
+background:
+linear-gradient(
+180deg,
+rgba(10,10,10,.96),
+rgba(5,5,5,.94)
+);
+
+border: 1px solid rgba(0,255,255,.12);
+
+box-shadow:
+0 30px 80px rgba(0,0,0,.55),
+0 0 40px rgba(0,255,255,.06);
+
+backdrop-filter: blur(18px);
+}
+
+.login-modal-card span{
+display: inline-block;
+
+margin-bottom: 12px;
+
+color: #0ff;
+
+text-transform: uppercase;
+letter-spacing: 3px;
+
+font-size: .72rem;
+
+font-family: 'Michroma', sans-serif;
+}
+
+.login-modal-card h2{
+margin: 0 0 14px;
+
+color: #fff;
+
+font-size: 2rem;
+
+font-family: 'Michroma', sans-serif;
+}
+
+.login-modal-card p{
+margin-bottom: 28px;
+
+color: rgba(255,255,255,.68);
+
+line-height: 1.7;
+}
+
+/* ========================================
+CHOICE BUTTONS
+======================================== */
+
+.login-choice,
+.login-form-box{
+display: none;
+}
+
+.login-choice.active,
+.login-form-box.active{
+display: block;
+}
+
+.login-choice button,
+.login-form-box button[type="submit"]{
+width: 100%;
+
+padding: 16px;
+
+margin-bottom: 14px;
+
+border: none;
+border-radius: 18px;
+
+background:
+linear-gradient(
+135deg,
+#16d9ff,
+#7c3aed
+);
+
+color: #fff;
+
+font-weight: 800;
+
+transition: .25s ease;
+
+cursor: pointer;
+}
+
+.login-choice button:hover,
+.login-form-box button[type="submit"]:hover{
+transform: translateY(-2px);
+box-shadow: 0 12px 28px rgba(0,255,255,.16);
+}
+
+/* ========================================
+INPUTS
+======================================== */
+
+.login-form-box input{
+width: 100%;
+
+margin-bottom: 14px;
+
+padding: 15px 18px;
+
+border-radius: 16px;
+
+border: 1px solid rgba(255,255,255,.08);
+
+background: rgba(255,255,255,.04);
+
+color: #fff;
+
+outline: none;
+
+transition: .25s ease;
+}
+
+.login-form-box input:focus{
+border-color: rgba(0,255,255,.45);
+
+box-shadow:
+0 0 0 4px rgba(0,255,255,.06);
+}
+
+/* ========================================
+LINKS
+======================================== */
+
+.guest-link{
+display: block;
+
+margin-top: 6px;
+
+text-align: center;
+
+color: #0ff;
+
+text-decoration: none;
+
+font-size: .92rem;
+
+transition: .25s ease;
+}
+
+.guest-link:hover
+
+.login-back{
+width: 100%;
+
+margin-top: 4px;
+
+border: none;
+
+background: transparent;
+
+color: rgba(255,255,255,.72);
+
+cursor: pointer;
+
+transition: .25s ease;
+}
+
+.login-back:hover
+
+/* ========================================
+CLOSE BUTTON
+======================================== */
+
+.login-modal-close{
+position: absolute;
+
+top: 18px;
+right: 18px;
+
+width: 36px;
+height: 36px;
+
+border: none;
+border-radius: 50%;
+
+background: rgba(255,255,255,.05);
+
+color: #fff;
+
+cursor: pointer;
+
+transition: .25s ease;
+}
+
+.login-modal-close:hover{
+background: rgba(255,255,255,.12);
+color: #0ff;
+}
+
+
+/*error login*/
+.login-messages{
+  width: 100%;
+  margin: 4px 0 14px;
+}
+
+.login-alert{
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  text-align: center;
+  font-size: .92rem;
+  font-weight: 800;
+
+  color: #ff5c8a;
+  background: rgba(255, 0, 85, .13);
+  border: 1px solid rgba(255, 0, 85, .45);
+
+  box-shadow:
+    0 0 18px rgba(255, 0, 85, .18),
+    inset 0 0 18px rgba(255, 255, 255, .03);
+}
+
+.login-alert i{
+  font-size: 1rem;
+  color: #ff2f73;
+}
+
+
+

@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Pago exitoso | Zeezton{% endblock %}
+
+{% block main_content %}
+
+<section class="perfil-page">
+  <div class="perfil-container">
+
+    <div class="direccion-card">
+      <h1>Pago aprobado</h1>
+      <p>Tu compra fue registrada correctamente.</p>
+
+      <a href="{% url 'mis_pedidos' %}" class="perfil-back">
+        Ver mis pedidos
+      </a>
+
+      <a href="{% url 'home' %}" class="perfil-back">
+        Volver a la tienda
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

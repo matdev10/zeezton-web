@@ -1,0 +1,218 @@
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+    .main {
+        padding: 0 18px;
+    }
+
+    .dashboard #content {
+        width: 100% !important;
+    }
+
+    .dashboard #content-main {
+        max-width: none;
+    }
+
+    #content-related {
+        width: auto !important;
+        margin-top: 28px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #header {
+        padding: 18px 16px !important;
+    }
+
+    .zeezton-admin-brand {
+        justify-content: flex-start;
+    }
+
+    .zeezton-admin-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .zeezton-admin-brand h1 {
+        font-size: 1.2rem;
+    }
+
+    .zeezton-admin-brand p {
+        font-size: 0.68rem;
+    }
+
+    #user-tools {
+        text-align: left !important;
+        line-height: 1.8;
+    }
+
+    #content h1 {
+        font-size: 1.45rem;
+    }
+
+    .dashboard .module table th,
+    .dashboard .module table td {
+        padding: 14px 12px !important;
+        font-size: 0.82rem;
+    }
+}
+
+
+/* =========================
+   DASHBOARD RESPONSIVE
+========================= */
+
+@media (max-width: 1180px) {
+    .zz-dashboard-home {
+        width: min(920px, calc(100% - 48px));
+    }
+
+    .zz-dashboard-section {
+        min-height: auto;
+        padding: 46px 36px;
+    }
+
+    .zz-dashboard-section + .zz-dashboard-section {
+        margin-top: 130px;
+    }
+
+    .zz-module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .zz-owner-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .zz-dashboard-home {
+        width: calc(100% - 28px);
+        padding: 34px 0 80px;
+    }
+
+    .zz-dashboard-section {
+        padding: 32px 22px;
+        border-radius: 28px;
+    }
+
+    .zz-dashboard-section + .zz-dashboard-section {
+        margin-top: 90px;
+    }
+
+    .zz-section-heading {
+        margin-bottom: 42px;
+    }
+
+    .zz-section-heading h1 {
+        font-size: 2.2rem;
+    }
+
+    .zz-module-grid,
+    .zz-owner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zz-module-card {
+        min-height: 220px;
+        border-radius: 24px;
+    }
+
+    .zz-owner-card {
+        min-height: 200px;
+        border-radius: 24px;
+    }
+}
+
+/* =========================
+   DASHBOARD RESPONSIVE
+========================= */
+
+@media (max-width: 1180px) {
+    .zz-dashboard-home {
+        width: min(920px, calc(100% - 48px));
+    }
+
+    .zz-dashboard-section + .zz-dashboard-section {
+        margin-top: 130px;
+    }
+
+    .zz-section-owner {
+        min-height: auto;
+        padding: 46px 36px;
+    }
+
+    .zz-module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .zz-owner-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .zz-dashboard-home {
+        width: calc(100% - 28px);
+        padding: 34px 0 80px;
+    }
+
+    .zz-dashboard-section + .zz-dashboard-section {
+        margin-top: 90px;
+    }
+
+    .zz-section-owner {
+        padding: 32px 22px;
+        border-radius: 28px;
+    }
+
+    .zz-section-heading {
+        margin-bottom: 42px;
+    }
+
+    .zz-section-heading h1 {
+        font-size: 2.2rem;
+    }
+
+    .zz-module-grid,
+    .zz-owner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zz-module-card {
+        min-height: 220px;
+        border-radius: 24px;
+    }
+
+    .zz-owner-card {
+        min-height: 200px;
+        border-radius: 24px;
+    }
+}
+
+/* =========================
+   admin_responsive*/
+
+   @media (max-width: 1180px) {
+    .zz-owner-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .zz-owner-panel {
+        padding: 36px;
+    }
+}
+
+@media (max-width: 720px) {
+    .zz-owner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zz-owner-panel {
+        margin-top: 54px;
+        padding: 26px 22px;
+        border-radius: 26px;
+    }
+}

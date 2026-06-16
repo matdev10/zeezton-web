@@ -1,0 +1,34 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block content %}
+<div class="zz-admin-list-page">
+
+    <section class="zz-admin-list-hero">
+        <h1>{{ cl.opts.verbose_name_plural|capfirst }}</h1>
+    </section>
+
+    <section class="zz-admin-list-panel">
+
+        {% if has_add_permission %}
+            <div class="zz-admin-list-actions">
+                <a href="{{ request.path }}add/" class="zz-admin-add-button">
+                    + Agregar {{ cl.opts.verbose_name }}
+                </a>
+            </div>
+        {% endif %}
+
+        <form id="changelist-form" method="post" novalidate>
+            {% csrf_token %}
+
+            {% if cl.formset %}
+                <div>{{ cl.formset.management_form }}</div>
+            {% endif %}
+
+            {% result_list cl %}
+        </form>
+
+    </section>
+
+</div>
+{% endblock %}

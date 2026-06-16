@@ -1,0 +1,150 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="zz-dashboard-home">
+
+  <section class="zz-dashboard-screen zz-screen-map">
+
+    <div class="zz-screen-inner">
+
+      <div class="zz-section-heading zz-section-heading-center">
+        <span>Panel Zeezton</span>
+        <h1>Mapa</h1>
+      </div>
+
+      <div class="zz-module-grid">
+
+        <a href="{% url 'admin:crud_producto_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">📦</div>
+          <div class="zz-module-content">
+            <h2>Catálogo</h2>
+            <p>Productos, marcas, categorías, subcategorías y reseñas.</p>
+          </div>
+          <strong>Gestionar catálogo →</strong>
+        </a>
+
+        <a href="{% url 'admin:crud_cliente_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">👥</div>
+          <div class="zz-module-content">
+            <h2>Clientes</h2>
+            <p>Registro de clientes, datos de contacto y documentos.</p>
+          </div>
+          <strong>Ver clientes →</strong>
+        </a>
+
+        <a href="{% url 'admin:crud_venta_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">🧾</div>
+          <div class="zz-module-content">
+            <h2>Ventas</h2>
+            <p>Ventas realizadas, documentos, totales y detalle de productos.</p>
+          </div>
+          <strong>Revisar ventas →</strong>
+        </a>
+
+        <a href="{% url 'admin:crud_pedido_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">🚚</div>
+          <div class="zz-module-content">
+            <h2>Pedidos</h2>
+            <p>Pedidos de clientes, estados de entrega, envíos y seguimiento.</p>
+          </div>
+          <strong>Gestionar pedidos →</strong>
+        </a>
+
+        <a href="{% url 'admin:crud_tarifaenvio_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">📍</div>
+          <div class="zz-module-content">
+            <h2>Envíos</h2>
+            <p>Tarifas por comuna, costos de despacho y comunas activas.</p>
+          </div>
+          <strong>Gestionar envíos →</strong>
+        </a>
+
+        <a href="{% url 'admin:finanzas_compra_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">📥</div>
+          <div class="zz-module-content">
+            <h2>Compras</h2>
+            <p>Ingreso de compras, proveedores, costos y productos adquiridos.</p>
+          </div>
+          <strong>Gestionar compras →</strong>
+        </a>
+
+        <a href="/admin/crud/rese%C3%B1a/" class="zz-module-card">
+          <div class="zz-module-icon">⭐</div>
+          <div class="zz-module-content">
+            <h2>Reseñas</h2>
+            <p>Opiniones de clientes pendientes, aprobadas y por producto.</p>
+          </div>
+          <strong>Moderar reseñas →</strong>
+        </a>
+
+        <a href="{% url 'admin:crud_suscriptor_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">📣</div>
+          <div class="zz-module-content">
+            <h2>Marketing</h2>
+            <p>Suscriptores, interesados, marcas, modelos y contactos.</p>
+          </div>
+          <strong>Ver contactos →</strong>
+        </a>
+
+        <a href="{% url 'admin:auth_user_changelist' %}" class="zz-module-card">
+          <div class="zz-module-icon">👤</div>
+          <div class="zz-module-content">
+            <h2>Usuarios Zeezton</h2>
+            <p>Clientes registrados, correos, estado de cuenta y permisos.</p>
+          </div>
+          <strong>Ver usuarios →</strong>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="zz-dashboard-screen zz-screen-boss">
+
+    <div class="zz-screen-inner">
+
+      <div class="zz-owner-heading">
+        <span>Panel Boss</span>
+        <h2>Resumen operativo</h2>
+        <p>Indicadores rápidos para revisar el estado general del negocio.</p>
+      </div>
+
+      <div class="zz-owner-grid">
+
+        <article class="zz-owner-card zz-owner-card-glow">
+          <span class="zz-owner-label">Ventas del mes</span>
+          <strong>$0</strong>
+          <p>Resumen de ingresos registrados durante el periodo actual.</p>
+        </article>
+
+        <article class="zz-owner-card">
+          <span class="zz-owner-label">Productos activos</span>
+          <strong>0</strong>
+          <p>Productos disponibles actualmente dentro del catálogo.</p>
+        </article>
+
+        <article class="zz-owner-card zz-owner-danger">
+          <span class="zz-owner-label">Stock crítico</span>
+          <strong>0</strong>
+          <p>Productos con bajo stock o sin disponibilidad.</p>
+        </article>
+
+        <article class="zz-owner-card">
+          <span class="zz-owner-label">Reseñas pendientes</span>
+          <strong>0</strong>
+          <p>Opiniones de clientes que requieren revisión.</p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+{% endblock %}

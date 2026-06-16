@@ -1,14 +1,14 @@
 {% load static %}
 
-{% with version='1008' %}
+{% with version='2022' %}
 
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="icon" type="image/png" href="{% static 'core/img/favicon3.png' %}">
 
   <title>{% block title %}Zeezton Store{% endblock %}</title>
@@ -19,27 +19,61 @@
   <meta property="og:url" content="https://zeezton.cl">
   <meta property="og:image" content="https://zeezton.cl/static/core/img/og-zeezton.png">
 
+  <!-- LIBRERÍAS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+  <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital@1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'core/css/global.css' %}?v={{ version }}">
-  <link rel="stylesheet" href="{% static 'core/css/navbar.css' %}?v={{ version }}">
-  <link rel="stylesheet" href="{% static 'core/css/footer.css' %}?v={{ version }}">
-  <link rel="stylesheet" href="{% static 'core/css/whatsapp.css' %}?v={{ version }}">
-  <link rel="stylesheet" href="{% static 'core/css/popup.css' %}?v={{ version }}">
+  <!-- BASE GLOBAL -->
+  <link rel="stylesheet" href="{% static 'core/css/base/global.css' %}?v={{ version }}">
+  <link rel="stylesheet" href="{% static 'core/css/base/navbar.css' %}?v={{ version }}">
+  <link rel="stylesheet" href="{% static 'core/css/base/footer.css' %}?v={{ version }}">
+  <link rel="stylesheet" href="{% static 'core/css/base/whatsapp.css' %}?v={{ version }}">
+  <link rel="stylesheet" href="{% static 'core/css/base/popup.css' %}?v={{ version }}">
+  <link rel="stylesheet" href="{% static 'core/css/base/backgrounds.css' %}?v={{ version }}">
+  <link rel="stylesheet" href="{% static 'core/css/components/buttons.css' %}?v={{ version }}">
 
-{% block css %}{% endblock %}
+  <!-- CSS DE CADA PÁGINA -->
+  {% block css %}{% endblock %}
 
 </head>
 
 <body>
 
+  <svg width="0" height="0" style="position:absolute;">
+    <filter id="electric-border">
+      <feTurbulence
+        type="turbulence"
+        baseFrequency="0.02"
+        numOctaves="2"
+        result="noise"
+        seed="2"
+      />
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="noise"
+        scale="2"
+      />
+    </filter>
+  </svg>
+
   {% include "core/partials/navbar.html" %}
+
+  {% if messages %}
+    <div class="z-toast-container">
+      {% for message in messages %}
+        <div class="z-toast {{ message.tags }}">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>{{ message }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 
   <main>
     {% block main_content %}
@@ -52,12 +86,35 @@
      class="whatsapp-float"
      target="_blank"
      rel="noopener">
-    <img src="{% static 'core/img/whatsapp.svg' %}" alt="WhatsApp">
+    <img src="{% static 'core/img/whatsapp-white-icon.svg' %}" alt="WhatsApp">
   </a>
 
   {% include "core/partials/popup.html" %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'core/js/weather.js' %}?v={{ version }}"></script>
+
+  <script>
+    const openLoginModal = document.getElementById("openLoginModal");
+    const closeLoginModal = document.getElementById("closeLoginModal");
+    const loginModal = document.getElementById("loginModal");
+
+    if(openLoginModal && closeLoginModal && loginModal){
+      openLoginModal.addEventListener("click", () => {
+        loginModal.classList.add("active");
+      });
+
+      closeLoginModal.addEventListener("click", () => {
+        loginModal.classList.remove("active");
+      });
+
+      loginModal.addEventListener("click", (e) => {
+        if(e.target === loginModal){
+          loginModal.classList.remove("active");
+        }
+      });
+    }
+  </script>
 
   {% block js %}{% endblock %}
 

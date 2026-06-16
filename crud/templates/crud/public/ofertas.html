@@ -1,0 +1,251 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load currency_filters %}
+
+{% block title %}Ofertas | Zeezton Store{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/ofertas.css' %}?v={{ version }}">
+<link rel="stylesheet" href="{% static 'core/css/pages/productos.css' %}?v={{ version }}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="ofertas-hero">
+  <div class="ofertas-hero-content">
+    <span class="ofertas-badge">Zeezton Deals</span>
+
+    <h1 class="ofertas-title">
+      tu oferta favorita
+    </h1>
+
+    <p class="ofertas-subtitle">
+      Productos seleccionados con precios destacados para renovar, mejorar y personalizar tu vehículo.
+    </p>
+  </div>
+</section>
+
+{% if productos_super_ofertas %}
+<section class="super-ofertas-section">
+  <div class="super-ofertas-container">
+
+    <div class="ofertas-header">
+      <span class="section-badge">Selección limitada</span>
+      <h2>Super Ofertas</h2>
+    </div>
+
+    <div class="d-none d-md-block">
+      <div id="carouselSuperOfertas" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          {% for p in productos_super_ofertas %}
+            {% if forloop.first or forloop.counter0|divisibleby:5 %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row g-4 justify-content-center px-4">
+            {% endif %}
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-6 d-flex">
+              <a href="{% url 'detalle_producto' p.pk %}" class="oferta-link w-100">
+                <article class="oferta-card super-card">
+
+                  <span class="oferta-label">Oferta</span>
+
+                  <div class="oferta-img-wrap">
+                    {% with img=p.imagenes.first %}
+                      {% if img %}
+                        <img src="{{ img.imagen.url }}" class="oferta-img" alt="{{ p.nombre }}">
+                      {% elif p.imagen %}
+                        <img src="{{ p.imagen.url }}" class="oferta-img" alt="{{ p.nombre }}">
+                      {% else %}
+                        <img src="{% static 'core/img/image_not_found.jpg' %}" class="oferta-img" alt="Sin imagen">
+                      {% endif %}
+                    {% endwith %}
+                  </div>
+
+                  <div class="oferta-info">
+                    <h3>{{ p.nombre }}</h3>
+
+                    <div class="oferta-price">
+                      <span>$</span>{{ p.precio|clp }}
+                      <small>CLP</small>
+                    </div>
+                  </div>
+
+                </article>
+              </a>
+            </div>
+
+            {% if forloop.counter|divisibleby:5 or forloop.last %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSuperOfertas" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSuperOfertas" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-block d-md-none">
+      <div id="carouselSuperOfertasMobile" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+        <div class="carousel-inner">
+
+          {% for p in productos_super_ofertas %}
+            {% if forloop.first or forloop.counter0|divisibleby:2 %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row g-3 px-3">
+            {% endif %}
+
+            <div class="col-6">
+              <a href="{% url 'detalle_producto' p.pk %}" class="oferta-link">
+                <article class="oferta-card super-card">
+
+                  <span class="oferta-label">Oferta</span>
+
+                  <div class="oferta-img-wrap">
+                    {% with img=p.imagenes.first %}
+                      {% if img %}
+                        <img src="{{ img.imagen.url }}" class="oferta-img" alt="{{ p.nombre }}">
+                      {% elif p.imagen %}
+                        <img src="{{ p.imagen.url }}" class="oferta-img" alt="{{ p.nombre }}">
+                      {% else %}
+                        <img src="{% static 'core/img/image_not_found.jpg' %}" class="oferta-img" alt="Sin imagen">
+                      {% endif %}
+                    {% endwith %}
+                  </div>
+
+                  <div class="oferta-info">
+                    <h3>{{ p.nombre }}</h3>
+                    <div class="oferta-price">
+                      <span>$</span>{{ p.precio|clp }}
+                    </div>
+                  </div>
+
+                </article>
+              </a>
+            </div>
+
+            {% if forloop.counter|divisibleby:2 or forloop.last %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endif %}
+
+<section class="ofertas-main">
+
+  <form method="get" action="" class="zfiltro-wrap">
+    <div class="zfiltro">
+
+      <div class="zfiltro-field">
+        <i class="fa fa-magnifying-glass zfiltro-ico"></i>
+        <input type="text"
+               class="zfiltro-input"
+               name="buscar"
+               placeholder="Buscar oferta..."
+               value="{{ request.GET.buscar }}"
+               autocomplete="off">
+      </div>
+
+      <div class="zfiltro-field">
+        <i class="fa fa-tags zfiltro-ico"></i>
+        <select class="zfiltro-input zfiltro-select-input" name="marca">
+          <option value="">Todas las marcas</option>
+          {% for marca in marcas %}
+            <option value="{{ marca.id }}" {% if request.GET.marca == marca.id|stringformat:"s" %}selected{% endif %}>
+              {{ marca.nombre }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button type="submit" class="zfiltro-btn">
+        <i class="fa fa-search"></i>
+        <span>Buscar</span>
+      </button>
+
+    </div>
+  </form>
+
+  <div class="ofertas-header">
+    <span class="section-badge">Promociones</span>
+    <h2>Productos en oferta</h2>
+  </div>
+
+  <div class="ofertas-grid">
+
+    {% for p in productos %}
+      <div class="oferta-item">
+        <a href="{% url 'detalle_producto' p.pk %}" class="oferta-link">
+
+          <article class="oferta-card">
+
+            <span class="oferta-label">Oferta</span>
+
+            <div class="oferta-img-wrap">
+              {% with img=p.imagenes.first %}
+                {% if img %}
+                  <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}" class="oferta-img">
+                {% elif p.imagen %}
+                  <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" class="oferta-img">
+                {% else %}
+                  <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen" class="oferta-img">
+                {% endif %}
+              {% endwith %}
+            </div>
+
+            <div class="oferta-info">
+
+              <h3>{{ p.nombre }}</h3>
+
+              {% if p.marca %}
+                <p class="oferta-brand">{{ p.marca.nombre }}</p>
+              {% endif %}
+
+              <p class="oferta-desc">
+                {{ p.descripcion|truncatewords:15 }}
+              </p>
+
+              <div class="oferta-bottom">
+                <strong class="oferta-price">
+                  <span>$</span>{{ p.precio|clp }}
+                  <small>CLP</small>
+                </strong>
+
+                <span class="oferta-view">Ver más</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </a>
+      </div>
+    {% empty %}
+      <div class="ofertas-empty">
+        <h3>No hay productos en oferta por ahora</h3>
+        <p>Vuelve pronto para revisar nuevas promociones Zeezton.</p>
+      </div>
+    {% endfor %}
+
+  </div>
+
+</section>
+
+{% endblock %}

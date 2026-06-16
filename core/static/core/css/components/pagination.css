@@ -1,0 +1,33 @@
+/* --- PAGINACIÓN --- */
+.catalogo-pagination {
+  width: min(1320px, calc(100% - 32px));
+  margin: 45px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  min-width: 42px;
+  height: 42px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  font-family: "Michroma", sans-serif;
+  font-size: .7rem;
+}
+
+.pagination-btn:hover,
+.pagination-btn.active {
+  color: #0fcfd9;
+  border-color: rgba(15,207,217,.45);
+  background: rgba(15,207,217,.09);
+}

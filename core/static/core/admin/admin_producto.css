@@ -1,0 +1,78 @@
+/* =========================================
+   ZEEZTON ADMIN — MODO COMPACTO PRODUCTO
+========================================= */
+
+body.change-form.model-producto #content{
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  padding: 38px 20px 100px !important;
+}
+
+body.change-form.model-producto #content h1{
+  font-size: 2.4rem !important;
+  margin-bottom: 18px !important;
+}
+
+body.change-form.model-producto .module{
+  margin-bottom: 16px !important;
+  border-radius: 16px !important;
+}
+
+body.change-form.model-producto .module h2,
+body.change-form.model-producto .inline-group h2{
+  padding: 10px 16px !important;
+  font-size: 12px !important;
+}
+
+body.change-form.model-producto .description{
+  padding: 10px 16px !important;
+  font-size: 12px !important;
+}
+
+body.change-form.model-producto .form-row{
+  padding: 9px 16px !important;
+  min-height: auto !important;
+}
+
+body.change-form.model-producto .aligned label{
+  width: 130px !important;
+  font-size: 12px !important;
+}
+
+body.change-form.model-producto input,
+body.change-form.model-producto select,
+body.change-form.model-producto textarea{
+  padding: 9px 12px !important;
+  font-size: 12px !important;
+  border-radius: 10px !important;
+}
+
+body.change-form.model-producto input[type="text"],
+body.change-form.model-producto input[type="number"],
+body.change-form.model-producto select{
+  height: 38px !important;
+}
+
+body.change-form.model-producto textarea{
+  min-height: 90px !important;
+  max-height: 110px !important;
+  max-width: 520px !important;
+}
+
+body.change-form.model-producto .submit-row{
+  padding: 10px 16px !important;
+}
+
+body.change-form.model-producto .submit-row input{
+  padding: 8px 18px !important;
+  font-size: 11px !important;
+}
+
+body.change-form.model-producto #container,
+body.change-form.model-producto #main{
+  display: block !important;
+}
+
+body.change-form.model-producto #content-main{
+  width: 100% !important;
+}

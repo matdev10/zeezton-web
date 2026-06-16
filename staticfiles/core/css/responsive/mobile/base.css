@@ -1,0 +1,64 @@
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px){
+  .home-hero,
+  .home-carousel,
+  .home-carousel .carousel-inner,
+  .home-carousel .carousel-item,
+  .home-carousel-img{
+    height: auto !important;
+    min-height: 620px !important;
+  }
+
+  .home-carousel-img{
+    object-position: center;
+  }
+
+  .home-hero-content{
+    left: 18px;
+    right: 18px;
+    max-width: none;
+    top: 355px;
+  }
+
+  .home-badge{
+        font-size: .45rem;
+        padding: 4px 9px;
+        margin-bottom: 2px;
+  }
+
+  .home-title{
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+  }
+
+  .home-subtitle{
+    font-size: .72rem;
+    line-height: 1.7;
+  }
+
+  .home-actions{
+    flex-direction: column;
+  }
+
+  .home-btn-primary,
+  .home-btn-secondary{
+    width: 100%;
+  }
+
+  .home-presentation{
+    padding: 60px 14px;
+  }
+
+  .home-presentation-box{
+    padding: 28px 18px;
+    border-radius: 24px;
+  }
+
+  .home-presentation-box p{
+    font-size: .68rem;
+  }
+}
+

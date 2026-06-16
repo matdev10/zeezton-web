@@ -1,10 +1,16 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Zeezton Store | Repuestos y accesorios premium{% endblock %}
+{% block title %}
+Zeezton Store | Repuestos y accesorios premium
+{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'core/css/home.css' %}?v=3">
+<link rel="stylesheet" href="{% static 'core/css/pages/home.css' %}?v={{ version }}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'core/js/home.js' %}?v={{ version }}"></script>
 {% endblock %}
 
 {% block main_content %}
@@ -16,99 +22,215 @@
        data-bs-ride="carousel"
        data-bs-interval="3500">
 
+    <!-- INDICADORES -->
     <div class="carousel-indicators">
+
       <button type="button"
               data-bs-target="#carouselHomeZeezton"
               data-bs-slide-to="0"
               class="active"
               aria-current="true"
-              aria-label="Slide 1"></button>
+              aria-label="Slide 1">
+      </button>
 
       <button type="button"
               data-bs-target="#carouselHomeZeezton"
               data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
+              aria-label="Slide 2">
+      </button>
 
       <button type="button"
-              data-bs-target="#carouselHomeZeezton"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"></button>
+        data-bs-target="#carouselHomeZeezton"
+        data-bs-slide-to="2"
+        aria-label="Slide 3">
+      </button>
+
     </div>
 
+    <!-- SLIDES -->
     <div class="carousel-inner">
 
       <div class="carousel-item active">
-        <img src="/media/recursos/BMW-M2C.jpg"
+        <img src="/media/recursos/eagl.png"
              class="home-carousel-img"
              alt="BMW Zeezton Store">
       </div>
 
       <div class="carousel-item">
-        <img src="/media/recursos/imagen3.jpg"
+        <img src="/media/recursos/bmw_m.webp"
              class="home-carousel-img"
              alt="Accesorios premium Zeezton">
       </div>
 
       <div class="carousel-item">
-        <img src="/media/recursos/imagen4.jpg"
+        <img src="/media/recursos/bmw_ready.jpg"
              class="home-carousel-img"
              alt="Repuestos y estética automotriz">
       </div>
 
     </div>
 
+    <!-- CONTROLES -->
     <button class="carousel-control-prev"
             type="button"
             data-bs-target="#carouselHomeZeezton"
             data-bs-slide="prev">
+
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Anterior</span>
+
     </button>
 
     <button class="carousel-control-next"
             type="button"
             data-bs-target="#carouselHomeZeezton"
             data-bs-slide="next">
+
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Siguiente</span>
+
     </button>
 
   </div>
 
-  <div class="home-hero-overlay"></div>
+  <!-- TITULO -->
+<!-- TITULO -->
+<div class="home-hero-content">
 
-  <div class="home-hero-content">
-    <span class="home-badge">Repuestos • Accesorios • Estética automotriz</span>
+  <span class="home-kicker">
+    Premium Automotive
+  </span>
 
-    <h1 class="home-title">
-      Zeezton Store
-    </h1>
+  <h1 class="home-title">
+    <span class="home-title-main">ZEEZTON</span>
+    <span class="home-title-sub">STORE</span>
+  </h1>
 
-    <p class="home-subtitle">
-      Productos seleccionados para mejorar la estética, comodidad y personalización de tu vehículo.
+</div>
+
+
+
+<!-- BOTONES -->
+<div class="home-actions">
+
+  <a href="{% url 'product' %}" class="home-btn-primary">
+    <span>Ver catálogo</span>
+    <span class="shine"></span>
+  </a>
+
+  <a href="{% url 'contact' %}" class="home-btn-secondary">
+    <span>Contactar</span>
+    <span class="shine"></span>
+  </a>
+
+</div>
+
+<!-- USUARIO -->
+<div class="home-user-action">
+
+  {% if request.user.is_authenticated %}
+
+    <form method="post"
+          action="{% url 'logout' %}"
+          class="home-login-form">
+
+      {% csrf_token %}
+
+      <button type="submit"
+              class="home-login-text logout-text">
+        Cerrar sesión
+      </button>
+
+    </form>
+
+  {% else %}
+
+    <button type="button"
+            class="home-login-text"
+            onclick="document.getElementById('loginModal').classList.add('active')">
+      Iniciar sesión
+    </button>
+
+  {% endif %}
+
+</div>
+</section>
+
+<!-- PRESENTACION -->
+<section class="home-m3">
+
+  <div class="m3-content">
+
+    <span class="m3-badge">BMW Neue Klasse</span>
+
+    <h2>
+      El nuevo M3 eléctrico<br>
+      abre una nueva era.
+    </h2>
+
+    <p>
+      Más preciso, más tecnológico y con una experiencia de conducción
+      completamente renovada. Una nueva visión del alto rendimiento
+      que marca el futuro de BMW M.
     </p>
 
-    <div class="home-actions">
-      <a href="{% url 'product' %}" class="home-btn-primary">
-        Ver catálogo
+    <div class="m3-actions">
+      <a href="{% url 'catalogo' %}" class="m3-btn">
+        Explorar catálogo
       </a>
 
-      <a href="{% url 'contact' %}" class="home-btn-secondary">
-        Contactar
-      </a>
+      <button type="button" class="m3-more-btn" id="m3MoreBtn">
+        Saber más
+      </button>
+    </div>
+
+  </div>
+
+  <div class="m3-slider">
+    <div class="m3-track">
+      <img src="/media/recursos/index/IMG_7800.JPG" alt="BMW M3 Eléctrico">
+      <img src="/media/recursos/index/IMG_7799.JPG" alt="BMW M3 Eléctrico">
+      <img src="/media/recursos/index/IMG_7807.JPG" alt="BMW M3 Eléctrico">
+      <img src="/media/recursos/index/IMG_7801.JPG" alt="BMW M3 Eléctrico">
     </div>
   </div>
 
-</section>
+  <div class="m3-extra" id="m3Extra">
 
-<section class="home-presentation">
-  <div class="home-presentation-box">
-    <h2>Atención personalizada</h2>
+    <div class="m3-extra-gallery">
+      <img src="/media/recursos/index/IMG_7802.JPG" alt="BMW M3">
+      <img src="/media/recursos/index/IMG_7803.JPG" alt="BMW M3">
+      <img src="/media/recursos/index/IMG_7804.JPG" alt="BMW M3">
+    </div>
 
-    <p>
-      En Zeezton nos diferenciamos por la atención al cliente. Entendemos que cada persona necesita una explicación clara antes de comprar, por eso ofrecemos asesoría personalizada y productos seleccionados con enfoque premium.
-    </p>
+    <div class="m3-specs">
+
+      <span class="m3-article-tag">
+        BMW M CONCEPT NEUE KLASSE
+      </span>
+
+      <h3>
+        El futuro de BMW M se asoma en Le Mans
+      </h3>
+
+      <p>
+        BMW presentó el M Concept Neue Klasse, un prototipo que anticipa el
+        esperado primer M3 100% eléctrico. Su diseño combina una carrocería
+        más ancha, estética agresiva, ópticas amarillas inspiradas en la
+        competición y un spoiler cola de pato con carácter deportivo.
+      </p>
+
+      <p>
+        La revolución también está bajo la piel: cuatro motores eléctricos,
+        uno por rueda, tecnología de 800 voltios y una batería de más de
+        100 kWh integrada en el chasis para mantener el comportamiento
+        dinámico y el ADN que define a BMW M.
+      </p>
+
+    </div>
+
   </div>
+
 </section>
 
 {% endblock %}

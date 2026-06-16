@@ -1,0 +1,159 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load currency_filters %}
+
+{% block title %}Seguimiento pedido | Zeezton{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/perfil_seguimiento_pedido.css' %}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="seguimiento-page">
+
+  <div class="seguimiento-container">
+
+    <header class="seguimiento-header">
+      <span>Cuenta Zeezton</span>
+      <h1>Seguimiento pedido #{{ pedido.id }}</h1>
+      <p>Revisa el estado actual, despacho y detalle de tu compra.</p>
+    </header>
+
+    <div class="seguimiento-main-card">
+
+      <div class="seguimiento-top">
+        <div class="tracking-timeline">
+
+  <div class="tracking-step done">
+    <div class="tracking-step-icon">
+      <i class="fa-solid fa-credit-card"></i>
+    </div>
+    <h4>Pagado</h4>
+    <p>Pago confirmado</p>
+  </div>
+
+  <div class="tracking-step {% if pedido.estado == 'PREPARANDO' or pedido.estado == 'ENVIADO' or pedido.estado == 'ENTREGADO' %}done{% else %}active{% endif %}">
+    <div class="tracking-step-icon">
+      <i class="fa-solid fa-box-open"></i>
+    </div>
+    <h4>Preparando</h4>
+    <p>Pedido en preparación</p>
+  </div>
+
+  <div class="tracking-step {% if pedido.estado == 'ENVIADO' or pedido.estado == 'ENTREGADO' %}done{% endif %}">
+    <div class="tracking-step-icon">
+      <i class="fa-solid fa-truck-fast"></i>
+    </div>
+    <h4>Enviado</h4>
+    <p>Despacho asignado</p>
+  </div>
+
+  <div class="tracking-step {% if pedido.estado == 'ENTREGADO' %}done{% endif %}">
+    <div class="tracking-step-icon">
+      <i class="fa-solid fa-house-circle-check"></i>
+    </div>
+    <h4>Entregado</h4>
+    <p>Compra finalizada</p>
+  </div>
+
+</div>
+
+        <div>
+          <small>Estado pedido</small>
+          <h2>{{ pedido.get_estado_display }}</h2>
+        </div>
+
+        <div>
+          <small>Fecha compra</small>
+          <h2>{{ pedido.creado|date:"d/m/Y H:i" }}</h2>
+        </div>
+
+      </div>
+
+      <div class="seguimiento-grid">
+
+        <div class="seguimiento-item">
+          <span>Transporte</span>
+          <strong>
+            {% if pedido.transporte %}
+              {{ pedido.get_transporte_display }}
+            {% else %}
+              Pendiente asignación
+            {% endif %}
+          </strong>
+        </div>
+
+        <div class="seguimiento-item">
+          <span>Código seguimiento</span>
+          <strong>
+            {{ pedido.codigo_seguimiento|default:"Aún no disponible" }}
+          </strong>
+        </div>
+
+        <div class="seguimiento-item">
+          <span>Método entrega</span>
+          <strong>{{ pedido.get_metodo_entrega_display }}</strong>
+        </div>
+
+        <div class="seguimiento-item">
+          <span>Total pedido</span>
+          <strong>${{ pedido.total|clp }}</strong>
+        </div>
+
+      </div>
+
+      {% if pedido.nota_despacho %}
+      <div class="seguimiento-nota">
+        <h3>Nota despacho</h3>
+        <p>{{ pedido.nota_despacho }}</p>
+      </div>
+      {% endif %}
+
+    </div>
+
+    <div class="seguimiento-detalle-box">
+
+      <h2>Productos del pedido</h2>
+
+      <div class="seguimiento-productos-list">
+
+        {% for detalle in pedido.detalles.all %}
+
+        <article class="seguimiento-producto-item">
+
+          <div class="seguimiento-producto-left">
+
+            {% if detalle.producto.imagen %}
+            <img src="{{ detalle.producto.imagen.url }}"
+                 alt="{{ detalle.producto.nombre }}">
+            {% endif %}
+
+            <div>
+              <h3>{{ detalle.producto.nombre }}</h3>
+              <span>Cantidad: {{ detalle.cantidad }}</span>
+            </div>
+
+          </div>
+
+          <strong>${{ detalle.subtotal|clp }}</strong>
+
+        </article>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+    <div class="seguimiento-actions">
+      <a href="{% url 'mis_pedidos' %}">
+        Volver a mis pedidos
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

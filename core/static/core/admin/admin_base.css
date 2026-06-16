@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --zz-primary: #0fcfd9;
+    --zz-secondary: #780e6a;
+    --zz-bg: #05070b;
+    --zz-panel: rgba(13, 18, 28, 0.94);
+    --zz-border: rgba(15, 207, 217, 0.18);
+    --zz-text: #f5f7fb;
+    --zz-muted: #9ca8ba;
+    --zz-green: #5be06b;
+    --zz-yellow: #f4c542;
+    --zz-red: #ff4d6d;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+    background:
+        radial-gradient(circle at top left, rgba(15, 207, 217, 0.16), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(120, 14, 106, 0.24), transparent 34%),
+        linear-gradient(135deg, #030509, #070a12 45%, #120719) !important;
+    color: var(--zz-text) !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    overflow-x: hidden;
+}
+
+#container,
+#main,
+.main,
+#content,
+#content-main {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Oculta cualquier resto del admin nativo */
+#header,
+#branding,
+#user-tools,
+#nav-sidebar,
+#toggle-nav-sidebar,
+div.breadcrumbs,
+#footer,
+br.clear,
+.dashboard #content > h1,
+#content > h1 {
+    display: none !important;
+}
+
+a:link,
+a:visited {
+    color: var(--zz-primary);
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+.zz-dashboard-hero h1,
+.zz-module-card h2,
+.zz-module-card strong,
+.module caption,
+.module h2,
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button {
+    font-family: "Orbitron", Arial, Helvetica, sans-serif !important;
+}

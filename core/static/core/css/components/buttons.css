@@ -1,0 +1,50 @@
+/* ===============================
+   ZEEZTON - BOTONES GLOBALES
+================================ */
+
+.zeezton-glass-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  border-radius: 999px;
+
+  color: #fff;
+  text-decoration: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15,207,217,.16),
+      rgba(124,58,237,.12)
+    );
+
+  border: 1px solid rgba(15,207,217,.35);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 0 18px rgba(15,207,217,.12),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.zeezton-glass-btn:hover{
+  transform: translateY(-2px);
+
+  color: #fff;
+  text-decoration: none;
+
+  border-color: rgba(0,234,255,.72);
+
+  box-shadow:
+    0 0 28px rgba(0,234,255,.24),
+    0 0 70px rgba(0,234,255,.12);
+}

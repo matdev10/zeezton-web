@@ -1,0 +1,108 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Mis favoritos | Zeezton Store{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/perfil_mis_favoritos.css' %}?v={{ version }}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="favoritos-page">
+
+  <div class="favoritos-container">
+
+<header class="favoritos-header">
+  <span>Zeezton Account</span>
+  <h1>Mis favoritos</h1>
+  <p>Productos guardados para revisar o comprar más adelante.</p>
+</header>
+
+<div class="favoritos-top-actions">
+
+  <a href="{% url 'perfil_usuario' %}"
+   class="btn-volver-cuenta zeezton-glass-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    Regresar a cuenta
+  </a>
+
+</div>
+
+    {% if favoritos %}
+
+      <div class="favoritos-list">
+
+        {% for favorito in favoritos %}
+
+          <article class="favorito-card">
+
+            <a href="{% url 'detalle_producto' favorito.producto.id %}" class="favorito-producto">
+
+              <div class="favorito-img">
+
+  {% with imagen_principal=favorito.producto.imagenes.all|first %}
+
+    {% if imagen_principal %}
+      <img src="{{ imagen_principal.imagen.url }}" alt="{{ favorito.producto.nombre }}">
+
+    {% elif favorito.producto.imagen %}
+      <img src="{{ favorito.producto.imagen.url }}" alt="{{ favorito.producto.nombre }}">
+
+    {% else %}
+      <img src="{% static 'crud/img/image_not_found.jpg' %}" alt="Imagen no disponible">
+    {% endif %}
+
+  {% endwith %}
+
+</div>
+
+              <div class="favorito-info">
+                <h3>{{ favorito.producto.nombre }}</h3>
+
+                <span>
+                  {% if favorito.producto.marca %}
+                    {{ favorito.producto.marca.nombre }}
+                  {% else %}
+                    Sin marca
+                  {% endif %}
+                </span>
+
+                <strong>${{ favorito.producto.precio|intcomma }}</strong>
+              </div>
+
+            </a>
+
+            <div class="favorito-actions">
+              <a href="{% url 'detalle_producto' favorito.producto.id %}" class="btn-ver">
+                Ver producto
+              </a>
+
+              <a href="{% url 'agregar_favorito' favorito.producto.id %}" class="btn-quitar">
+                Quitar favorito
+              </a>
+            </div>
+
+          </article>
+
+        {% endfor %}
+
+      </div>
+
+    {% else %}
+
+      <div class="favoritos-empty">
+        <i class="fa-regular fa-heart"></i>
+        <h2>No tienes favoritos</h2>
+        <p>Guarda productos para encontrarlos rápidamente después.</p>
+        <a href="{% url 'product' %}">Explorar catálogo</a>
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% endblock %}

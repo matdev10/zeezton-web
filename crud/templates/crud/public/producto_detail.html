@@ -1,0 +1,217 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}{{ producto.nombre }} | Zeezton Store{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/detalle_producto.css' %}?v={{ version }}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="detalle-producto-page">
+
+  <div class="detalle-producto-container">
+
+    <a href="{% url 'product' %}" class="detalle-back">
+      <i class="fa-solid fa-arrow-left"></i>
+      Volver al catálogo
+    </a>
+
+    <div class="detalle-producto-layout">
+
+      <div class="detalle-galeria">
+
+        <div class="detalle-imagen-principal">
+          {% if imagen_principal %}
+            <img src="{{ imagen_principal.imagen.url }}" alt="{{ producto.nombre }}">
+          {% elif producto.imagen %}
+            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+          {% else %}
+            <img src="{% static 'crud/img/image_not_found.jpg' %}" alt="Sin imagen">
+          {% endif %}
+        </div>
+
+        {% if imagenes %}
+        <div class="detalle-miniaturas">
+          {% for img in imagenes %}
+            <img src="{{ img.imagen.url }}" alt="{{ producto.nombre }}">
+          {% endfor %}
+        </div>
+        {% endif %}
+
+      </div>
+
+      <div class="detalle-info">
+
+        <span class="detalle-badge">
+          {{ producto.marca }}
+        </span>
+
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'agregar_favorito' producto.id %}"
+             class="btn-favorito-top {% if es_favorito %}active{% endif %}">
+
+            {% if es_favorito %}
+              <i class="fa-solid fa-heart"></i>
+            {% else %}
+              <i class="fa-regular fa-heart"></i>
+            {% endif %}
+
+          </a>
+        {% endif %}
+
+        <h1>{{ producto.nombre }}</h1>
+
+        <div class="detalle-rating">
+
+          <div class="detalle-stars">
+            {% if producto.calificacion >= 1 %}<i class="fa-solid fa-star"></i>{% else %}<i class="fa-regular fa-star"></i>{% endif %}
+            {% if producto.calificacion >= 2 %}<i class="fa-solid fa-star"></i>{% else %}<i class="fa-regular fa-star"></i>{% endif %}
+            {% if producto.calificacion >= 3 %}<i class="fa-solid fa-star"></i>{% else %}<i class="fa-regular fa-star"></i>{% endif %}
+            {% if producto.calificacion >= 4 %}<i class="fa-solid fa-star"></i>{% else %}<i class="fa-regular fa-star"></i>{% endif %}
+            {% if producto.calificacion >= 5 %}<i class="fa-solid fa-star"></i>{% else %}<i class="fa-regular fa-star"></i>{% endif %}
+          </div>
+
+          {% if producto.calificacion > 0 %}
+            <span>{{ producto.calificacion }}/5</span>
+          {% endif %}
+
+        </div>
+
+        <div class="detalle-precio">
+          ${{ producto.precio|intcomma }}
+        </div>
+
+        <div class="detalle-meta">
+
+          {% if producto.categoria %}
+          <div>
+            <small>Categoría</small>
+            <strong>{{ producto.categoria }}</strong>
+          </div>
+          {% endif %}
+
+          {% if producto.subcategoria %}
+          <div>
+            <small>Subcategoría</small>
+            <strong>{{ producto.subcategoria.nombre }}</strong>
+          </div>
+          {% endif %}
+
+          {% if producto.modelo_auto %}
+          <div>
+            <small>Modelo</small>
+            <strong>{{ producto.modelo_auto }}</strong>
+          </div>
+          {% endif %}
+
+          <div>
+            <small>Stock</small>
+            <strong>{{ producto.stock }}</strong>
+          </div>
+
+        </div>
+
+        <div class="detalle-actions">
+          {% if request.user.is_authenticated or request.session.invitado %}
+            <a href="{% url 'agregar_carrito' producto.id %}" class="btn-detalle-primary">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Agregar al carrito
+            </a>
+            <a href="{% url 'pagar_producto' producto.id %}" class="btn-detalle-buy">
+              Comprar ahora
+            </a>
+          {% else %}
+            <a href="#" class="btn-detalle-primary requiere-autenticacion">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Agregar al carrito
+            </a>
+            <a href="#" class="btn-detalle-buy requiere-autenticacion">
+              Comprar ahora
+            </a>
+          {% endif %}
+        </div>
+
+      </div> </div> </div> </section>
+
+<div id="modal-autenticacion" class="modal-auth-overlay" style="display: none;">
+  <div class="modal-auth-content">
+    <button id="cerrar-modal-auth" class="modal-auth-cerrar">&times;</button>
+    
+    <div class="modal-auth-header">
+      <i class="fa-solid fa-cart-shopping modal-icon-main"></i>
+      <h3>¡Estás a un paso de tu compra!</h3>
+      <p>Para continuar y guardar tus productos en el carro, por favor selecciona una opción:</p>
+    </div>
+    
+    <div class="modal-auth-opciones">
+      <a href="{% url 'login' %}?next={{ request.path }}" class="btn-modal-auth btn-login-auth">
+        <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+      </a>
+      
+      <a href="{% url 'registro_usuario' %}?next={{ request.path }}" class="btn-modal-auth btn-registro-auth">
+        <i class="fa-solid fa-user-plus"></i> Crear una Cuenta
+      </a>
+      
+      <a href="{% url 'continuar_como_invitado' %}?next={{ request.path }}&producto_id={{ producto.id }}" class="btn-modal-auth btn-invitado-auth">
+        <i class="fa-solid fa-user-secret"></i> Continuar como Invitado
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // --- Control de la galería de imágenes ---
+  const imagenPrincipal = document.querySelector(".detalle-imagen-principal img");
+  const miniaturas = document.querySelectorAll(".detalle-miniaturas img");
+
+  miniaturas.forEach((miniatura) => {
+    miniatura.addEventListener("click", function () {
+      if (!imagenPrincipal) return;
+
+      imagenPrincipal.src = this.src;
+      imagenPrincipal.alt = this.alt;
+
+      miniaturas.forEach(img => img.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+
+  if (miniaturas.length > 0) {
+    miniaturas[0].classList.add("active");
+  }
+
+  // --- Control de seguridad del Modal ---
+  const botonesBloqueados = document.querySelectorAll(".requiere-autenticacion");
+  const modal = document.getElementById("modal-autenticacion");
+  const botonCerrar = document.getElementById("cerrar-modal-auth");
+
+  botonesBloqueados.forEach(boton => {
+    boton.addEventListener("click", function (e) {
+      e.preventDefault(); // Bloquea la navegación del '#'
+      modal.style.display = "flex"; // Abre el modal
+    });
+  });
+
+  // Cerrar el modal desde la 'X'
+  if (botonCerrar) {
+    botonCerrar.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  }
+
+  // Cerrar el modal haciendo clic fuera de la ventana blanca
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+</script>
+{% endblock %}

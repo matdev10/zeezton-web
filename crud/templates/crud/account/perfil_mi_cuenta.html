@@ -1,0 +1,114 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load currency_filters %}
+
+{% block title %}Mi perfil | Zeezton Store{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/perfil_mi_cuenta.css' %}?v={{ version }}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="perfil-page">
+  <div class="perfil-container">
+
+    <div class="perfil-topbar">
+
+  <a href="{% url 'home' %}" class="perfil-back zeezton-glass-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    Volver a la tienda
+  </a>
+
+  <a href="#" class="perfil-settings zeezton-glass-btn">
+    <i class="fa-solid fa-gear"></i>
+  </a>
+
+</div>
+
+    <div class="perfil-hero">
+
+      <div class="perfil-avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div class="perfil-info">
+        <span>Cuenta Zeezton</span>
+        <h1>Hola, {{ request.user.username }}</h1>
+        <p>{{ request.user.email }}</p>
+      </div>
+
+    </div>
+
+    <div class="perfil-grid">
+
+      <!-- PEDIDOS -->
+      <a href="{% url 'mis_pedidos' %}" class="perfil-card perfil-card-link">
+
+        <div class="perfil-card-icon">
+          <i class="fa-solid fa-box"></i>
+        </div>
+
+        <h3>Mis pedidos</h3>
+
+        {% if pedidos %}
+          <p>
+            Tienes {{ pedidos.count }} pedido{{ pedidos.count|pluralize }} registrado{{ pedidos.count|pluralize }}.
+          </p>
+        {% else %}
+          <p>Aún no tienes pedidos registrados.</p>
+        {% endif %}
+
+      </a>
+
+      <!-- FAVORITOS -->
+      <a href="{% url 'lista_favoritos' %}" class="perfil-card perfil-card-link">
+
+        <div class="perfil-card-icon">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <h3>Favoritos</h3>
+
+        {% if favoritos %}
+          <p>
+            Tienes {{ favoritos.count }} producto{{ favoritos.count|pluralize }} guardado{{ favoritos.count|pluralize }}.
+          </p>
+        {% else %}
+          <p>Guarda productos para verlos después.</p>
+        {% endif %}
+
+      </a>
+
+      <!-- DIRECCIÓN -->
+      <a href="{% url 'direccion_entrega' %}" class="perfil-card perfil-card-link">
+
+        <div class="perfil-card-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+
+        <h3>Dirección</h3>
+        <p>Agrega tu dirección de entrega.</p>
+
+      </a>
+
+    </div>
+
+    <div class="perfil-actions">
+
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+
+        <button type="submit" class="perfil-logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Cerrar sesión
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

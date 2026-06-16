@@ -1,5 +1,8 @@
 from django import forms
 from django.forms import ModelForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 from .models import Producto, Reseña
 
 
@@ -59,3 +62,39 @@ class ReseñaForm(forms.ModelForm):
                 "id": "id_comentario"
             }),
         }
+
+
+class RegistroUsuarioForm(UserCreationForm):
+    email = forms.EmailField(
+        required=True,
+        widget=forms.EmailInput(attrs={
+            "class": "form-control",
+            "placeholder": "Correo electrónico"
+        })
+    )
+
+    class Meta:
+        model = User
+        fields = [
+            "username",
+            "email",
+            "password1",
+            "password2"
+        ]
+
+
+
+from django import forms
+from .models import DireccionEntrega
+class DireccionEntregaForm(forms.ModelForm):
+    class Meta:
+        model = DireccionEntrega
+        fields = [
+            "nombre_completo",
+            "telefono",
+            "region",
+            "comuna",
+            "calle",
+            "numero",
+            "referencia",
+        ]

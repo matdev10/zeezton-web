@@ -1,0 +1,189 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load currency_filters %}
+
+{% block title %}Checkout | Zeezton Store{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/carrito.css' %}?v={{ version }}">
+<style>
+  /* Soluciona el fondo blanco molesto del autocompletar de los navegadores */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active {
+      -webkit-text-fill-color: #ffffff !important;
+      -webkit-box-shadow: 0 0 0px 1000px #141414 inset !important;
+      transition: background-color 5000s ease-in-out 0s;
+  }
+</style>
+{% endblock %}
+
+{% block main_content %}
+
+<section class="cart-page">
+  <div class="cart-container">
+
+    <div class="cart-header">
+      <span>CHECKOUT</span>
+      <h1>Finalizar tu compra</h1>
+      <p>Revisa tu pedido antes de continuar al pago.</p>
+    </div>
+
+    <div class="cart-grid">
+
+      <div class="cart-products">
+        <form method="POST" action="{% url 'checkout' %}" id="checkoutForm">
+          {% csrf_token %}
+
+          <div class="cart-card" style="display: block; margin-bottom: 2rem; padding: 1.5rem;">
+            <h2 style="font-size: 1.2rem; color: #fff; margin-bottom: 1.5rem; text-transform: uppercase;">Datos del cliente</h2>
+            
+            {% if request.user.is_authenticated %}
+              <div class="cart-meta" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 1rem;">
+                <p><strong>Nombre:</strong> {{ request.user.get_full_name|default:request.user.username }}</p>
+                <p><strong>Correo:</strong> {{ request.user.email }}</p>
+                <p><strong>Teléfono:</strong> {{ direccion.telefono }}</p>
+              </div>
+              
+              <input type="hidden" name="nombre_completo" value="{{ request.user.get_full_name|default:request.user.username }}">
+              <input type="hidden" name="email" value="{{ request.user.email }}">
+              <input type="hidden" name="telefono" value="{{ direccion.telefono }}">
+            {% else %}
+              <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                <input type="text" name="nombre_completo" placeholder="NOMBRE COMPLETO" required 
+                       style="width: 100%; padding: 16px; background: #141414; border: 1px solid #252525; color: #fff; border-radius: 8px; font-size: 1rem; position: relative; z-index: 10;">
+                
+                <input type="email" name="email" placeholder="CORREO ELECTRÓNICO" required 
+                       style="width: 100%; padding: 16px; background: #141414; border: 1px solid #252525; color: #fff; border-radius: 8px; font-size: 1rem; position: relative; z-index: 10;">
+                
+                <input type="text" name="telefono" placeholder="TELÉFONO DE CONTACTO" required 
+                       style="width: 100%; padding: 16px; background: #141414; border: 1px solid #252525; color: #fff; border-radius: 8px; font-size: 1rem; position: relative; z-index: 10;">
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="cart-card" style="display: block; margin-bottom: 2rem; padding: 1.5rem;">
+            <h2 style="font-size: 1.2rem; color: #fff; margin-bottom: 1.5rem; text-transform: uppercase;">Dirección de entrega</h2>
+
+            {% if request.user.is_authenticated %}
+              <div class="cart-meta" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 1rem;">
+                <p><strong>Comuna:</strong> {{ direccion.comuna }}</p>
+                <p><strong>Dirección:</strong> {{ direccion.calle }} {{ direccion.numero }}</p>
+              </div>
+              <input type="hidden" name="comuna" value="{{ direccion.comuna }}">
+            {% else %}
+              <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                <input type="text" name="region" placeholder="REGIÓN" value="Región Metropolitana de Santiago" required
+                       style="width: 100%; padding: 16px; background: #141414; border: 1px solid #252525; color: #fff; border-radius: 8px; font-size: 1rem; position: relative; z-index: 10;">
+                
+                <select name="comuna" id="id_comuna" required 
+                        style="width: 100%; padding: 16px; background: #141414; border: 1px solid #252525; color: #fff; border-radius: 8px; font-size: 1rem; position: relative; z-index: 10; cursor: pointer;">
+                  <option value="" disabled selected>SELECCIONA TU COMUNA</option>
+                  {% for tarifa in comunas_disponibles %}
+                    <option value="{{ tarifa.comuna }}">{{ tarifa.comuna }}</option>
+                  {% endfor %}
+                </select>
+                
+                <input type="text" name="calle" placeholder="DIRECCIÓN (Calle)" required 
+                       style="width: 100%; padding: 16px; background: #141414; border: 1px solid #252525; color: #fff; border-radius: 8px; font-size: 1rem; position: relative; z-index: 10;">
+                
+                <input type="text" name="numero" placeholder="NÚMERO" required 
+                       style="width: 100%; padding: 16px; background: #141414; border: 1px solid #252525; color: #fff; border-radius: 8px; font-size: 1rem; position: relative; z-index: 10;">
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="cart-card" style="display: block; padding: 1.5rem; margin-bottom: 2rem;">
+            <h2 style="font-size: 1.2rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase;">Método de pago</h2>
+            <div style="display: flex; align-items: center; gap: 10px; background: rgba(0, 221, 255, 0.05); padding: 1rem; border: 1px solid rgba(0, 221, 255, 0.2); border-radius: 8px;">
+              <input type="radio" checked id="mercado_pago" style="accent-color: #00ddff;">
+              <label for="mercado_pago" style="color: #fff; font-weight: 600; cursor: pointer;">
+                <i class="fa-solid fa-credit-card"></i> Mercado Pago
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="cart-checkout-btn" style="width: 100%; text-align: center; border: none; cursor: pointer;">
+            Confirmar y pagar pedido
+          </button>
+        </form>
+      </div>
+
+      <aside class="carrito-resumen">
+        <span class="resumen-badge">Resumen</span>
+        <h2>Tu compra</h2>
+
+        <div class="resumen-productos-lista" style="margin-bottom: 1.5rem; border-bottom: 1px solid #222; padding-bottom: 1rem;">
+          {% for item in items %}
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #aaa; margin-bottom: 0.5rem;">
+              <span>{{ item.nombre }} (x{{ item.cantidad }})</span>
+              <strong style="color: #fff;">${{ item.subtotal|clp }}</strong>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="resumen-linea">
+          <span>Subtotal</span>
+          <strong>${{ subtotal_carrito|clp }}</strong>
+        </div>
+
+        <div class="resumen-linea">
+          <span>Envío</span>
+          <strong id="resumen-envio-valor">${{ costo_envio|clp }}</strong>
+        </div>
+
+        <div class="resumen-linea">
+          <span>Comuna despacho</span>
+          <span id="resumen-comuna-texto" style="color: #00ddff; font-weight: 600;">
+            {{ direccion.comuna|default:"Por calcular" }}
+          </span>
+        </div>
+
+        <div class="resumen-total" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #333;">
+          <span>Total a pagar</span>
+          <strong id="resumen-total-valor" style="color: #00ddff; font-size: 1.6rem;">
+            ${{ total|clp }}
+          </strong>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const selectorComuna = document.getElementById("id_comuna");
+    
+    if (selectorComuna) {
+        selectorComuna.addEventListener("change", function() {
+            const comunaSeleccionada = selectorComuna.value;
+            
+            if (comunaSeleccionada) {
+                document.getElementById("resumen-comuna-texto").innerText = "Calculando...";
+
+                fetch(`/calcular-envio-ajax/?comuna=${encodeURIComponent(comunaSeleccionada)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const subtotal = parseInt("{{ subtotal_carrito }}") || 0;
+                        const costoEnvio = data.costo_envio;
+                        const nuevoTotal = subtotal + costoEnvio;
+
+                        document.getElementById("resumen-comuna-texto").innerText = comunaSeleccionada;
+                        document.getElementById("resumen-envio-valor").innerText = costoEnvio > 0 
+                            ? `$${costoEnvio.toLocaleString('es-CL')}` 
+                            : "$0";
+                        document.getElementById("resumen-total-valor").innerText = `$${nuevoTotal.toLocaleString('es-CL')}`;
+                    })
+                    .catch(error => {
+                        console.error("Error calculando despacho:", error);
+                        document.getElementById("resumen-comuna-texto").innerText = "Error";
+                    });
+            }
+        });
+    }
+});
+</script>
+
+{% endblock %}

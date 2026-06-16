@@ -1,0 +1,98 @@
+/* =========================
+   ZEEZTON PREMIUM BACKGROUND
+========================= */
+
+.zz-bg-premium{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  background: radial-gradient(circle at bottom left, rgba(15, 207, 217, .12), transparent 30%), linear-gradient(180deg, #050505, #101010);
+
+/* =========================
+   LIGHT BLOBS
+========================= */
+
+.zz-bg-premium::before{
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:radial-gradient(circle at top right, rgba(120, 14, 106, .35), transparent 35%), linear-gradient(180deg, #090909, #050505);
+
+  filter: blur(90px);
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =========================
+   GRID + TEXTURE
+========================= */
+
+.zz-bg-premium::after{
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+
+    linear-gradient(
+      rgba(255,255,255,.018) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 120px 120px;
+
+  mask-image:
+    radial-gradient(circle at center,
+      black 35%,
+      transparent 100%);
+
+  opacity: .22;
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* =========================
+   CONTENT ABOVE BG
+========================= */
+
+.zz-bg-premium > *{
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Fondo tipo web oficial para secciones */
+.zz-section-dark-glow{
+  position: relative;
+  padding: 90px 0 100px;
+  overflow: hidden;
+}
+
+.zz-section-dark-glow::before{
+  content: "";
+  position: absolute;
+  inset: 0 -20vw;
+  z-index: 0;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(15,207,217,.18), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(120,14,106,.28), transparent 34%),
+    linear-gradient(180deg, #050505 0%, #020202 100%);
+}
+
+.zz-section-dark-glow > *{
+  position: relative;
+  z-index: 1;
+}

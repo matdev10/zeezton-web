@@ -1,0 +1,157 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load currency_filters %}
+
+{% block title %}Mis pedidos | Zeezton{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/perfil_mis_pedidos.css' %}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="mis-pedidos-page">
+
+  <div class="mis-pedidos-container">
+
+    <main class="mis-pedidos-content">
+ 
+
+      <header class="mis-pedidos-header">
+        <span>Cuenta Zeezton</span>
+        <h1>Mis pedidos</h1>
+        <p>
+          Consulta el estado, detalle y seguimiento de tus compras.
+        </p>
+      </header>
+
+           <div class="mis-pedidos-topbar">
+
+      <a href="{% url 'perfil_usuario' %}" class="mis-pedidos-back zeezton-glass-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver al perfil
+      </a>
+
+      </div>
+
+      {% if pedidos %}
+
+      <div class="pedidos-list">
+
+        {% for pedido in pedidos %}
+
+<article class="pedido-card">
+
+  <div class="pedido-card-header">
+
+    <div class="pedido-title">
+      <span class="pedido-label">Pedido</span>
+      <h2>#{{ pedido.id }}</h2>
+    </div>
+
+    <span class="pedido-estado estado-{{ pedido.estado|lower }}">
+      {{ pedido.get_estado_display }}
+    </span>
+
+  </div>
+
+  <div class="pedido-meta">
+
+    <div>
+      <small>Fecha</small>
+      <strong>{{ pedido.creado|date:"d/m/Y H:i" }}</strong>
+    </div>
+
+    <div>
+      <small>Entrega</small>
+      <strong>{{ pedido.get_metodo_entrega_display }}</strong>
+    </div>
+
+    <div>
+      <small>Total</small>
+      <strong>${{ pedido.total|clp }}</strong>
+    </div>
+
+  </div>
+
+  <div class="pedido-products">
+
+    {% for detalle in pedido.detalles.all %}
+    <div class="pedido-product">
+
+      <div>
+        <strong>{{ detalle.producto.nombre }}</strong>
+        <span>Cantidad: {{ detalle.cantidad }}</span>
+      </div>
+
+      <p>${{ detalle.subtotal|clp }}</p>
+
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <div class="pedido-footer">
+
+    <div class="pedido-tracking-wrap">
+
+      {% if pedido.transporte %}
+      <div class="pedido-tracking">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Transporte:</span>
+        <strong>{{ pedido.get_transporte_display }}</strong>
+      </div>
+      {% endif %}
+
+      {% if pedido.codigo_seguimiento %}
+      <div class="pedido-tracking">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Código:</span>
+        <strong>{{ pedido.codigo_seguimiento }}</strong>
+      </div>
+      {% endif %}
+
+    </div>
+
+    <a href="{% url 'seguimiento_pedido' pedido.id %}" class="pedido-btn-seguimiento">
+      <i class="fa-solid fa-box"></i>
+      Ver seguimiento
+    </a>
+
+  </div>
+
+</article>
+
+        {% endfor %}
+
+      </div>
+
+      {% else %}
+
+      <div class="pedidos-empty">
+
+        <i class="fa-solid fa-box-open"></i>
+
+        <h2>
+          Aún no tienes pedidos
+        </h2>
+
+        <p>
+          Cuando realices una compra, aparecerá en esta sección.
+        </p>
+
+        <a href="{% url 'catalogo' %}">
+          Ir al catálogo
+        </a>
+
+      </div>
+
+      {% endif %}
+
+    </main>
+
+  </div>
+
+</section>
+
+{% endblock %}

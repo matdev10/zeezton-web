@@ -1,0 +1,190 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Dirección de entrega | Zeezton{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/pages/perfil_mis_direcciones.css' %}">
+{% endblock %}
+
+{% block main_content %}
+
+<section class="direccion-page">
+
+  <div class="direccion-container">
+
+    <div class="direccion-header">
+      <span>Cuenta Zeezton</span>
+      <h1>Dirección de entrega</h1>
+      <p>Administra tus direcciones para compras y envíos.</p>
+    </div>
+
+    <div class="direccion-top-actions">
+
+      <a href="{% url 'perfil_usuario' %}"
+   class="btn-volver-cuenta zeezton-glass-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Regresar a cuenta
+      </a>
+
+      <button type="button"
+        class="direccion-add-btn zeezton-glass-btn"
+              onclick="toggleDireccionForm()">
+        <i class="fa-solid fa-plus"></i>
+        Agregar dirección
+      </button>
+
+    </div>
+
+    <form method="POST"
+          action="{% url 'direccion_entrega' %}"
+          class="direccion-card"
+          id="direccionForm"
+          style="display:none;">
+
+      {% csrf_token %}
+
+      <div class="direccion-grid">
+
+        <div class="field-group">
+          <label>Nombre completo</label>
+          {{ form.nombre_completo }}
+        </div>
+
+        <div class="field-group">
+          <label>Teléfono</label>
+          {{ form.telefono }}
+        </div>
+
+        <div class="field-group">
+          <label>Calle</label>
+          {{ form.calle }}
+        </div>
+
+        <div class="field-group">
+          <label>Número</label>
+          {{ form.numero }}
+        </div>
+
+        <div class="field-group">
+          <label>Comuna</label>
+          {{ form.comuna }}
+        </div>
+
+        <div class="field-group">
+          <label>Región</label>
+          {{ form.region }}
+        </div>
+
+      </div>
+
+      <div class="field-group field-full">
+        <label>Referencia</label>
+        {{ form.referencia }}
+      </div>
+
+      <button type="submit" class="direccion-btn">
+        Guardar dirección
+      </button>
+
+    </form>
+
+    {% if direcciones %}
+
+      <div class="direcciones-list">
+
+        {% for direccion in direcciones %}
+
+          <article class="direccion-saved-card">
+
+            <div class="direccion-card-head">
+
+              <div>
+                <span class="direccion-card-label">Destinatario</span>
+                <h3>{{ direccion.nombre_completo }}</h3>
+              </div>
+
+              {% if direccion.predeterminada %}
+                <span class="direccion-badge">
+                  Predeterminada
+                </span>
+              {% endif %}
+
+            </div>
+
+            <div class="direccion-card-body">
+
+              <div class="direccion-data">
+                <small>Dirección</small>
+                <strong>{{ direccion.calle }} #{{ direccion.numero }}</strong>
+              </div>
+
+              <div class="direccion-data">
+                <small>Ubicación</small>
+                <strong>{{ direccion.comuna }}, {{ direccion.region }}</strong>
+              </div>
+
+              <div class="direccion-data">
+                <small>Teléfono</small>
+                <strong>{{ direccion.telefono }}</strong>
+              </div>
+
+              {% if direccion.referencia %}
+              <div class="direccion-data direccion-data-full">
+                <small>Referencia</small>
+                <strong>{{ direccion.referencia }}</strong>
+              </div>
+              {% endif %}
+
+            </div>
+
+            <div class="direccion-actions">
+
+              {% if not direccion.predeterminada %}
+              <a href="{% url 'direccion_predeterminada' direccion.id %}"
+                 class="btn-direccion-main">
+                Usar como principal
+              </a>
+              {% endif %}
+
+              <a href="{% url 'eliminar_direccion' direccion.id %}"
+                 class="btn-direccion-delete">
+                Eliminar
+              </a>
+
+            </div>
+
+          </article>
+
+        {% endfor %}
+
+      </div>
+
+    {% else %}
+
+      <div class="direccion-empty">
+        <i class="fa-solid fa-location-dot"></i>
+        <h2>No tienes direcciones guardadas</h2>
+        <p>Agrega una dirección para facilitar tus próximas compras.</p>
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+<script>
+function toggleDireccionForm(){
+  const form = document.getElementById("direccionForm");
+
+  if(form.style.display === "none"){
+    form.style.display = "block";
+    form.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    form.style.display = "none";
+  }
+}
+</script>
+
+{% endblock %}

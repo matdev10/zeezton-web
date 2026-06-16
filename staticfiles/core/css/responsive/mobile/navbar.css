@@ -1,0 +1,40 @@
+/* RESPONSIVE */
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .z-navbar{
+    top: 10px;
+    width: calc(100% - 16px);
+    height: auto;
+    padding: 12px;
+    border-radius: 26px;
+  }
+
+  .logo-text{
+    font-size: .85rem;
+  }
+
+  .barra{
+    width: 24px;
+  }
+
+  .nav-weather{
+    margin-left: auto;
+    margin-right: 14px;
+    font-size: .58rem;
+  }
+
+  .z-navbar-links{
+    gap: 8px;
+  }
+
+  .nav-hello{
+    display: none;
+  }
+
+  .nav-cart,
+  .nav-user{
+    width: 32px;
+    height: 32px;
+  }
+}

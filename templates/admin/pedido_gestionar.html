@@ -1,0 +1,139 @@
+
+
+{% load static %}
+{% load currency_filters %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gestionar pedido #{{ pedido.id }} | Zeezton</title>
+
+  <link rel="stylesheet" href="{% static 'core/admin/admin_pedido_gestionar.css' %}?v=3001">
+</head>
+
+<body>
+
+<section class="zz-admin-page">
+
+  <div class="zz-admin-container">
+
+    <header class="zz-admin-header">
+      <div>
+        <span class="zz-kicker">Panel operativo</span>
+        <h1>Pedido #{{ pedido.id }}</h1>
+        <p>Gestiona el estado, despacho y seguimiento del pedido.</p>
+      </div>
+
+      <a href="{% url 'admin:crud_pedido_changelist' %}" class="zz-back-btn">
+        Volver a pedidos
+      </a>
+    </header>
+
+    <div class="zz-grid">
+
+      <article class="zz-card">
+        <div class="zz-card-top">
+          <h2>Cliente</h2>
+        </div>
+
+        <div class="zz-info-list">
+          <div class="zz-info-item">
+            <span>Nombre</span>
+            <strong>{{ pedido.cliente_nombre }}</strong>
+          </div>
+
+          <div class="zz-info-item">
+            <span>Email</span>
+            <strong>{{ pedido.cliente_email }}</strong>
+          </div>
+
+          <div class="zz-info-item">
+            <span>Teléfono</span>
+            <strong>{{ pedido.cliente_telefono }}</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="zz-card">
+        <div class="zz-card-top">
+          <h2>Gestión de despacho</h2>
+        </div>
+
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="zz-form-group">
+            <label>Estado</label>
+            <select name="estado">
+              {% for valor, texto in pedido.ESTADOS %}
+              <option value="{{ valor }}" {% if pedido.estado == valor %}selected{% endif %}>
+                {{ texto }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="zz-form-group">
+            <label>Transporte</label>
+            <select name="transporte">
+              <option value="">Pendiente</option>
+              {% for valor, texto in pedido.TRANSPORTES %}
+              <option value="{{ valor }}" {% if pedido.transporte == valor %}selected{% endif %}>
+                {{ texto }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="zz-form-group">
+            <label>Código seguimiento</label>
+            <input type="text" name="codigo_seguimiento" value="{{ pedido.codigo_seguimiento|default:'' }}">
+          </div>
+
+          <div class="zz-form-group">
+            <label>Nota despacho</label>
+            <textarea name="nota_despacho">{{ pedido.nota_despacho|default:'' }}</textarea>
+          </div>
+
+          <button type="submit" class="zz-save-btn">
+            Guardar cambios
+          </button>
+        </form>
+      </article>
+
+    </div>
+
+    <article class="zz-card zz-products-card">
+      <div class="zz-card-top">
+        <h2>Productos del pedido</h2>
+      </div>
+
+      <div class="zz-products-list">
+        {% for detalle in pedido.detalles.all %}
+        <div class="zz-product-row">
+          <div class="zz-product-left">
+            {% if detalle.producto.imagen %}
+            <img src="{{ detalle.producto.imagen.url }}" alt="{{ detalle.producto.nombre }}">
+            {% endif %}
+
+            <div>
+              <h3>{{ detalle.producto.nombre }}</h3>
+              <span>Cantidad: {{ detalle.cantidad }}</span>
+            </div>
+          </div>
+
+          <strong>${{ detalle.subtotal|clp }}</strong>
+        </div>
+        {% endfor %}
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+</body>
+</html>

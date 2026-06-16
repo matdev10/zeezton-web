@@ -1,0 +1,240 @@
+/* =========================
+   ZEEZTON ADMIN — CONTROL DEL DUEÑO
+   Archivo: admin_dashboard_owner.css
+========================= */
+
+
+/* =========================
+   1. COLOR PROPIO DE LA SEGUNDA VENTANA
+========================= */
+
+.zz-section-owner {
+    background:
+        radial-gradient(circle at 12% 18%, rgba(120, 14, 106, 0.36), transparent 34%),
+        radial-gradient(circle at 88% 78%, rgba(15, 207, 217, 0.18), transparent 36%),
+        linear-gradient(135deg, rgba(20, 6, 28, 0.98), rgba(4, 14, 20, 0.98));
+    border-color: rgba(120, 14, 106, 0.38);
+}
+
+
+/* =========================
+   2. ENCABEZADO OWNER
+========================= */
+
+.zz-owner-heading {
+    margin-bottom: 54px;
+    text-align: left;
+}
+
+.zz-owner-heading span,
+.zz-owner-label {
+    display: inline-block;
+    color: #ff4dd8;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.zz-owner-heading h2 {
+    margin: 18px 0 14px;
+    color: #ffffff;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: clamp(2.6rem, 5vw, 5.4rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 24px rgba(255, 77, 216, 0.16),
+        0 0 38px rgba(15, 207, 217, 0.08);
+}
+
+.zz-owner-heading p {
+    max-width: 760px;
+    margin: 0;
+    color: #c5b7d6;
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   3. GRID DE INDICADORES
+========================= */
+
+.zz-owner-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 26px;
+}
+
+
+/* =========================
+   4. TARJETAS DE INDICADORES
+========================= */
+
+.zz-owner-card {
+    min-height: 220px;
+    padding: 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 77, 216, 0.18);
+    background:
+        radial-gradient(circle at top left, rgba(255, 77, 216, 0.12), transparent 34%),
+        linear-gradient(135deg, rgba(13, 8, 22, 0.94), rgba(5, 10, 18, 0.90));
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.zz-owner-card strong {
+    display: block;
+    margin: 20px 0 12px;
+    color: #ffffff;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.06em;
+}
+
+.zz-owner-card p {
+    margin: 0;
+    color: #c5b7d6;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+
+/* =========================
+   5. ESTADOS VISUALES
+========================= */
+
+.zz-owner-card-glow {
+    border-color: rgba(255, 77, 216, 0.42);
+    box-shadow:
+        0 24px 70px rgba(255, 77, 216, 0.12),
+        0 22px 55px rgba(0, 0, 0, 0.38);
+}
+
+.zz-owner-danger {
+    border-color: rgba(255, 77, 109, 0.42);
+}
+
+.zz-owner-danger .zz-owner-label {
+    color: #ff4d6d;
+}
+
+
+/* =========================
+   ZEEZTON ADMIN — PANEL BOSS
+   Archivo: admin_dashboard_owner.css
+========================= */
+
+
+/* =========================
+   1. ENCABEZADO PANEL BOSS
+========================= */
+
+.zz-owner-heading {
+    margin-bottom: 42px;
+}
+
+.zz-owner-heading span {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #0fcfd9;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.zz-owner-heading h2 {
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: clamp(2.2rem, 4vw, 4.2rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.zz-owner-heading p {
+    max-width: 720px;
+    margin: 0;
+    color: #b8c6d8;
+    font-size: 0.96rem;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   2. GRID DE INDICADORES
+========================= */
+
+.zz-owner-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+
+/* =========================
+   3. TARJETAS PANEL BOSS
+========================= */
+
+.zz-owner-card {
+    min-height: 190px;
+    padding: 26px;
+    border-radius: 26px;
+    border: 1px solid rgba(15, 207, 217, 0.16);
+    background: rgba(6, 10, 18, 0.72);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+    box-sizing: border-box;
+}
+
+.zz-owner-label {
+    display: inline-block;
+    color: #0fcfd9;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.zz-owner-card strong {
+    display: block;
+    margin: 18px 0 12px;
+    color: #ffffff;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.06em;
+}
+
+.zz-owner-card p {
+    margin: 0;
+    color: #b8c6d8;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   4. ESTADOS VISUALES SUAVES
+========================= */
+
+.zz-owner-card-glow {
+    border-color: rgba(15, 207, 217, 0.28);
+}
+
+.zz-owner-danger {
+    border-color: rgba(255, 77, 109, 0.28);
+}
+
+.zz-owner-danger .zz-owner-label {
+    color: #ff4d6d;
+}

@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Zeezton Admin{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block nav-breadcrumbs %}
+{% endblock %}
+
+{% block nav-sidebar %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+
+
+<link rel="stylesheet" href="{% static 'core/admin/admin_base.css' %}?v=1079">
+<link rel="stylesheet" href="{% static 'core/admin/admin_dashboard.css' %}?v=1079">
+<link rel="stylesheet" href="{% static 'core/admin/admin_dashboard_map.css' %}?v=1079">
+<link rel="stylesheet" href="{% static 'core/admin/admin_dashboard_owner.css' %}?v=1099">
+<link rel="stylesheet" href="{% static 'core/admin/admin_forms.css' %}?v=1080">
+<link rel="stylesheet" href="{% static 'core/admin/admin_tables.css' %}?v=1080">
+<link rel="stylesheet" href="{% static 'core/admin/admin_responsive.css' %}?v=1079">
+
+{% endblock %}

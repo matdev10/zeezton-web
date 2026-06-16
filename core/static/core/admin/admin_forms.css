@@ -1,0 +1,322 @@
+
+/* =========================
+   FORMULARIOS Y LISTADOS
+========================= */
+
+input,
+textarea,
+select,
+.vTextField {
+    background: #091018 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(15, 207, 217, 0.22) !important;
+    border-radius: 12px !important;
+    padding: 9px 12px !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    border-color: var(--zz-primary) !important;
+    box-shadow: 0 0 0 3px rgba(15, 207, 217, 0.13) !important;
+}
+
+label {
+    color: var(--zz-text) !important;
+    font-weight: 700 !important;
+}
+
+.help,
+p.help,
+.helptext {
+    color: var(--zz-muted) !important;
+}
+
+/* Listas internas */
+#changelist {
+    background: transparent !important;
+}
+
+#changelist-filter {
+    background: var(--zz-panel) !important;
+    border-left: 1px solid var(--zz-border) !important;
+}
+
+#changelist-filter h2,
+#changelist-filter h3 {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+#changelist-filter a {
+    color: var(--zz-primary) !important;
+}
+
+#changelist table {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+#changelist table thead th {
+    background: #101825 !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid var(--zz-border) !important;
+}
+
+#changelist table tbody tr {
+    background: var(--zz-panel-2) !important;
+}
+
+#changelist table tbody tr:nth-child(even) {
+    background: #101723 !important;
+}
+
+#changelist table tbody tr:hover {
+    background: rgba(15, 207, 217, 0.085) !important;
+}
+
+#changelist table tbody td,
+#changelist table tbody th {
+    color: var(--zz-text) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055) !important;
+}
+
+
+
+/* =========================
+   ZEEZTON ADMIN — FORMULARIOS MODERNOS
+========================= */
+
+.change-form #content-main {
+    max-width: 1180px;
+}
+
+.change-form fieldset.module {
+    margin-bottom: 28px !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(15, 207, 217, 0.2) !important;
+    background:
+        radial-gradient(circle at top left, rgba(15, 207, 217, 0.08), transparent 34%),
+        rgba(11, 17, 27, 0.96) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
+}
+
+.change-form fieldset.module h2 {
+    padding: 18px 22px !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid rgba(15, 207, 217, 0.14);
+}
+
+.form-row {
+    padding: 18px 22px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055) !important;
+}
+
+.form-row:last-child {
+    border-bottom: none !important;
+}
+
+.form-row label {
+    width: 220px !important;
+    color: #f4f7fb !important;
+    font-weight: 800 !important;
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+    min-height: 42px;
+    border-radius: 14px !important;
+    background: rgba(3, 8, 14, 0.96) !important;
+    border: 1px solid rgba(15, 207, 217, 0.22) !important;
+    color: #ffffff !important;
+}
+
+.form-row textarea {
+    min-height: 120px;
+}
+
+.aligned label + p,
+.aligned label + div,
+.aligned label + input,
+.aligned label + select,
+.aligned label + textarea {
+    max-width: 720px;
+}
+
+/* =========================
+   INLINES — TABLAS INTERNAS
+========================= */
+
+.inline-group {
+    margin-top: 34px;
+    border-radius: 24px !important;
+    overflow: hidden;
+    border: 1px solid rgba(15, 207, 217, 0.2) !important;
+    background: rgba(11, 17, 27, 0.96) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
+}
+
+.inline-group h2 {
+    background: linear-gradient(135deg, rgba(15, 207, 217, 0.24), rgba(120, 14, 106, 0.35)) !important;
+    color: #fff !important;
+    padding: 18px 22px !important;
+    font-size: 0.82rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.inline-related {
+    background: transparent !important;
+}
+
+.inline-group table {
+    background: transparent !important;
+}
+
+.inline-group table thead th {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+    padding: 14px !important;
+}
+
+.inline-group table tbody td {
+    padding: 12px 14px !important;
+    background: rgba(8, 14, 22, 0.92) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055) !important;
+}
+
+/* =========================
+   BOTONERA INFERIOR
+========================= */
+
+.submit-row {
+    margin-top: 34px !important;
+    padding: 22px !important;
+    border-radius: 24px !important;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.025)),
+        rgba(10, 14, 20, 0.96) !important;
+    border: 1px solid rgba(15, 207, 217, 0.16) !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,.34);
+}
+
+.submit-row input,
+.submit-row a {
+    margin-right: 10px !important;
+}
+
+
+
+
+/* =========================
+   DESCRIPCIONES GUIADAS
+========================= */
+
+fieldset.module .description {
+    padding: 14px 22px 0 !important;
+    margin: 0 !important;
+    color: #9ca8ba !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+}
+
+fieldset.module h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-row {
+    position: relative;
+}
+
+.form-row label {
+    font-size: 0.92rem !important;
+}
+
+.readonly {
+    color: #5be06b !important;
+    font-weight: 800 !important;
+}
+
+/* =========================================
+   FORMULARIO PRODUCTO — ZEEZTON ADMIN
+========================================= */
+
+.change-form .content-main{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* spacing general */
+.form-row{
+    padding: 10px 0 !important;
+}
+
+/* textareas */
+textarea{
+    min-height: 120px !important;
+    border-radius: 14px !important;
+}
+
+/* inputs */
+input,
+select,
+textarea{
+    border-radius: 12px !important;
+}
+
+/* fieldsets */
+.module.aligned{
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+/* títulos secciones */
+.module h2,
+.inline-group h2{
+    padding: 14px 18px !important;
+    font-size: 15px !important;
+    letter-spacing: .5px;
+}
+
+/* preview imagen */
+.preview-producto img{
+    border-radius: 18px;
+    max-height: 220px;
+    object-fit: cover;
+    box-shadow: 0 0 18px rgba(0,255,255,.15);
+}
+
+/* inline imágenes */
+.inline-group{
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* tabla inline */
+.inline-related{
+    background: rgba(255,255,255,.02);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    padding: 12px;
+}
+
+/* botones */
+.submit-row{
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* descripciones */
+.help,
+.helptext{
+    opacity: .75;
+    font-size: 12px;
+    line-height: 1.5;
+}
