@@ -138,7 +138,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
   padding:16px;
 
-  border-radius:34px;
+  border-radius:100px;
 
   background:
     linear-gradient(135deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
@@ -645,5 +645,104 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
 
   .catalogo-pagination{
     margin-top:42px;
+  }
+}
+
+
+/* =========================================
+   DESTACADOS MOBILE — FIX
+========================================= */
+
+@media(max-width:820px){
+
+  .destacados-section{
+    width:100%;
+    margin:55px auto 60px;
+    overflow:hidden;
+  }
+
+  .destacados-header{
+    padding:0 18px;
+  }
+
+  .destacados-header h2{
+    font-size:clamp(1.4rem, 14vw, 1.8rem);
+    line-height:1.05;
+  }
+
+  .swiper-destacados{
+    width:100%;
+    padding:0 0 50px;
+    overflow:visible;
+  }
+
+  .swiper-destacados .swiper-wrapper{
+    align-items:stretch;
+  }
+
+  .swiper-destacados .swiper-slide{
+    width:72vw;
+    max-width:310px;
+    height:auto;
+  }
+
+  .swiper-destacados .producto-card{
+    min-height:430px;
+    border-radius:26px;
+  }
+
+  .swiper-destacados .producto-img-wrap{
+    height:210px;
+  }
+
+  .swiper-destacados .producto-info{
+    min-height:205px;
+    padding:18px 18px 20px;
+  }
+
+  .swiper-destacados .producto-info h3{
+    font-size:.82rem;
+    line-height:1.35;
+    -webkit-line-clamp:2;
+  }
+
+  .swiper-destacados .producto-info p{
+    font-size:.64rem;
+    line-height:1.55;
+    -webkit-line-clamp:2;
+  }
+
+  .swiper-destacados .producto-info strong{
+    margin-top:auto;
+    font-size:1rem;
+  }
+}
+
+@media(max-width:480px){
+
+  .swiper-destacados .swiper-slide{
+    width:76vw;
+    max-width:295px;
+  }
+
+  .swiper-destacados .producto-card{
+    min-height:280px;
+    margin-left: 36px;
+  }
+
+  .swiper-destacados .producto-img-wrap{
+    height:190px;
+  }
+
+  .swiper-destacados .producto-info{
+    min-height:0px;
+  }
+
+  .swiper-destacados .producto-info h3{
+    font-size:.74rem;
+  }
+
+  .swiper-destacados .producto-info p{
+    font-size:.58rem;
   }
 }
