@@ -10,10 +10,10 @@ from ..services import confirmar_pago_pedido
 
 
 # =========================================================
-# CONFIG LOCAL
+# CONFIG
 # =========================================================
 
-LOCAL_BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "https://zeezton-test.onrender.com"
 
 
 # =========================================================
@@ -41,10 +41,11 @@ def pagar_producto(request, producto_id):
             }
         ],
         "back_urls": {
-            "success": f"{LOCAL_BASE_URL}/pago-exitoso/",
-            "failure": f"{LOCAL_BASE_URL}/pago-fallido/",
-            "pending": f"{LOCAL_BASE_URL}/pago-pendiente/",
+            "success": f"{BASE_URL}/pago-exitoso/",
+            "failure": f"{BASE_URL}/pago-fallido/",
+            "pending": f"{BASE_URL}/pago-pendiente/",
         },
+        "auto_return": "approved",
     }
 
     preference_response = sdk.preference().create(preference_data)
@@ -102,15 +103,16 @@ def pagar_pedido_mercadopago(request, pedido_id):
     sdk = mercadopago.SDK(access_token)
 
     preference_data = {
-    "items": items,
-    "external_reference": str(pedido.id),
-    "back_urls": {
-        "success": "http://127.0.0.1:8000/pago-exitoso/",
-        "failure": "http://127.0.0.1:8000/pago-fallido/",
-        "pending": "http://127.0.0.1:8000/pago-pendiente/",
-    },
-    "auto_return": "approved",
-}
+        "items": items,
+        "external_reference": str(pedido.id),
+        "back_urls": {
+            "success": f"{BASE_URL}/pago-exitoso/",
+            "failure": f"{BASE_URL}/pago-fallido/",
+            "pending": f"{BASE_URL}/pago-pendiente/",
+        },
+        "auto_return": "approved",
+    }
+
     preference_response = sdk.preference().create(preference_data)
 
     if not preference_response:
@@ -153,6 +155,9 @@ def pago_exitoso(request):
                 )
 
                 if pedido.cliente_email:
+
+                    print("EMAIL CLIENTE:", pedido.cliente_email)
+
                     send_mail(
                         subject=f"Confirmación de compra Zeezton #{pedido.id}",
                         message=f"""

@@ -859,7 +859,7 @@ main{
 .m3-actions{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:40px;
   margin-top:35px;
 }
 
@@ -873,7 +873,7 @@ main{
   font-size:.72rem;
   letter-spacing:3px;
   text-transform:uppercase;
-
+  margin-top: 33px;
   cursor:pointer;
   transition:.3s ease;
 }
