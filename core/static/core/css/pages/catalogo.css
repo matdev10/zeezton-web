@@ -54,6 +54,8 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 .catalogo-pagination{
   position:relative;
   z-index:2;
+  margin-top: 150px;
+   margin-top: 25px;
 }
 
 /* =========================================
@@ -255,14 +257,68 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
   transform:scale(.98);
 }
 
+.zfiltro input,
+.zfiltro select{
+  width:100%;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+
+  color:#fff;
+  background:transparent;
+
+  font-family:"Michroma", sans-serif;
+  font-size:.74rem;
+}
+
+.zfiltro select{
+  cursor:pointer;
+  color:rgba(255,255,255,.9);
+
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+
+  padding-right:28px;
+}
+
+/* flecha custom */
+.zfiltro-field:has(select){
+  position:relative;
+}
+
+.zfiltro-field:has(select)::after{
+  content:"⌄";
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+
+  color:rgba(255,255,255,.55);
+  font-size:1rem;
+  pointer-events:none;
+}
+
+.zfiltro select:focus,
+.zfiltro select:active{
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+}
+
+.zfiltro select option{
+  background:#080808;
+  color:#fff;
+}
+
 /* =========================================
    CATEGORÍAS
 ========================================= */
 
 .catalogo-categorias{
   width:min(1050px, calc(100% - 32px));
-  margin:0 auto 70px;
-
+  margin:0 auto 0px;
+  margin-top: 100px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -271,8 +327,8 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
 }
 
 .catalogo-categorias a{
-  min-height:48px;
-  padding:0 28px;
+  min-height: 29px;
+  padding: 0 11px;
 
   display:inline-flex;
   align-items:center;
@@ -333,7 +389,7 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
 
 .destacados-section{
   width:min(1320px, calc(100% - 32px));
-  margin:0 auto 90px;
+  margin:0 auto 0px;
   padding:0;
 }
 
@@ -348,7 +404,7 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
   color:#fff;
 
   font-family:"Michroma", sans-serif;
-  font-size:clamp(2rem, 5vw, 2.6rem);
+  font-size: clamp(2rem, 5vw, 2.6rem);
   line-height:1;
   font-weight:400;
   text-transform:uppercase;
@@ -405,13 +461,6 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
   display:none;
 }
 
-/* =========================================
-   PRODUCTOS
-========================================= */
-
-.catalogo-main > .productos-grid{
-  margin-top:0;
-}
 
 /* =========================================
    PAGINACIÓN
@@ -512,6 +561,8 @@ background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
     min-height:52px;
     border-radius:20px;
   }
+
+  
 
   .catalogo-categorias{
     justify-content:flex-start;

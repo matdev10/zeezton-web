@@ -70,22 +70,6 @@
     </div>
   </form>
 
-  <div class="catalogo-categorias">
-    <a href="{% url 'product' %}"
-       class="{% if not categoria_seleccionada %}active{% endif %}">
-      Todos
-    </a>
-
-    {% for categoria in categorias %}
-    <a href="?categoria={{ categoria.id }}"
-       class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}">
-      {{ categoria.nombre }}
-    </a>
-    {% endfor %}
-  </div>
-
-
-
 
 
   </div>
@@ -202,7 +186,19 @@
 
 
 
+  <div class="catalogo-categorias">
+    <a href="{% url 'product' %}"
+       class="{% if not categoria_seleccionada %}active{% endif %}">
+      Todos
+    </a>
 
+    {% for categoria in categorias %}
+    <a href="?categoria={{ categoria.id }}"
+       class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}">
+      {{ categoria.nombre }}
+    </a>
+    {% endfor %}
+  </div>
 
 
 
