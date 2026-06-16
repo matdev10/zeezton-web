@@ -186,19 +186,35 @@
 
 
 
-  <div class="catalogo-categorias">
-    <a href="{% url 'product' %}"
-       class="{% if not categoria_seleccionada %}active{% endif %}">
-      Todos
-    </a>
+<div class="catalogo-categorias catalogo-categorias-circulares">
 
-    {% for categoria in categorias %}
-    <a href="?categoria={{ categoria.id }}"
-       class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}">
-      {{ categoria.nombre }}
-    </a>
-    {% endfor %}
-  </div>
+  <a href="{% url 'product' %}"
+     class="{% if not categoria_seleccionada %}active{% endif %}">
+    <i class="fa-solid fa-border-all"></i>
+    <span>Todos</span>
+  </a>
+
+  {% for categoria in categorias %}
+  <a href="?categoria={{ categoria.id }}"
+     class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}">
+
+    {% if categoria.nombre == "Aspecto" %}
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+    {% elif categoria.nombre == "Iluminación" %}
+      <i class="fa-solid fa-lightbulb"></i>
+    {% elif categoria.nombre == "Interior" %}
+      <i class="fa-solid fa-car-side"></i>
+    {% elif categoria.nombre == "Performance" %}
+      <i class="fa-solid fa-gauge-high"></i>
+    {% else %}
+      <i class="fa-solid fa-tag"></i>
+    {% endif %}
+
+    <span>{{ categoria.nombre }}</span>
+  </a>
+  {% endfor %}
+
+</div>
 
 
 
