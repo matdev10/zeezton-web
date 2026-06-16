@@ -243,8 +243,9 @@
 ========================= */
 
 .destacado-card{
-
+  border-radius: 2px;
 }
+
 
 .destacado-card .producto-img-wrap{
   height:230px;
