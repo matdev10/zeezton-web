@@ -256,42 +256,66 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.querySelector(".destacados-swiper")) {
-    new Swiper(".destacados-swiper", {
-      loop: true,
-      centeredSlides: true,
-      grabCursor: true,
-      speed: 850,
-      autoplay: {
-        delay: 3200,
-        disableOnInteraction: false,
-      },
-      effect: "coverflow",
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 140,
-        modifier: 1.8,
-        slideShadows: false,
-      },
+  const swiperEl = document.querySelector(".destacados-swiper");
 
+  if (!swiperEl) return;
 
-      breakpoints: {
-        0: {
-          slidesPerView: 1.15,
-          spaceBetween: 18,
-        },
-        768: {
-          slidesPerView: 2.2,
-          spaceBetween: 24,
-        },
-        1100: {
-          slidesPerView: 3.2,
-          spaceBetween: 30,
-        }
+  const destacadosSwiper = new Swiper(".destacados-swiper", {
+    loop: true,
+    centeredSlides: true,
+    grabCursor: true,
+    speed: 850,
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+
+    autoplay: {
+      delay: 3200,
+      disableOnInteraction: false,
+    },
+
+    effect: "coverflow",
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 140,
+      modifier: 1.8,
+      slideShadows: false,
+    },
+
+    breakpoints: {
+      0: {
+        slidesPerView: 1.15,
+        spaceBetween: 18,
+      },
+      768: {
+        slidesPerView: 2.2,
+        spaceBetween: 24,
+      },
+      1100: {
+        slidesPerView: 3.2,
+        spaceBetween: 30,
       }
-    });
-  }
+    },
+
+    on: {
+      init: function () {
+        setTimeout(() => {
+          this.update();
+          this.slideToLoop(0, 0);
+        }, 250);
+      }
+    }
+  });
+
+  window.addEventListener("load", function () {
+    destacadosSwiper.update();
+    destacadosSwiper.slideToLoop(0, 0);
+  });
+
+  setTimeout(() => {
+    destacadosSwiper.update();
+  }, 600);
 });
 </script>
 

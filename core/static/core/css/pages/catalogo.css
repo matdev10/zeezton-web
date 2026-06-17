@@ -5,75 +5,10 @@
 .catalogo-main{
   position:relative;
   min-height:100vh;
-
-  padding:145px 0 110px;
-
-background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%), radial-gradient(circle at 88% 12%, rgba(124, 58, 237, .18), transparent 34%), radial-gradient(circle at 50% 100%, rgba(15, 207, 217, .08), transparent 36%), linear-gradient(180deg, #020202 0%, #050505 48%, #000 100%);
-
+  padding:145px 0 216px;
   color:#fff;
   overflow:hidden;
 }
-
-.catalogo-main::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.034) 1px, transparent 1px);
-
-  background-size:70px 70px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,.65), transparent 70%);
-  pointer-events:none;
-}
-
-.catalogo-main::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:115px;
-
-  width:min(880px, 90%);
-  height:260px;
-
-  transform:translateX(-50%);
-
-  background:
-    radial-gradient(circle, rgba(15,207,217,.12), transparent 62%);
-
-  filter:blur(28px);
-  pointer-events:none;
-}
-
-.catalogo-header,
-.zfiltro-wrap,
-.catalogo-categorias,
-.destacados-section,
-.catalogo-main > .productos-grid,
-.catalogo-pagination{
-  position:relative;
-  z-index:2;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,7 +17,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 ========================================= */
 
 .catalogo-header{
-  width:min(1180px, calc(100% - 32px));
+  width: min(1080px, calc(100% - 32px));
   margin:0 auto 46px;
   text-align:center;
 }
@@ -120,7 +55,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   color:#fff;
 
   font-family:"Michroma", sans-serif;
-  font-size:clamp(2.3rem, 5.8vw, 4rem);
+    font-size: clamp(1.9rem, 5.8vw, 2.9rem);
   line-height:1.08;
   font-weight:400;
   letter-spacing:.5px;
@@ -158,24 +93,24 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
 .zfiltro-wrap{
   width:min(1180px, calc(100% - 32px));
-  margin:0 auto 38px;
-  margin-top: 33px;
+  margin:33px auto 38px;
 }
 
 .zfiltro{
   display:grid;
-  grid-template-columns:1fr .9fr auto;
-  gap:14px;
+  grid-template-columns:minmax(0, 1.6fr) 280px 160px;
+  gap:12px;
 
   padding:7px;
+  border-radius:999px;
 
-  border-radius:100px;
-
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.09),
+    rgba(255,255,255,.035)
+  );
 
   border:1px solid rgba(255,255,255,.12);
-
   backdrop-filter:blur(18px);
 
   box-shadow:
@@ -184,23 +119,21 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 }
 
 .zfiltro-field{
-  min-height:40px;
+  position:relative;
+
+  min-height:44px;
+  padding:0 18px;
 
   display:flex;
   align-items:center;
   gap:12px;
 
-  padding:0 18px;
-
-  border-radius:24px;
+  border-radius:999px;
 
   background:rgba(0,0,0,.58);
   border:1px solid rgba(255,255,255,.08);
 
-  transition:
-    border-color .22s ease,
-    box-shadow .22s ease,
-    background .22s ease;
+  transition:.22s ease;
 }
 
 .zfiltro-field:focus-within{
@@ -210,30 +143,38 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 }
 
 .zfiltro-ico{
+  flex-shrink:0;
   color:#0fcfd9;
   font-size:.95rem;
-  flex-shrink:0;
 }
 
 .zfiltro input,
 .zfiltro select{
   width:100%;
-  border:0;
-  outline:0;
+
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
 
   color:#fff;
   background:transparent;
 
   font-family:"Michroma", sans-serif;
-  font-size:.74rem;
+  font-size:.72rem;
 }
 
 .zfiltro input::placeholder{
-  color:rgba(255,255,255,.45);
+  color:rgba(255,255,255,.42);
 }
 
 .zfiltro select{
   cursor:pointer;
+
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+
+  padding-right:24px;
   color:rgba(255,255,255,.9);
 }
 
@@ -242,34 +183,53 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   color:#fff;
 }
 
+.zfiltro-field:has(select)::after{
+  content:"⌄";
+
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+
+  color:rgba(255,255,255,.55);
+  font-size:1rem;
+
+  pointer-events:none;
+}
+
 .zfiltro button{
-  min-height:40px;
-  padding:0 28px;
+  min-height:44px;
+  padding:0 24px;
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:9px;
+
   border:0;
   border-radius:999px;
+
   color:#fff;
   font-family:"Michroma", sans-serif;
-  font-size:.72rem;
+  font-size:.70rem;
   font-weight:800;
-  cursor:pointer;
-  background: linear-gradient(135deg, #ff42c3 0%, #0a0b0b 45%, #f3f6ff);
-  /*box-shadow:
-    0 18px 36px rgba(15,207,217,.16),
-    0 0 32px rgba(255,0,110,.12);*/
 
-  transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    filter .22s ease;
+  cursor:pointer;
+
+  background:linear-gradient(
+    135deg,
+    #ff42c3 0%,
+    #0a0b0b 45%,
+    #f3f6ff 100%
+  );
+
+  transition:.22s ease;
 }
 
 .zfiltro button:hover{
   transform:translateY(-2px);
   filter:brightness(1.06);
+
   box-shadow:
     0 22px 44px rgba(15,207,217,.22),
     0 0 38px rgba(255,0,110,.16);
@@ -278,61 +238,6 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 .zfiltro button:active{
   transform:scale(.98);
 }
-
-.zfiltro input,
-.zfiltro select{
-  width:100%;
-  border:0 !important;
-  outline:0 !important;
-  box-shadow:none !important;
-
-  color:#fff;
-  background:transparent;
-
-  font-family:"Michroma", sans-serif;
-  font-size:.74rem;
-}
-
-.zfiltro select{
-  cursor:pointer;
-  color:rgba(255,255,255,.9);
-
-  appearance:none;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-
-  padding-right:28px;
-}
-
-/* flecha custom */
-.zfiltro-field:has(select){
-  position:relative;
-}
-
-.zfiltro-field:has(select)::after{
-  content:"⌄";
-  position:absolute;
-  right:18px;
-  top:50%;
-  transform:translateY(-50%);
-
-  color:rgba(255,255,255,.55);
-  font-size:1rem;
-  pointer-events:none;
-}
-
-.zfiltro select:focus,
-.zfiltro select:active{
-  border:0 !important;
-  outline:0 !important;
-  box-shadow:none !important;
-}
-
-.zfiltro select option{
-  background:#080808;
-  color:#fff;
-}
-
 
 
 
@@ -345,7 +250,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 ========================================= */
 
 .destacados-section{
-  width:min(1320px, calc(100% - 32px));
+  width: min(1120px, calc(100% - 32px));
   margin:0 auto 0px;
   padding:0;
   margin-top: 74px;
@@ -362,7 +267,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   color:#fff;
 
   font-family:"Michroma", sans-serif;
-  font-size: clamp(2rem, 5vw, 2.6rem);
+    font-size: clamp(1rem, 5vw, 1.5rem);
   line-height:1;
   font-weight:400;
   text-transform:uppercase;
@@ -384,22 +289,6 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   letter-spacing:.3px;
 }
 
-.destacados-swiper{
-  width:min(1280px, 100%);
-  margin:40px auto 0;
-  overflow:visible;
-}
-
-.destacados-swiper .swiper-slide{
-  transition:.45s ease;
-  opacity:.45;
-  transform:scale(.88);
-}
-
-.destacados-swiper .swiper-slide-active{
-  opacity:1;
-  transform:scale(1);
-}
 
 .destacado-card{
   border:1px solid rgba(255,255,255,.08);
@@ -421,6 +310,54 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 }
 
 
+.destacados-swiper{
+  width:min(1280px, 100%);
+  margin:40px auto 0;
+  overflow:visible;
+  min-height: 432px;
+  padding:40px 0;
+}
+
+.destacados-swiper .swiper-wrapper{
+  align-items:center;
+}
+
+.destacados-swiper .swiper-slide{
+  transition:
+    transform .55s ease,
+    opacity .55s ease,
+    filter .55s ease;
+
+  opacity:.35;
+  transform:scale(.82);
+  filter:blur(1px);
+}
+
+.destacados-swiper .swiper-slide-active{
+  opacity:1;
+  transform:scale(1);
+  filter:none;
+  z-index:5;
+}
+
+.destacados-swiper .swiper-slide-prev,
+.destacados-swiper .swiper-slide-next{
+  opacity:.75;
+  transform:scale(.90);
+  filter:none;
+}
+
+.destacados-swiper .producto-card{
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease;
+}
+
+.destacados-swiper .swiper-slide-active .producto-card{
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45),
+    0 0 35px rgba(0,212,255,.12);
+}
 
 
 
@@ -462,20 +399,19 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
 .catalogo-categorias-circulares a{
   position:relative;
-  width:132px;
-  height:132px;
-
+  width: 80px;
+  height:80px;
+  border-radius:50%;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:14px;
+  gap:12px;
 
   text-decoration:none;
   isolation:isolate;
   overflow:hidden;
 
-  border-radius:36px;
   color:rgba(255,255,255,.62);
 
   background:
@@ -511,14 +447,14 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   content:"";
   position:absolute;
   inset:1px;
-  border-radius:35px;
+  border-radius:50%;
   background:
     linear-gradient(145deg, rgba(18,18,22,.96), rgba(8,8,12,.90));
   z-index:-1;
 }
 
 .catalogo-categorias-circulares a i{
-  font-size:1.65rem;
+  font-size:1.5rem;
   color:#12dfff;
   filter:drop-shadow(0 0 14px rgba(0,212,255,.38));
   transition:.35s ease;
@@ -526,7 +462,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
 .catalogo-categorias-circulares a span{
   font-family:"Michroma", sans-serif;
-  font-size:.66rem;
+  font-size:.4rem;
   color:rgba(255,255,255,.66);
   transition:.35s ease;
 }
@@ -589,14 +525,12 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 ========================= */
 
 .productos-grid{
-  width:min(1090px, calc(100% - 32px));
+  width: min(1290px, calc(100% - 32px));
   margin:0 auto;
-
   display:grid;
   grid-template-columns:repeat(4, minmax(0, 1fr));
   gap:24px;
 }
-
 
 
 
@@ -999,7 +933,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
   .destacados-section{
     width:100%;
-    margin:42px auto 48px;
+    margin: 23px auto 0px;
     overflow:hidden;
   }
 
@@ -1074,8 +1008,8 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
   .catalogo-categorias{
     width:100%;
-    margin:34px 0 46px;
-    padding:18px 18px 22px;
+    margin:0px 0 0px;
+    padding: 43px 43px 54px;
     gap:12px;
     flex-wrap:nowrap;
     justify-content:flex-start;
@@ -1093,7 +1027,6 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     width:76px;
     height:76px;
     gap:6px;
-    border-radius:24px;
     scroll-snap-align:start;
   }
 

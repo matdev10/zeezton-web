@@ -35,9 +35,8 @@
 
 /*page*/
 .detalle-producto-page{
-  min-height:100vh;
-  padding:165px 0 100px;
-
+  /* min-height:100vh; */
+  padding: 165px 0 47px;
   color:#fff;
 }
 
@@ -55,6 +54,17 @@
   grid-template-columns:1.05fr .95fr;
   gap:46px;
   align-items:start;
+
+  padding:34px;
+  border-radius:38px;
+
+  background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 35px 95px rgba(0,0,0,.48),
+    inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 
@@ -62,63 +72,78 @@
 
 
 
+/* =========================
+   GALERÍA
+========================= */
 
-/* GALERÍA */
+.detalle-galeria{
+  align-self:start;
+}
 
 .detalle-imagen-principal{
   border-radius:34px;
   overflow:hidden;
+
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.10);
-  box-shadow:0 30px 80px rgba(0,0,0,.45);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.45);
 }
 
 .detalle-imagen-principal img{
   width:100%;
   height:560px;
+  display:block;
+
   object-fit:cover;
   object-position:center;
-  display:block;
 }
 
 .detalle-miniaturas{
   display:grid;
   grid-template-columns:repeat(5,1fr);
+
   gap:14px;
   margin-top:16px;
+
+  min-height:95px;
 }
 
 .detalle-miniaturas img{
   width:100%;
   height:95px;
+
   object-fit:cover;
+
   border-radius:18px;
   border:1px solid rgba(255,255,255,.12);
+
   cursor:pointer;
   opacity:.65;
+
   transition:.25s ease;
 }
 
 .detalle-miniaturas img:hover,
 .detalle-miniaturas img.active{
   opacity:1;
+
   border-color:rgba(66,232,255,.75);
-  box-shadow:0 0 18px rgba(66,232,255,.22);
+
+  box-shadow:
+    0 0 18px rgba(66,232,255,.22);
 }
-
-
-
-
 
 /* INFO */
 
 .detalle-info{
   position:relative;
-  padding:38px;
-  border-radius:34px;
-  background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
-  border:1px solid rgba(255,255,255,.10);
-  backdrop-filter:blur(18px);
+  padding:34px 8px 34px 28px;
+  border-radius:0;
+  background:transparent;
+  border:none;
+  backdrop-filter:none;
 }
 
 .detalle-badge{
@@ -136,7 +161,7 @@
   margin-bottom:22px;
   padding-right:56px;
   font-family:"Michroma",sans-serif;
-  font-size:clamp(2rem,4vw,3.4rem);
+  font-size:clamp(1rem,4vw,1.9rem);
   line-height:1;
 }
 
@@ -333,8 +358,8 @@
 /* DESCRIPCIÓN */
 
 .detalle-descripcion-section{
-  width:min(1280px, calc(100% - 40px));
-  margin:60px auto 0;
+  width: min(1250px, calc(100% - 40px));
+  margin: 0px auto 0;
   margin-bottom: 127px;
 }
 
@@ -541,6 +566,10 @@
 /* ==========================================================================
    RESPONSIVE — DETALLE PRODUCTO
 ========================================================================== */
+.detalle-galeria-mobile{
+  display:none;
+}
+
 
 /* TABLET */
 @media(max-width:1024px){
@@ -690,81 +719,67 @@
 
 
 
-/* MOBILE */
+
+
+
+
+
+
+
+
+/* MOBILE 520 — DETALLE PRODUCTO PREMIUM */
 @media(max-width:520px){
 
   .detalle-producto-page{
-    padding:96px 0 55px;
+    padding:92px 0 0px;
   }
 
   .detalle-producto-container{
-    width:min(100%, calc(100% - 22px));
+    width:min(100%, calc(100% - 18px));
   }
 
   .detalle-back{
-    margin-bottom:18px;
-    padding:9px 14px;
-    font-size:.50rem;
-  }
-
-  .detalle-producto-layout{
-    gap:22px;
-  }
-
-  .detalle-imagen-principal{
-    border-radius:22px;
-  }
-
-  .detalle-imagen-principal img{
-    height:270px;
-  }
-
-  .detalle-miniaturas{
-    display:flex;
-    gap:10px;
-    margin-top:14px;
-    overflow-x:auto;
-    padding-bottom:4px;
-  }
-
-  .detalle-miniaturas::-webkit-scrollbar{
     display:none;
   }
 
-  .detalle-miniaturas img{
-    width:74px;
-    height:74px;
-    flex:0 0 74px;
-    border-radius:14px;
+  .detalle-producto-layout{
+    display:block;
+    padding:6px;
+    border-radius:30px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(15,207,217,.12), transparent 34%),
+      linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+  }
+
+  .detalle-galeria{
+    display:none;
   }
 
   .detalle-info{
-    padding:24px 20px 26px;
-    border-radius:24px;
+    display:flex;
+    flex-direction:column;
+    padding:10px 8px 8px;
+    background:transparent;
+    border:none;
+    backdrop-filter:none;
   }
 
   .detalle-badge{
-    margin-bottom:18px;
-    padding:7px 13px;
+    width:fit-content;
+    margin:0 0 18px;
+    padding:7px 14px;
     font-size:.55rem;
   }
 
   .detalle-info h1{
+    margin:0 0 16px;
     padding-right:0;
-    margin-bottom:18px;
-    font-size:1.55rem;
-    line-height:1.16;
-  }
-
-  .btn-favorito-top{
-    top:22px;
-    right:20px;
-    width:40px;
-    height:40px;
+    font-size:1.45rem;
+    line-height:1.18;
   }
 
   .detalle-rating{
-    margin:8px 0 18px;
+    margin:0 0 18px;
   }
 
   .detalle-stars i{
@@ -772,27 +787,56 @@
   }
 
   .detalle-rating span{
-    font-size:.78rem;
+    font-size:.75rem;
+  }
+
+  .detalle-galeria-mobile{
+    display:block;
+    margin:0 0 22px;
+  }
+
+  .detalle-galeria-mobile .detalle-imagen-principal{
+    border-radius:24px;
+    box-shadow:
+      0 24px 55px rgba(0,0,0,.42),
+      0 0 24px rgba(15,207,217,.08);
+  }
+
+  .detalle-galeria-mobile .detalle-imagen-principal img{
+    width:100%;
+    height:235px;
+    object-fit:cover;
+  }
+
+  .btn-favorito-top{
+    top:24px;
+    right:24px;
+    width:38px;
+    height:38px;
   }
 
   .detalle-precio{
-    margin:18px 0 20px;
-    font-size:1.55rem;
+    margin:0 0 20px;
+    font-size:1.5rem;
   }
 
   .detalle-meta{
     /* grid-template-columns:1fr; */
-    gap:12px;
-    margin:0 0 24px;
+    display: none;
+    gap: 10px;
+    margin: -3px 0 39px;
   }
 
+
   .detalle-meta div{
-    padding:15px;
+    padding:14px 15px;
     border-radius:16px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.07);
   }
 
   .detalle-meta small{
-    font-size:.62rem;
+    font-size:.60rem;
   }
 
   .detalle-meta strong{
@@ -801,37 +845,40 @@
 
   .detalle-actions{
     flex-direction:column;
-    gap:14px;
+    gap:12px;
   }
 
   .btn-detalle-primary,
   .btn-detalle-buy{
-    min-height:56px;
+    min-height:54px;
     border-radius:17px;
-    font-size:.80rem;
+    font-size:.78rem;
   }
 
   .detalle-descripcion-section{
-    width:min(100%, calc(100% - 22px));
-    margin:34px auto 50px;
+    width:min(100%, calc(100% - 18px));
+    margin: 30px auto 50px;
   }
 
   .detalle-descripcion-container{
     padding:24px 20px;
-    border-radius:22px;
+    border-radius:24px;
   }
 
   .detalle-descripcion-container h3{
-    margin-bottom:16px;
-    font-size:.68rem;
+    margin-bottom:15px;
+    font-size:.66rem;
     line-height:1.5;
   }
 
   .detalle-descripcion-container p{
-    font-size:.62rem;
+    font-size:.61rem;
     line-height:1.85;
   }
 }
+
+
+
 
 
 /* IPHONE MINI / MOBILE PEQUEÑO */
@@ -839,6 +886,7 @@
 
   .detalle-producto-page{
     padding-top:92px;
+    padding-bottom: 25px;
   }
 
   .detalle-producto-container{
@@ -856,7 +904,7 @@
   }
 
   .detalle-info{
-    padding:22px 18px 24px;
+    padding: 16px 8px 16px;
   }
 
   .detalle-info h1{

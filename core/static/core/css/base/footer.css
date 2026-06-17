@@ -8,6 +8,7 @@
   padding:96px 22px 0;
   color:#fff;
   border-top:none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #020202 18%, #000 100%);
 }
 
 .z-footer::before{

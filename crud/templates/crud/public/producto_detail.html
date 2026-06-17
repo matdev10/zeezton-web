@@ -80,6 +80,21 @@
 
         </div>
 
+
+        <div class="detalle-galeria-mobile">
+  <div class="detalle-imagen-principal">
+    {% if imagen_principal %}
+      <img src="{{ imagen_principal.imagen.url }}" alt="{{ producto.nombre }}">
+    {% elif producto.imagen %}
+      <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+    {% else %}
+      <img src="{% static 'crud/img/image_not_found.jpg' %}" alt="Sin imagen">
+    {% endif %}
+  </div>
+</div>
+
+
+
         <div class="detalle-precio">
           ${{ producto.precio|intcomma }}
         </div>
