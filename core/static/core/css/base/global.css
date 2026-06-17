@@ -8,27 +8,19 @@ html,
 body{
     margin: 0;
     padding: 0;
-}
-
-body{
-  background: #050505;
-}
-
-main{
-  background:
-    radial-gradient(circle at top, rgba(11,209,234,.08), transparent 35%),
-    #050505;
-}
-
-html,
-body{
+    background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%), radial-gradient(circle at 88% 12%, rgba(124, 58, 237, .18), transparent 34%), radial-gradient(circle at 50% 100%, rgba(15, 207, 217, .08), transparent 36%), linear-gradient(180deg, #020202 0%, #050505 48%, #000 100%);
     overflow-x: hidden;
-}
-
-/* evita scroll fantasma en móvil */
-body{
     min-height: 100vh;
 }
+
+
+
+
+
+
+
+
+
 
 /* estilos para los mensajes de Django */
 .z-toast-container{

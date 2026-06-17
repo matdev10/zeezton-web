@@ -64,7 +64,7 @@ def products_list(request):
 
     total_resultados = productos.count()
 
-    paginator = Paginator(productos, 20)
+    paginator = Paginator(productos, 16)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 

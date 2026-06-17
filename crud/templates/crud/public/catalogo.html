@@ -12,19 +12,10 @@
 {% endblock %}
 
 {% block main_content %}
-
-
-
-
-
-
-
-
-
-
 <section class="catalogo-main">
 
   <div class="catalogo-header">
+
     <span class="section-badge">Explora</span>
 
     <h2>
@@ -36,7 +27,8 @@
       Encuentra repuestos, accesorios y estética automotriz seleccionada para tu BMW.
     </p>
 
-      <form method="get" class="zfiltro-wrap">
+    <form method="get" class="zfiltro-wrap">
+
     <div class="zfiltro">
 
       <div class="zfiltro-field">
@@ -69,10 +61,7 @@
 
     </div>
   </form>
-
-
-
-  </div>
+</div>
 
 
 
@@ -84,21 +73,19 @@
 <section class="destacados-section">
 
   <div class="destacados-header">
-    <span class="section-badge">destacados</span>
-    <h2>Exclusivos</h2>
+    <span class="section-badge">Selección premium</span>
+    <h2>Productos destacados</h2>
+    <p>Accesorios elegidos para elevar el estilo y presencia de tu BMW.</p>
   </div>
 
-  <div id="carouselDestacados" class="carousel slide destacados-desktop" data-bs-ride="carousel">
-    <div class="carousel-inner">
+  <div class="swiper destacados-swiper">
+    <div class="swiper-wrapper">
 
       {% for p in productos_destacados %}
-        {% if forloop.first or forloop.counter0|divisibleby:5 %}
-        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-          <div class="destacados-grid">
-        {% endif %}
-
+      <div class="swiper-slide">
         <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
           <article class="producto-card destacado-card">
+
             <div class="producto-img-wrap">
               {% with img=p.imagenes.first %}
                 {% if img %}
@@ -116,66 +103,20 @@
               <p>{{ p.descripcion|truncatewords:8 }}</p>
               <strong><span>$</span>{{ p.precio|clp }}</strong>
             </div>
+
           </article>
         </a>
-
-        {% if forloop.counter|divisibleby:5 or forloop.last %}
-          </div>
-        </div>
-        {% endif %}
+      </div>
       {% endfor %}
 
     </div>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestacados" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
 
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselDestacados" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
 
-  <div class="destacados-mobile">
-    <div class="swiper swiper-destacados">
-      <div class="swiper-wrapper">
-
-        {% for p in productos_destacados %}
-        <div class="swiper-slide">
-          <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
-            <article class="producto-card destacado-card">
-              <div class="producto-img-wrap">
-                {% with img=p.imagenes.first %}
-                  {% if img %}
-                    <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
-                  {% elif p.imagen %}
-                    <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
-                  {% else %}
-                    <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
-                  {% endif %}
-                {% endwith %}
-              </div>
-
-              <div class="producto-info">
-                <h3>{{ p.nombre }}</h3>
-                <p>{{ p.descripcion|truncatewords:6 }}</p>
-                <strong><span>$</span>{{ p.precio|clp }}</strong>
-              </div>
-            </article>
-          </a>
-        </div>
-        {% endfor %}
-
-      </div>
-
-      <div class="swiper-pagination"></div>
-    </div>
   </div>
 
 </section>
 {% endif %}
-
-
 
 
 
@@ -298,13 +239,10 @@
 
 </section>
 
-  <!-- FOOTER DENTRO DE LA SECCIÓN -->
-  {% include "core/partials/footer.html" %}
 
 
 
-
-
+{% include "core/partials/footer.html" %}
 
 
 
@@ -318,19 +256,89 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.querySelector(".swiper-destacados")) {
-    new Swiper(".swiper-destacados", {
-      slidesPerView: "auto",
-      centeredSlides: true,
+  if (document.querySelector(".destacados-swiper")) {
+    new Swiper(".destacados-swiper", {
       loop: true,
-      slideToClickedSlide: true,
-      spaceBetween: 18,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+      centeredSlides: true,
+      grabCursor: true,
+      speed: 850,
+      autoplay: {
+        delay: 3200,
+        disableOnInteraction: false,
       },
+      effect: "coverflow",
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 140,
+        modifier: 1.8,
+        slideShadows: false,
+      },
+
+
+      breakpoints: {
+        0: {
+          slidesPerView: 1.15,
+          spaceBetween: 18,
+        },
+        768: {
+          slidesPerView: 2.2,
+          spaceBetween: 24,
+        },
+        1100: {
+          slidesPerView: 3.2,
+          spaceBetween: 30,
+        }
+      }
     });
   }
 });
 </script>
+
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const categorias = document.querySelectorAll(".catalogo-categorias-circulares a");
+
+  categorias.forEach((item) => {
+    item.addEventListener("mousemove", (e) => {
+      const rect = item.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const moveX = (x - rect.width / 2) / 12;
+      const moveY = (y - rect.height / 2) / 12;
+
+      item.style.transform = `translateY(-10px) rotateX(${-moveY}deg) rotateY(${moveX}deg) scale(1.04)`;
+    });
+
+    item.addEventListener("mouseleave", () => {
+      if (item.classList.contains("active")) {
+        item.style.transform = "translateY(-8px)";
+      } else {
+        item.style.transform = "";
+      }
+    });
+  });
+});
+</script>
+
+
+
+
+
+
+
 {% endblock %}
+
+
+
+

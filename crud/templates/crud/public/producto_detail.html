@@ -134,7 +134,31 @@
           {% endif %}
         </div>
 
+
+        
+
       </div> </div> </div> </section>
+
+
+
+{% if producto.descripcion %}
+<div class="detalle-descripcion-section">
+
+  <div class="detalle-descripcion-container">
+
+    <h3>Descripción del producto</h3>
+
+    <p>
+      {{ producto.descripcion }}
+    </p>
+
+  </div>
+
+</div>
+{% endif %}
+
+
+
 
 <div id="modal-autenticacion" class="modal-auth-overlay" style="display: none;">
   <div class="modal-auth-content">
@@ -161,6 +185,9 @@
     </div>
   </div>
 </div>
+
+
+{% include "core/partials/footer.html" %}
 
 {% endblock %}
 
@@ -214,4 +241,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
 {% endblock %}
