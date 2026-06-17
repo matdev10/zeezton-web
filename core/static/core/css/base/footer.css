@@ -219,3 +219,24 @@
     line-height:1.7;
   }
 }
+
+
+@media(max-width:390px){
+
+  .z-footer{
+    padding:52px 18px 26px;
+  }
+
+  .z-footer-brand h3{
+    font-size:1.35rem;
+    letter-spacing:6px;
+  }
+
+  .z-footer-brand p{
+    font-size:.62rem;
+  }
+
+  .z-footer-bottom span{
+    font-size:.54rem;
+  }
+}
