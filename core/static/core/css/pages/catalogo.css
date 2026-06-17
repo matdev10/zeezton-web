@@ -635,6 +635,8 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
   .catalogo-main{
     padding:118px 0 80px;
+    overflow-x:hidden;
+    overflow-y:visible;
   }
 
   .catalogo-header{
@@ -669,21 +671,25 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   }
 
   .catalogo-categorias{
-    width:min(100%, calc(100% - 28px));
-    margin:45px auto 60px;
+    width:100%;
+    margin:42px 0 62px;
+    padding:22px 24px 26px;
 
+    display:flex;
     justify-content:flex-start;
+    align-items:center;
     flex-wrap:nowrap;
     gap:16px;
+
     overflow-x:auto;
     overflow-y:visible;
 
-    padding:6px 2px 14px;
     scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
   }
 
   .catalogo-categorias::-webkit-scrollbar{
-    height:0;
+    display:none;
   }
 
   .catalogo-categorias-circulares a{
@@ -693,6 +699,18 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     width:86px;
     height:86px;
     gap:7px;
+
+    box-shadow:
+      0 0 26px rgba(15,207,217,.12),
+      inset 0 0 24px rgba(255,255,255,.03),
+      0 18px 38px rgba(0,0,0,.34);
+  }
+
+  .catalogo-categorias-circulares a.active{
+    box-shadow:
+      0 0 34px rgba(15,207,217,.30),
+      inset 0 0 24px rgba(15,207,217,.08),
+      0 18px 40px rgba(0,0,0,.38);
   }
 
   .catalogo-categorias-circulares a i{
@@ -709,6 +727,7 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
 
   .destacados-mobile{
     display:block;
+    width:100%;
     overflow:hidden;
   }
 
@@ -719,7 +738,8 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   }
 
   .destacados-header{
-
+    padding:0 18px;
+    margin-bottom:20px;
   }
 
   .destacados-header h2{
@@ -733,9 +753,9 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     overflow:visible;
   }
 
-   .swiper-destacados .swiper-wrapper{
+  .swiper-destacados .swiper-wrapper{
     align-items:stretch;
-    padding-top: 25px;
+    padding-top:25px;
   }
 
   .swiper-destacados .swiper-slide{
@@ -745,7 +765,9 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
   }
 
   .swiper-destacados .producto-card{
+    width:100%;
     min-height:430px;
+    margin:0 auto;
     border-radius:24px;
   }
 
@@ -779,7 +801,6 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     display:none !important;
   }
 }
-
 
 /* MOBILE */
 @media(max-width:520px){
