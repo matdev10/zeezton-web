@@ -675,7 +675,8 @@ background: radial-gradient(circle at 12% 8%, rgb(0 0 0 / 50%), transparent 30%)
     justify-content:flex-start;
     flex-wrap:nowrap;
     gap:16px;
-
+    overflow-x:auto;
+    overflow-y:visible;
 
     padding:6px 2px 14px;
     scroll-snap-type:x mandatory;
