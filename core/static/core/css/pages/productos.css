@@ -253,6 +253,7 @@
 
 .swiper-destacados .producto-card{
   min-height:395px;
+  border-radius: 2px;
 }
 
 .swiper-destacados .producto-img-wrap{
