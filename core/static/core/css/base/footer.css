@@ -165,14 +165,22 @@
    Z FOOTER MOBILE
 ========================= */
 
-@media(max-width:768px){
+@media(max-width:520px){
 
   .z-footer{
-    padding:58px 20px 28px;
+    padding:54px 18px 24px;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 0%,
+        #020202 18%,
+        #000 100%
+      );
   }
 
   .z-footer::before{
-    width:82%;
+    width:88%;
   }
 
   .z-footer-grid{
@@ -183,15 +191,19 @@
   }
 
   .z-footer-brand h3{
-    margin-bottom:18px;
-    font-size:1.55rem;
-    letter-spacing:7px;
+    margin-bottom:16px;
+    font-size:1.4rem;
+    letter-spacing:6px;
   }
 
   .z-footer-brand p{
-    max-width:310px;
+    max-width:290px;
     margin:0 auto;
-    font-size:.68rem;
+
+    color:rgba(255,255,255,.55);
+
+    font-family:"Michroma",sans-serif;
+    font-size:.64rem;
     line-height:1.8;
   }
 
@@ -202,41 +214,28 @@
 
   .z-footer-bottom{
     width:100%;
-    margin-top:38px;
-    padding:22px 0 0;
 
+    margin-top:34px;
+    padding-top:20px;
+
+    display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 
     text-align:center;
-    gap:12px;
+    gap:10px;
+
+    border-top:1px solid rgba(255,255,255,.06);
   }
 
   .z-footer-bottom span{
-    max-width:300px;
-    font-size:.58rem;
+    max-width:280px;
+
+    color:rgba(255,255,255,.42);
+
+    font-family:"Michroma",sans-serif;
+    font-size:.55rem;
     line-height:1.7;
-  }
-}
-
-
-@media(max-width:390px){
-
-  .z-footer{
-    padding:52px 18px 26px;
-  }
-
-  .z-footer-brand h3{
-    font-size:1.35rem;
-    letter-spacing:6px;
-  }
-
-  .z-footer-brand p{
-    font-size:.62rem;
-  }
-
-  .z-footer-bottom span{
-    font-size:.54rem;
   }
 }
