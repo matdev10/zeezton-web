@@ -92,10 +92,9 @@
 }
 
 .detalle-imagen-principal img{
-  width:100%;
-  height:560px;
+  width: 100%;
+  height: 398px;
   display:block;
-
   object-fit:cover;
   object-position:center;
 }
