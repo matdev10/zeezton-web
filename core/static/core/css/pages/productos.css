@@ -232,7 +232,7 @@
 ========================= */
 
 .destacado-card{
-  border-radius: 2px;
+  border-radius: 20px;
 }
 
 
@@ -242,7 +242,7 @@
 
 .swiper-destacados .producto-card{
   min-height:395px;
-  border-radius: 2px;
+  border-radius: 20px;
 }
 
 .swiper-destacados .producto-img-wrap{
