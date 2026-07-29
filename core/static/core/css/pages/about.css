@@ -1,185 +1,463 @@
-.about-hero{
+/* =========================================================
+   ABOUT
+   ESTILOS BASE — ESCRITORIO
+========================================================= */
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
   min-height: 72vh;
   padding: 170px 8% 90px;
+
   display: flex;
   align-items: center;
+
   background:
-    linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.45)),
-    radial-gradient(circle at 20% 30%, rgba(15,207,217,.18), transparent 35%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.45)),
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(15, 207, 217, 0.18),
+      transparent 35%
+    ),
     #030407;
 }
 
-.about-hero-content{
+.about-hero-content {
+  width: 100%;
   max-width: 850px;
 }
 
-.about-badge{
+.about-badge {
   display: inline-flex;
   margin-bottom: 18px;
+
   color: #0bd1ea;
-  font-size: .76rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: .32em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  text-shadow: 0 0 18px rgba(11,209,234,.45);
+  text-shadow: 0 0 18px rgba(11, 209, 234, 0.45);
 }
 
-.about-title{
+.about-title {
   margin: 0;
-  color: #fff;
+
+  color: #ffffff;
   font-family: "Michroma", sans-serif;
   font-size: clamp(2.5rem, 5vw, 5rem);
   line-height: 1.05;
   text-transform: uppercase;
-  text-shadow: 0 20px 50px rgba(0,0,0,.75);
+  text-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
 }
 
-.about-subtitle{
+.about-subtitle {
   max-width: 720px;
-  margin-top: 24px;
-  color: rgba(255,255,255,.72);
+  margin: 24px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
   font-size: 1.05rem;
   line-height: 1.8;
 }
 
-.about-section{
+/* =========================================================
+   INFORMACIÓN
+========================================================= */
+
+.about-section {
   padding: 90px 8%;
+
   background:
-    radial-gradient(circle at right, rgba(124,58,237,.14), transparent 35%),
-    #000;
+    radial-gradient(
+      circle at right,
+      rgba(124, 58, 237, 0.14),
+      transparent 35%
+    ),
+    #000000;
 }
 
-.about-grid{
+.about-grid {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 26px;
 }
 
-.about-card{
+.about-card {
   position: relative;
-  padding: 34px;
   min-height: 280px;
-  border-radius: 30px;
-  border: 1px solid rgba(255,255,255,.08);
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.06),
-    0 22px 55px rgba(0,0,0,.32);
+  padding: 34px;
   overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.018)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 55px rgba(0, 0, 0, 0.32);
 }
 
-.about-card::before{
+.about-card::before {
   content: "";
   position: absolute;
   inset: 0;
+
   background:
-    radial-gradient(circle at top right, rgba(15,207,217,.16), transparent 35%);
-  opacity: .8;
+    radial-gradient(
+      circle at top right,
+      rgba(15, 207, 217, 0.16),
+      transparent 35%
+    );
+  opacity: 0.8;
   pointer-events: none;
 }
 
-.about-card-main{
-  border-color: rgba(15,207,217,.18);
+.about-card-main {
+  border-color: rgba(15, 207, 217, 0.18);
 }
 
-.about-card-number{
+.about-card-number {
   position: relative;
   z-index: 1;
+
   color: #0bd1ea;
   font-family: "Michroma", sans-serif;
-  font-size: .78rem;
-  letter-spacing: .18em;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
 }
 
-.about-card h2{
+.about-card h2 {
   position: relative;
   z-index: 1;
   margin: 22px 0 14px;
-  color: #fff;
+
+  color: #ffffff;
   font-size: 1.45rem;
 }
 
-.about-card p{
+.about-card p {
   position: relative;
   z-index: 1;
   margin: 0;
-  color: rgba(255,255,255,.68);
+
+  color: rgba(255, 255, 255, 0.68);
   line-height: 1.8;
 }
 
-.about-values{
+/* =========================================================
+   VALORES
+========================================================= */
+
+.about-values {
   padding: 90px 8% 120px;
+
   background:
-    radial-gradient(circle at left, rgba(15,207,217,.12), transparent 35%),
-    linear-gradient(180deg, #000, #05070c);
+    radial-gradient(
+      circle at left,
+      rgba(15, 207, 217, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(180deg, #000000, #05070c);
 }
 
-.about-values-content{
+.about-values-content {
+  width: 100%;
   max-width: 1180px;
   margin: 0 auto;
 }
 
-.about-values-content h2{
+.about-values-content h2 {
   max-width: 850px;
   margin: 0 0 42px;
-  color: #fff;
+
+  color: #ffffff;
   font-family: "Michroma", sans-serif;
   font-size: clamp(1.7rem, 3vw, 3rem);
   line-height: 1.25;
 }
 
-.about-values-grid{
+.about-values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
-.about-values-grid div{
+.about-values-grid div {
   padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.045);
+  background: rgba(255, 255, 255, 0.045);
 }
 
-.about-values-grid i{
+.about-values-grid i {
+  margin-bottom: 20px;
+
   color: #0bd1ea;
   font-size: 1.7rem;
-  margin-bottom: 20px;
-  text-shadow: 0 0 18px rgba(11,209,234,.45);
+  text-shadow: 0 0 18px rgba(11, 209, 234, 0.45);
 }
 
-.about-values-grid h3{
+.about-values-grid h3 {
   margin: 0 0 10px;
-  color: #fff;
+  color: #ffffff;
 }
 
-.about-values-grid p{
+.about-values-grid p {
   margin: 0;
-  color: rgba(255,255,255,.65);
+
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
 }
 
-@media(max-width: 900px){
-  .about-hero{
-    min-height: auto;
-    padding: 140px 24px 70px;
+/* =========================================================
+   NOTEBOOK PEQUEÑO — 1025px A 1366px
+========================================================= */
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .about-hero {
+    min-height: 660px;
+    padding: 145px 7% 80px;
+  }
+
+  .about-hero-content {
+    max-width: 760px;
+  }
+
+  .about-title {
+    font-size: clamp(2.8rem, 4.6vw, 4rem);
+  }
+
+  .about-subtitle {
+    max-width: 660px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-section {
+    padding: 76px 7%;
+  }
+
+  .about-grid {
+    gap: 22px;
+  }
+
+  .about-card {
+    min-height: 260px;
+    padding: 30px;
+  }
+
+  .about-values {
+    padding: 76px 7% 100px;
+  }
+
+  .about-values-content h2 {
+    margin-bottom: 36px;
+  }
+
+  .about-values-grid {
+    gap: 18px;
+  }
+
+  .about-values-grid div {
+    padding: 26px;
+  }
+}
+
+/* =========================================================
+   TABLET — 769px A 1024px
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-hero {
+    min-height: 620px;
+    padding: 135px 6% 72px;
+  }
+
+  .about-hero-content {
+    max-width: 720px;
+  }
+
+  .about-title {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+  }
+
+  .about-subtitle {
+    max-width: 650px;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .about-section,
-  .about-values{
-    padding-left: 24px;
-    padding-right: 24px;
+  .about-values {
+    padding-left: 6%;
+    padding-right: 6%;
   }
 
-  .about-grid,
-  .about-values-grid{
+  .about-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .about-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .about-card{
+  .about-card {
     min-height: auto;
+    padding: 30px;
+  }
+
+  .about-values {
+    padding-top: 72px;
+    padding-bottom: 92px;
+  }
+
+  .about-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .about-values-grid div {
+    padding: 26px;
+  }
+}
+
+/* =========================================================
+   MÓVIL — HASTA 768px
+========================================================= */
+
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: auto;
+    padding: 125px 24px 64px;
+
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.58)),
+      radial-gradient(
+        circle at 20% 30%,
+        rgba(15, 207, 217, 0.18),
+        transparent 42%
+      ),
+      #030407;
+  }
+
+  .about-badge {
+    margin-bottom: 16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.26em;
+  }
+
+  .about-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .about-subtitle {
+    margin-top: 20px;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .about-section {
+    padding: 60px 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .about-card {
+    min-height: auto;
+    padding: 26px;
+    border-radius: 24px;
+  }
+
+  .about-card h2 {
+    margin: 18px 0 12px;
+    font-size: 1.3rem;
+  }
+
+  .about-card p {
+    line-height: 1.7;
+  }
+
+  .about-values {
+    padding: 60px 24px 78px;
+  }
+
+  .about-values-content h2 {
+    margin-bottom: 30px;
+    font-size: clamp(1.6rem, 7vw, 2.25rem);
+  }
+
+  .about-values-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-values-grid div {
+    padding: 25px;
+    border-radius: 24px;
+  }
+}
+
+/* =========================================================
+   MÓVIL PEQUEÑO — HASTA 480px
+========================================================= */
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 112px 20px 56px;
+  }
+
+  .about-badge {
+    font-size: 0.63rem;
+    letter-spacing: 0.22em;
+  }
+
+  .about-title {
+    font-size: clamp(1.75rem, 10vw, 2.35rem);
+  }
+
+  .about-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .about-section {
+    padding: 52px 20px;
+  }
+
+  .about-card {
+    padding: 23px;
+    border-radius: 21px;
+  }
+
+  .about-card-number {
+    font-size: 0.7rem;
+  }
+
+  .about-values {
+    padding: 52px 20px 68px;
+  }
+
+  .about-values-content h2 {
+    margin-bottom: 26px;
+  }
+
+  .about-values-grid div {
+    padding: 23px;
+    border-radius: 21px;
   }
 }

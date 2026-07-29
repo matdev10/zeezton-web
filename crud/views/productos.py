@@ -179,27 +179,87 @@ def contact(request):
         "reseñas": reseñas,
     })
 
-#=========================================================
-# ofertas
-#=========================================================
+# =========================================================
+# OFERTAS
+# =========================================================
 
 def offers(request):
 
+    buscar = request.GET.get("buscar", "").strip()
+    marca_id = request.GET.get("marca", "").strip()
+    categoria_id = request.GET.get("categoria", "").strip()
+    subcategoria_id = request.GET.get("subcategoria", "").strip()
+    modelo_id = request.GET.get("modelo", "").strip()
+
     productos = Producto.objects.filter(
         oferta=True
+    ).select_related(
+        "marca",
+        "categoria",
+        "subcategoria",
+        "modelo_auto"
     ).prefetch_related(
         "imagenes"
-    )
+    ).order_by("-id")
 
+    # Buscador
+    if buscar:
+        productos = productos.filter(
+            Q(nombre__icontains=buscar) |
+            Q(descripcion__icontains=buscar) |
+            Q(marca__nombre__icontains=buscar)
+        ).distinct()
+
+    # Filtros
+    if marca_id:
+        productos = productos.filter(marca_id=marca_id)
+
+    if categoria_id:
+        productos = productos.filter(categoria_id=categoria_id)
+
+    if subcategoria_id:
+        productos = productos.filter(subcategoria_id=subcategoria_id)
+
+    if modelo_id:
+        productos = productos.filter(modelo_auto_id=modelo_id)
+
+    total_resultados = productos.count()
+
+    # Paginación igual que Catálogo
+    paginator = Paginator(productos, 16)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    # Carrusel de superofertas
     productos_super_ofertas = Producto.objects.filter(
         super_oferta=True
+    ).select_related(
+        "marca",
+        "categoria",
+        "subcategoria",
+        "modelo_auto"
     ).prefetch_related(
         "imagenes"
-    )
+    ).order_by("-id")[:15]
 
     context = {
-        "productos": productos,
+        "productos": page_obj,
+        "page_obj": page_obj,
+
         "productos_super_ofertas": productos_super_ofertas,
+
+        "marcas": Marca.objects.all(),
+        "categorias": Categoria.objects.all(),
+        "subcategorias": Subcategoria.objects.all(),
+        "modelos": ModeloAuto.objects.all(),
+
+        "buscar": buscar,
+        "marca_seleccionada": marca_id,
+        "categoria_seleccionada": categoria_id,
+        "subcategoria_seleccionada": subcategoria_id,
+        "modelo_seleccionado": modelo_id,
+
+        "total_resultados": total_resultados,
     }
 
     return render(

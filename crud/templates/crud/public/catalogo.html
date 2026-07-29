@@ -75,43 +75,96 @@
   <div class="destacados-header">
     <span class="section-badge">Selección premium</span>
     <h2>Productos destacados</h2>
-    <p>Accesorios elegidos para elevar el estilo y presencia de tu BMW.</p>
+    <p>
+      Accesorios seleccionados para elevar el diseño,
+      rendimiento y personalidad de tu BMW.
+    </p>
   </div>
 
   <div class="swiper destacados-swiper">
+
     <div class="swiper-wrapper">
 
       {% for p in productos_destacados %}
       <div class="swiper-slide">
-        <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
-          <article class="producto-card destacado-card">
 
-            <div class="producto-img-wrap">
-              {% with img=p.imagenes.first %}
-                {% if img %}
-                  <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
-                {% elif p.imagen %}
-                  <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
-                {% else %}
-                  <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
-                {% endif %}
-              {% endwith %}
+        <article class="destacado-showcase">
+
+          <a href="{% url 'detalle_producto' p.pk %}"
+             class="destacado-showcase__imagen">
+
+            {% with img=p.imagenes.first %}
+              {% if img %}
+                <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
+              {% elif p.imagen %}
+                <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
+              {% else %}
+                <img src="{% static 'core/img/image_not_found.jpg' %}"
+                     alt="Imagen no disponible">
+              {% endif %}
+            {% endwith %}
+
+            <span class="destacado-showcase__numero">
+              {{ forloop.counter|stringformat:"02d" }}
+            </span>
+
+          </a>
+
+          <div class="destacado-showcase__contenido">
+
+            <span class="destacado-showcase__eyebrow">
+              Producto destacado
+            </span>
+
+            <h3>{{ p.nombre }}</h3>
+
+            <p>
+              {{ p.descripcion|truncatewords:32 }}
+            </p>
+
+            <div class="destacado-showcase__footer">
+
+              <div class="destacado-showcase__precio">
+                <span>Precio</span>
+                <strong>$ {{ p.precio|clp }}</strong>
+              </div>
+
+              <a href="{% url 'detalle_producto' p.pk %}"
+                 class="destacado-showcase__boton">
+                <span>Ver producto</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+
             </div>
 
-            <div class="producto-info">
-              <h3>{{ p.nombre }}</h3>
-              <p>{{ p.descripcion|truncatewords:8 }}</p>
-              <strong><span>$</span>{{ p.precio|clp }}</strong>
-            </div>
+          </div>
 
-          </article>
-        </a>
+        </article>
+
       </div>
       {% endfor %}
 
     </div>
 
+    {% if productos_destacados|length > 1 %}
+    <div class="destacados-controles">
 
+      <button type="button"
+              class="destacados-flecha destacados-prev"
+              aria-label="Producto anterior">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+
+      <div class="destacados-pagination"></div>
+
+      <button type="button"
+              class="destacados-flecha destacados-next"
+              aria-label="Producto siguiente">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+    </div>
+    {% endif %}
 
   </div>
 
@@ -260,65 +313,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!swiperEl) return;
 
-  const destacadosSwiper = new Swiper(".destacados-swiper", {
-    loop: true,
-    centeredSlides: true,
-    grabCursor: true,
-    speed: 850,
+  const cantidadSlides =
+    swiperEl.querySelectorAll(".swiper-slide").length;
+
+  new Swiper(swiperEl, {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    speed: 750,
+    grabCursor: cantidadSlides > 1,
+    loop: cantidadSlides > 1,
+    autoHeight: true,
     observer: true,
     observeParents: true,
-    watchSlidesProgress: true,
 
-    autoplay: {
-      delay: 3200,
-      disableOnInteraction: false,
+    autoplay: cantidadSlides > 1
+      ? {
+          delay: 5000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }
+      : false,
+
+    navigation: {
+      nextEl: ".destacados-next",
+      prevEl: ".destacados-prev",
     },
 
-    effect: "coverflow",
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 140,
-      modifier: 1.8,
-      slideShadows: false,
+    pagination: {
+      el: ".destacados-pagination",
+      clickable: true,
     },
 
-    breakpoints: {
-      0: {
-        slidesPerView: 1.15,
-        spaceBetween: 18,
-      },
-      768: {
-        slidesPerView: 2.2,
-        spaceBetween: 24,
-      },
-      1100: {
-        slidesPerView: 3.2,
-        spaceBetween: 30,
-      }
+    keyboard: {
+      enabled: true,
     },
-
-    on: {
-      init: function () {
-        setTimeout(() => {
-          this.update();
-          this.slideToLoop(0, 0);
-        }, 250);
-      }
-    }
   });
-
-  window.addEventListener("load", function () {
-    destacadosSwiper.update();
-    destacadosSwiper.slideToLoop(0, 0);
-  });
-
-  setTimeout(() => {
-    destacadosSwiper.update();
-  }, 600);
 });
 </script>
-
 
 
 

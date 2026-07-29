@@ -5,16 +5,35 @@
 {% block title %}Ofertas | Zeezton Store{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'core/css/pages/ofertas.css' %}?v={{ version }}">
-<link rel="stylesheet" href="{% static 'core/css/pages/productos.css' %}?v={{ version }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<!-- Estructura visual compartida con Catálogo -->
+<link rel="stylesheet"
+      href="{% static 'core/css/pages/catalogo.css' %}?v={{ version }}">
+
+<link rel="stylesheet"
+      href="{% static 'core/css/pages/productos.css' %}?v={{ version }}">
+
+<link rel="stylesheet"
+      href="{% static 'core/css/components/pagination.css' %}?v={{ version }}">
+
+<!-- Colores y personalización exclusiva de Ofertas -->
+<link rel="stylesheet"
+      href="{% static 'core/css/pages/ofertas.css' %}?v={{ version }}">
+
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 {% endblock %}
+
 
 {% block main_content %}
 
-<section class="ofertas-main">
+<section class="catalogo-main ofertas-main">
 
-  <div class="ofertas-header-main">
+  <!-- =====================================================
+       ENCABEZADO Y BUSCADOR
+  ====================================================== -->
+
+  <div class="catalogo-header ofertas-header-main">
+
     <span class="section-badge">Zeezton Deals</span>
 
     <h2>
@@ -23,233 +42,526 @@
     </h2>
 
     <p>
-      Productos destacados con precios especiales para renovar, mejorar y personalizar tu BMW.
+      Productos destacados con precios especiales para renovar,
+      mejorar y personalizar tu BMW.
     </p>
+
+    <form method="get" class="zfiltro-wrap">
+
+      <div class="zfiltro">
+
+        <div class="zfiltro-field">
+          <i class="fa fa-magnifying-glass zfiltro-ico"></i>
+
+          <input
+            type="text"
+            name="buscar"
+            placeholder="Buscar oferta..."
+            value="{{ buscar }}"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="zfiltro-field">
+          <i class="fa fa-tags zfiltro-ico"></i>
+
+          <select name="marca">
+            <option value="">Todas las marcas</option>
+
+            {% for marca in marcas %}
+            <option
+              value="{{ marca.id }}"
+              {% if marca_seleccionada == marca.id|stringformat:"s" %}
+                selected
+              {% endif %}
+            >
+              {{ marca.nombre }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        {% if categoria_seleccionada %}
+        <input
+          type="hidden"
+          name="categoria"
+          value="{{ categoria_seleccionada }}"
+        >
+        {% endif %}
+
+        <button type="submit">
+          <i class="fa fa-search"></i>
+          <span>Buscar</span>
+        </button>
+
+      </div>
+
+    </form>
+
   </div>
 
-  <form method="get" class="zfiltro-wrap">
-    <div class="zfiltro">
 
-      <div class="zfiltro-field">
-        <i class="fa fa-magnifying-glass zfiltro-ico"></i>
-        <input type="text"
-               name="buscar"
-               placeholder="Buscar oferta..."
-               value="{{ request.GET.buscar }}"
-               autocomplete="off">
-      </div>
-
-      <div class="zfiltro-field">
-        <i class="fa fa-tags zfiltro-ico"></i>
-        <select name="marca">
-          <option value="">Todas las marcas</option>
-
-          {% for marca in marcas %}
-          <option value="{{ marca.id }}"
-            {% if request.GET.marca == marca.id|stringformat:"s" %}selected{% endif %}>
-            {{ marca.nombre }}
-          </option>
-          {% endfor %}
-        </select>
-      </div>
-
-      <button type="submit">
-        <i class="fa fa-search"></i>
-        <span>Buscar</span>
-      </button>
-
-    </div>
-  </form>
+  <!-- =====================================================
+       SUPER OFERTAS
+  ====================================================== -->
 
   {% if productos_super_ofertas %}
-  <section class="destacados-section">
+  <section class="destacados-section ofertas-destacados">
 
     <div class="destacados-header">
-      <span class="section-badge">Selección limitada</span>
+
+      <span class="section-badge">
+        Selección limitada
+      </span>
+
       <h2>Super Ofertas</h2>
+
+      <p>
+        Promociones especiales seleccionadas para potenciar
+        el diseño, rendimiento y personalidad de tu BMW.
+      </p>
+
     </div>
 
-    <div id="carouselSuperOfertas" class="carousel slide destacados-desktop" data-bs-ride="carousel">
-      <div class="carousel-inner">
+
+    <div class="swiper destacados-swiper ofertas-swiper">
+
+      <div class="swiper-wrapper">
 
         {% for p in productos_super_ofertas %}
-          {% if forloop.first or forloop.counter0|divisibleby:5 %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <div class="destacados-grid">
-          {% endif %}
+        <div class="swiper-slide">
 
-          <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
-            <article class="producto-card destacado-card oferta-destacada-card">
+          <article class="destacado-showcase oferta-showcase">
 
-              <span class="oferta-label">Oferta</span>
+            <!-- Imagen -->
 
-              <div class="producto-img-wrap">
-                {% with img=p.imagenes.first %}
-                  {% if img %}
-                    <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
-                  {% elif p.imagen %}
-                    <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
-                  {% else %}
-                    <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
-                  {% endif %}
-                {% endwith %}
+            <a
+              href="{% url 'detalle_producto' p.pk %}"
+              class="destacado-showcase__imagen"
+            >
+
+              {% with img=p.imagenes.first %}
+
+                {% if img %}
+                  <img
+                    src="{{ img.imagen.url }}"
+                    alt="{{ p.nombre }}"
+                  >
+
+                {% elif p.imagen %}
+                  <img
+                    src="{{ p.imagen.url }}"
+                    alt="{{ p.nombre }}"
+                  >
+
+                {% else %}
+                  <img
+                    src="{% static 'core/img/image_not_found.jpg' %}"
+                    alt="Imagen no disponible"
+                  >
+                {% endif %}
+
+              {% endwith %}
+
+              <span class="oferta-label oferta-label--showcase">
+                Super Oferta
+              </span>
+
+              <span class="destacado-showcase__numero">
+                {{ forloop.counter|stringformat:"02d" }}
+              </span>
+
+            </a>
+
+
+            <!-- Información -->
+
+            <div class="destacado-showcase__contenido">
+
+              <span class="destacado-showcase__eyebrow">
+                Oferta destacada
+              </span>
+
+              <h3>{{ p.nombre }}</h3>
+
+              <p>
+                {{ p.descripcion|truncatewords:32 }}
+              </p>
+
+              <div class="destacado-showcase__footer">
+
+                <div class="destacado-showcase__precio">
+                  <span>Precio oferta</span>
+
+                  <strong>
+                    $ {{ p.precio|clp }}
+                  </strong>
+                </div>
+
+                <a
+                  href="{% url 'detalle_producto' p.pk %}"
+                  class="destacado-showcase__boton"
+                >
+                  <span>Ver oferta</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
               </div>
 
-              <div class="producto-info">
-                <h3>{{ p.nombre }}</h3>
-                <p>{{ p.descripcion|truncatewords:8 }}</p>
-                <strong><span>$</span>{{ p.precio|clp }}</strong>
-              </div>
-
-            </article>
-          </a>
-
-          {% if forloop.counter|divisibleby:5 or forloop.last %}
             </div>
-          </div>
-          {% endif %}
+
+          </article>
+
+        </div>
         {% endfor %}
 
       </div>
 
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselSuperOfertas" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
 
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselSuperOfertas" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
+      {% if productos_super_ofertas|length > 1 %}
+      <div class="destacados-controles">
 
-    <div class="destacados-mobile">
-      <div class="swiper swiper-ofertas">
-        <div class="swiper-wrapper">
+        <button
+          type="button"
+          class="destacados-flecha destacados-prev"
+          aria-label="Oferta anterior"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
 
-          {% for p in productos_super_ofertas %}
-          <div class="swiper-slide">
-            <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
-              <article class="producto-card destacado-card oferta-destacada-card">
+        <div class="destacados-pagination"></div>
 
-                <span class="oferta-label">Oferta</span>
+        <button
+          type="button"
+          class="destacados-flecha destacados-next"
+          aria-label="Oferta siguiente"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
 
-                <div class="producto-img-wrap">
-                  {% with img=p.imagenes.first %}
-                    {% if img %}
-                      <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
-                    {% elif p.imagen %}
-                      <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
-                    {% else %}
-                      <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
-                    {% endif %}
-                  {% endwith %}
-                </div>
-
-                <div class="producto-info">
-                  <h3>{{ p.nombre }}</h3>
-                  <p>{{ p.descripcion|truncatewords:6 }}</p>
-                  <strong><span>$</span>{{ p.precio|clp }}</strong>
-                </div>
-
-              </article>
-            </a>
-          </div>
-          {% endfor %}
-
-        </div>
-
-        <div class="swiper-pagination"></div>
       </div>
+      {% endif %}
+
     </div>
 
   </section>
   {% endif %}
 
 
+  <!-- =====================================================
+       CATEGORÍAS
+  ====================================================== -->
+
+  <div class="catalogo-categorias catalogo-categorias-circulares ofertas-categorias">
+
+    <a
+      href="{% url 'offers' %}"
+      class="{% if not categoria_seleccionada %}active{% endif %}"
+    >
+      <i class="fa-solid fa-border-all"></i>
+      <span>Todas</span>
+    </a>
 
 
+    {% for categoria in categorias %}
+    <a
+      href="?categoria={{ categoria.id }}"
+      class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}"
+    >
+
+      {% if categoria.nombre == "Aspecto" %}
+
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+      {% elif categoria.nombre == "Iluminación" %}
+
+        <i class="fa-solid fa-lightbulb"></i>
+
+      {% elif categoria.nombre == "Interior" %}
+
+        <i class="fa-solid fa-car-side"></i>
+
+      {% elif categoria.nombre == "Performance" %}
+
+        <i class="fa-solid fa-gauge-high"></i>
+
+      {% else %}
+
+        <i class="fa-solid fa-tag"></i>
+
+      {% endif %}
+
+      <span>{{ categoria.nombre }}</span>
+
+    </a>
+    {% endfor %}
+
+  </div>
 
 
+  <!-- =====================================================
+       RESULTADOS
+  ====================================================== -->
+
+  <div class="ofertas-resultados-header">
+
+    <div>
+      <span class="section-badge">
+        Promociones disponibles
+      </span>
+
+      <h2>Todos los productos en oferta</h2>
+    </div>
+
+    <p>
+      {{ total_resultados }}
+      {% if total_resultados == 1 %}
+        producto encontrado
+      {% else %}
+        productos encontrados
+      {% endif %}
+    </p>
+
+  </div>
 
 
+  <!-- =====================================================
+       CUADRÍCULA DE PRODUCTOS
+  ====================================================== -->
 
-
-
-
-
-  
-
-  <div class="productos-grid">
+  <div class="productos-grid ofertas-productos-grid">
 
     {% for p in productos %}
-    <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
+
+    <a
+      href="{% url 'detalle_producto' p.pk %}"
+      class="producto-link"
+    >
 
       <article class="producto-card oferta-producto-card">
 
-        <span class="oferta-label">Oferta</span>
+        <span class="oferta-label">
+          Oferta
+        </span>
 
         <div class="producto-img-wrap">
+
           {% with img=p.imagenes.first %}
+
             {% if img %}
-              <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}">
+              <img
+                src="{{ img.imagen.url }}"
+                alt="{{ p.nombre }}"
+              >
+
             {% elif p.imagen %}
-              <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">
+              <img
+                src="{{ p.imagen.url }}"
+                alt="{{ p.nombre }}"
+              >
+
             {% else %}
-              <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen">
+              <img
+                src="{% static 'core/img/image_not_found.jpg' %}"
+                alt="Sin imagen"
+              >
             {% endif %}
+
           {% endwith %}
+
         </div>
 
+
         <div class="producto-info">
+
           <h3>{{ p.nombre }}</h3>
 
           {% if p.marca %}
-          <p>{{ p.marca.nombre }}</p>
+            <p>{{ p.marca.nombre }}</p>
           {% else %}
-          <p>{{ p.descripcion|truncatewords:12 }}</p>
+            <p>{{ p.descripcion|truncatewords:12 }}</p>
           {% endif %}
 
           <div class="producto-bottom">
-            <strong><span>$</span>{{ p.precio|clp }}</strong>
-            <em>Ver más</em>
+
+            <strong>
+              <span>$</span>{{ p.precio|clp }}
+            </strong>
+
+            <em>Ver oferta</em>
+
           </div>
+
         </div>
 
       </article>
 
     </a>
+
     {% empty %}
 
-    <div class="ofertas-empty">
-      <h3>No hay productos en oferta por ahora</h3>
-      <p>Vuelve pronto para revisar nuevas promociones Zeezton.</p>
+    <div class="catalogo-empty ofertas-empty">
+
+      <h3>No encontramos ofertas</h3>
+
+      <p>
+        Prueba con otra búsqueda, selecciona otra categoría
+        o revisa nuevamente más adelante.
+      </p>
+
+      <a href="{% url 'offers' %}" class="ofertas-empty__button">
+        Ver todas las ofertas
+      </a>
+
     </div>
 
     {% endfor %}
 
   </div>
 
+
+  <!-- =====================================================
+       PAGINACIÓN
+  ====================================================== -->
+
+  {% if page_obj.paginator.num_pages > 1 %}
+  <nav
+    class="catalogo-pagination ofertas-pagination"
+    aria-label="Paginación de ofertas"
+  >
+
+    {% if page_obj.has_previous %}
+    <a
+      href="?page={{ page_obj.previous_page_number }}{% if buscar %}&buscar={{ buscar|urlencode }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}{% if subcategoria_seleccionada %}&subcategoria={{ subcategoria_seleccionada }}{% endif %}{% if modelo_seleccionado %}&modelo={{ modelo_seleccionado }}{% endif %}"
+      class="pagination-btn"
+      aria-label="Página anterior"
+    >
+      ‹
+    </a>
+    {% endif %}
+
+
+    {% for num in page_obj.paginator.page_range %}
+
+      {% if num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
+
+      <a
+        href="?page={{ num }}{% if buscar %}&buscar={{ buscar|urlencode }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}{% if subcategoria_seleccionada %}&subcategoria={{ subcategoria_seleccionada }}{% endif %}{% if modelo_seleccionado %}&modelo={{ modelo_seleccionado }}{% endif %}"
+        class="pagination-btn {% if page_obj.number == num %}active{% endif %}"
+        {% if page_obj.number == num %}aria-current="page"{% endif %}
+      >
+        {{ num }}
+      </a>
+
+      {% endif %}
+
+    {% endfor %}
+
+
+    {% if page_obj.has_next %}
+    <a
+      href="?page={{ page_obj.next_page_number }}{% if buscar %}&buscar={{ buscar|urlencode }}{% endif %}{% if marca_seleccionada %}&marca={{ marca_seleccionada }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada }}{% endif %}{% if subcategoria_seleccionada %}&subcategoria={{ subcategoria_seleccionada }}{% endif %}{% if modelo_seleccionado %}&modelo={{ modelo_seleccionado }}{% endif %}"
+      class="pagination-btn"
+      aria-label="Página siguiente"
+    >
+      ›
+    </a>
+    {% endif %}
+
+  </nav>
+  {% endif %}
+
 </section>
+
+
+{% include "core/partials/footer.html" %}
 
 {% endblock %}
 
+
 {% block js %}
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<!-- Carrusel de Super Ofertas -->
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.querySelector(".swiper-ofertas")) {
-    new Swiper(".swiper-ofertas", {
-      slidesPerView: "auto",
-      centeredSlides: true,
-      loop: true,
-      slideToClickedSlide: true,
-      spaceBetween: 18,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-  }
+  const swiperEl = document.querySelector(".destacados-swiper");
+
+  if (!swiperEl) return;
+
+  const cantidadSlides =
+    swiperEl.querySelectorAll(".swiper-slide").length;
+
+  new Swiper(swiperEl, {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    speed: 750,
+    grabCursor: cantidadSlides > 1,
+    loop: cantidadSlides > 1,
+    autoHeight: true,
+    observer: true,
+    observeParents: true,
+
+    autoplay: cantidadSlides > 1
+      ? {
+          delay: 5000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }
+      : false,
+
+    navigation: {
+      nextEl: ".destacados-next",
+      prevEl: ".destacados-prev",
+    },
+
+    pagination: {
+      el: ".destacados-pagination",
+      clickable: true,
+    },
+
+    keyboard: {
+      enabled: true,
+    },
+  });
 });
 </script>
+
+
+<!-- Movimiento de las categorías -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const categorias = document.querySelectorAll(
+    ".catalogo-categorias-circulares a"
+  );
+
+  categorias.forEach((item) => {
+    item.addEventListener("mousemove", (event) => {
+      const rect = item.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const moveX = (x - rect.width / 2) / 12;
+      const moveY = (y - rect.height / 2) / 12;
+
+      item.style.transform =
+        `translateY(-10px) rotateX(${-moveY}deg) rotateY(${moveX}deg) scale(1.04)`;
+    });
+
+    item.addEventListener("mouseleave", () => {
+      if (item.classList.contains("active")) {
+        item.style.transform = "translateY(-8px)";
+      } else {
+        item.style.transform = "";
+      }
+    });
+  });
+});
+</script>
+
 {% endblock %}

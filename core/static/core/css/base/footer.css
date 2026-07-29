@@ -1,77 +1,117 @@
-/* =========================
-   Z FOOTER
-========================= */
+/* =========================================================
+   FOOTER — BASE / ESCRITORIO GRANDE
+========================================================= */
 
 .z-footer{
   position:relative;
   overflow:hidden;
-  padding:96px 22px 0;
+
+  padding:96px 22px 28px;
+
   color:#fff;
   border-top:none;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #020202 18%, #000 100%);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0) 0%,
+      #020202 18%,
+      #000 100%
+    );
 }
 
+/* Línea luminosa superior */
 .z-footer::before{
   content:"";
   position:absolute;
   top:0;
   left:50%;
-  transform:translateX(-50%);
+
   width:min(900px, 72%);
   height:1px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(0,212,255,.75),
-    rgba(255,0,98,.65),
-    transparent
-  );
+
+  transform:translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,212,255,.75),
+      rgba(255,0,98,.65),
+      transparent
+    );
+
   box-shadow:
     0 0 18px rgba(0,212,255,.22),
-    0 0 26px rgba(255,0,98,.66);
+    0 0 26px rgba(255,0,98,.35);
+
+  pointer-events:none;
 }
 
+/* Contenedores principales */
 .z-footer-grid,
 .z-footer-bottom{
   position:relative;
   z-index:2;
+
   width:min(1180px, 100%);
   margin-inline:auto;
 }
 
+/* =========================================================
+   CONTENIDO PRINCIPAL
+========================================================= */
+
 .z-footer-grid{
   display:grid;
   grid-template-columns:1.25fr .75fr 1fr;
-  gap:70px;
   align-items:start;
+  gap:70px;
 }
 
+/* Marca */
 .z-footer-brand h3{
   margin:0 0 20px;
+
   font-family:"Michroma", sans-serif;
   font-size:1.58rem;
-  letter-spacing:7px;
   font-weight:400;
-  background:linear-gradient(90deg, #fff 0%, #baf7ff 58%, #4deaff 100%);
+  letter-spacing:7px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff 0%,
+      #baf7ff 58%,
+      #4deaff 100%
+    );
+
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
+
   text-shadow:0 0 22px rgba(0,212,255,.12);
 }
 
 .z-footer-brand p,
 .z-footer-contact p{
   max-width:390px;
+  margin-top:0;
+
   color:rgba(255,255,255,.58);
+
   font-family:"Michroma", sans-serif;
   font-size:.72rem;
   line-height:1.9;
   letter-spacing:.1px;
 }
 
+/* Títulos de columnas */
 .z-footer h4{
   margin:0 0 24px;
+
   color:#12dfff;
+
   font-family:"Michroma", sans-serif;
   font-size:.78rem;
   font-weight:400;
@@ -79,6 +119,7 @@
   letter-spacing:1.7px;
 }
 
+/* Navegación y contacto */
 .z-footer-links,
 .z-footer-contact{
   display:flex;
@@ -88,155 +129,402 @@
 
 .z-footer-links a{
   width:fit-content;
+
   color:rgba(255,255,255,.55);
   text-decoration:none;
+
   font-family:"Michroma", sans-serif;
   font-size:.72rem;
-  transition:.25s ease;
+  line-height:1.6;
+
+  transition:
+    color .25s ease,
+    transform .25s ease,
+    text-shadow .25s ease;
 }
 
 .z-footer-links a:hover{
   color:#fff;
+
   transform:translateX(6px);
   text-shadow:0 0 14px rgba(0,212,255,.45);
 }
 
+/* Información de contacto */
 .z-footer-contact p{
   display:flex;
   align-items:center;
   gap:14px;
+
   margin:0 0 10px;
 }
 
 .z-footer-contact i{
-  flex:0 0 auto;
+  flex:0 0 34px;
+
   width:34px;
   height:34px;
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
+
   color:#12dfff;
+
   border:1px solid rgba(18,223,255,.28);
   border-radius:50%;
+
   background:rgba(0,212,255,.035);
+
   box-shadow:
     inset 0 0 10px rgba(255,255,255,.035),
     0 0 20px rgba(0,212,255,.12);
-  transition:.25s ease;
+
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
 }
 
 .z-footer-contact p:hover i{
   border-color:rgba(18,223,255,.55);
+
   box-shadow:
     inset 0 0 10px rgba(255,255,255,.05),
     0 0 24px rgba(0,212,255,.28);
 }
 
+/* =========================================================
+   PARTE INFERIOR
+========================================================= */
+
 .z-footer-bottom{
   margin-top:72px;
-  padding:24px 0 0px;
+  padding-top:24px;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:16px;
+  justify-content:space-between;
   flex-wrap:wrap;
+  gap:16px;
+
   border-top:1px solid rgba(255,255,255,.07);
 }
 
 .z-footer-bottom span{
   color:rgba(255,255,255,.42);
+
   font-family:"Michroma", sans-serif;
   font-size:.66rem;
+  line-height:1.6;
 }
 
 
+/* creditos*/
+.z-footer-credit{
+  color:rgba(255, 255, 255, .55);
+  font-size:.82rem;
+}
 
+.z-footer-credit a{
+  color:#ffffff;
+  font-weight:700;
+  text-decoration:none;
+  letter-spacing:.03em;
+  transition:color .25s ease;
+}
 
+.z-footer-credit a:hover{
+  color:#0fcfd9;
+}
 
+/* =========================================================
+   FOOTER — NOTEBOOK PEQUEÑO
+   1025px hasta 1366px
+========================================================= */
 
-
-
-
-
-
-
-
-
-/* =========================
-   Z FOOTER MOBILE
-========================= */
-
-@media(max-width:520px){
+@media (min-width:1025px) and (max-width:1366px){
 
   .z-footer{
-    padding:54px 18px 24px;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0,0,0,0) 0%,
-        #020202 18%,
-        #000 100%
-      );
+    padding:76px 42px 26px;
   }
 
   .z-footer::before{
-    width:88%;
+    width:min(760px, 70%);
+  }
+
+  .z-footer-grid,
+  .z-footer-bottom{
+    max-width:1120px;
   }
 
   .z-footer-grid{
-    width:100%;
-    grid-template-columns:1fr;
-    gap:0;
-    text-align:center;
+    grid-template-columns:1.15fr .7fr 1fr;
+    gap:46px;
   }
 
   .z-footer-brand h3{
-    margin-bottom:16px;
+    margin-bottom:18px;
+
+    font-size:1.38rem;
+    letter-spacing:6px;
+  }
+
+  .z-footer-brand p,
+  .z-footer-contact p{
+    font-size:.66rem;
+    line-height:1.8;
+  }
+
+  .z-footer h4{
+    margin-bottom:20px;
+
+    font-size:.7rem;
+    letter-spacing:1.5px;
+  }
+
+  .z-footer-links{
+    gap:10px;
+  }
+
+  .z-footer-links a{
+    font-size:.66rem;
+  }
+
+  .z-footer-contact{
+    gap:8px;
+  }
+
+  .z-footer-contact p{
+    gap:11px;
+    margin-bottom:8px;
+  }
+
+  .z-footer-contact i{
+    flex-basis:31px;
+
+    width:31px;
+    height:31px;
+  }
+
+  .z-footer-bottom{
+    margin-top:54px;
+    padding-top:20px;
+  }
+
+  .z-footer-bottom span{
+    font-size:.6rem;
+  }
+}
+
+
+/* =========================================================
+   FOOTER — TABLET
+   769px hasta 1024px
+========================================================= */
+
+@media (min-width:769px) and (max-width:1024px){
+
+  .z-footer{
+    padding:70px 34px 26px;
+  }
+
+  .z-footer::before{
+    width:78%;
+  }
+
+  .z-footer-grid{
+    grid-template-columns:1.2fr .8fr;
+    gap:48px 36px;
+  }
+
+  .z-footer-brand{
+    grid-column:1 / -1;
+    max-width:620px;
+  }
+
+  .z-footer-brand h3{
     font-size:1.4rem;
     letter-spacing:6px;
   }
 
   .z-footer-brand p{
-    max-width:290px;
-    margin:0 auto;
-
-    color:rgba(255,255,255,.55);
-
-    font-family:"Michroma",sans-serif;
-    font-size:.64rem;
-    line-height:1.8;
+    max-width:560px;
   }
 
-  .z-footer-links,
+  .z-footer h4{
+    margin-bottom:20px;
+  }
+
+  .z-footer-bottom{
+    margin-top:50px;
+  }
+}
+
+
+/* =========================================================
+   FOOTER — MÓVIL
+   Hasta 768px
+========================================================= */
+
+@media (max-width:768px){
+
+  .z-footer{
+    padding:58px 24px 24px;
+  }
+
+  .z-footer::before{
+    width:86%;
+  }
+
+  .z-footer-grid{
+    width:100%;
+
+    grid-template-columns:1fr;
+    gap:38px;
+
+    text-align:center;
+  }
+
+  .z-footer-brand h3{
+    margin-bottom:16px;
+
+    font-size:1.35rem;
+    letter-spacing:5px;
+  }
+
+  .z-footer-brand p{
+    max-width:430px;
+    margin:0 auto;
+
+    font-size:.65rem;
+    line-height:1.85;
+  }
+
+  .z-footer h4{
+    margin-bottom:18px;
+
+    font-size:.7rem;
+    letter-spacing:1.6px;
+  }
+
+  .z-footer-links{
+    align-items:center;
+    gap:10px;
+  }
+
+  .z-footer-links a{
+    font-size:.66rem;
+  }
+
   .z-footer-contact{
-    display:none;
+    align-items:center;
+    gap:10px;
+  }
+
+  .z-footer-contact p{
+    width:100%;
+    max-width:360px;
+    margin:0;
+
+    justify-content:flex-start;
+    text-align:left;
+
+    font-size:.63rem;
+  }
+
+  .z-footer-contact i{
+    flex-basis:32px;
+
+    width:32px;
+    height:32px;
   }
 
   .z-footer-bottom{
     width:100%;
 
-    margin-top:34px;
+    margin-top:42px;
     padding-top:20px;
 
-    display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
-    text-align:center;
     gap:10px;
 
-    border-top:1px solid rgba(255,255,255,.06);
+    text-align:center;
   }
 
   .z-footer-bottom span{
-    max-width:280px;
+    max-width:380px;
 
-    color:rgba(255,255,255,.42);
-
-    font-family:"Michroma",sans-serif;
-    font-size:.55rem;
+    font-size:.57rem;
     line-height:1.7;
+  }
+}
+
+
+/* =========================================================
+   FOOTER — MÓVIL PEQUEÑO
+   Hasta 480px
+========================================================= */
+
+@media (max-width:480px){
+
+  .z-footer{
+    padding:52px 18px 22px;
+  }
+
+  .z-footer::before{
+    width:90%;
+  }
+
+  .z-footer-grid{
+    gap:32px;
+  }
+
+  .z-footer-brand h3{
+    font-size:1.15rem;
+    letter-spacing:4.5px;
+  }
+
+  .z-footer-brand p{
+    max-width:300px;
+
+    font-size:.59rem;
+    line-height:1.8;
+  }
+
+  .z-footer h4{
+    margin-bottom:16px;
+
+    font-size:.65rem;
+  }
+
+  .z-footer-links a{
+    font-size:.61rem;
+  }
+
+  .z-footer-contact p{
+    max-width:310px;
+
+    font-size:.58rem;
+    line-height:1.65;
+  }
+
+  .z-footer-contact i{
+    flex-basis:30px;
+
+    width:30px;
+    height:30px;
+  }
+
+  .z-footer-bottom{
+    margin-top:34px;
+    padding-top:18px;
+  }
+
+  .z-footer-bottom span{
+    max-width:290px;
+
+    font-size:.52rem;
   }
 }
