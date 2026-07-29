@@ -231,6 +231,7 @@
   background: transparent;
   border: none;
   box-shadow: none;
+  -webkit-backdrop-filter: none;
   backdrop-filter: none;
 
   color: rgba(255,255,255,.9);
@@ -355,6 +356,7 @@
   text-align: center;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
   border: 1px solid rgba(15, 207, 217, 0.15);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }
