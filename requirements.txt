@@ -17,3 +17,5 @@ urllib3==2.6.3
 python-dotenv
 gunicorn
 whitenoise
+dj-database-url
+psycopg2-binary
