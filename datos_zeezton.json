@@ -1,0 +1,2402 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6q6kpii2dRGayuQIfQP1R0$fWF0cIveXdKMZ6NVMP9h/5l/+UL5AehVF5X3kkJ2eQk=",
+    "last_login": "2026-07-29T07:57:19.611Z",
+    "is_superuser": true,
+    "username": "matia",
+    "first_name": "",
+    "last_name": "",
+    "email": "matiadelcanto1@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-27T06:10:43.992Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "25sdqgkqw7e4c5tckjelbte2m2yzy8u2",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-rT-U9JzBWq9tHECOFCcV4u4QKQW0b2bei0Xc1ha3UZY4ZXZmkp1-t4T0KH0H-Y79NnOa-7pMie8KP-jg1zmX5-Vw_w4ajvatwVmgbKR3pbhKSekK4JE02eCEDFYFxGowUUrCCR2cNqA0BPCEwhT2_gDeizd8:1wMZcK:d0txYfGm14MXam-LBQdEnnYNW9ItSGVqr1tNYGkP9-w",
+    "expire_date": "2026-05-25T23:00:52.140Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4qv0pj1zllr4g0wp2hhkhy067rgtgljh",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1v1qzk:ZeycZZrouIMdrRixoMT7SgDYrVkeWZt8kxM_leFdJb0",
+    "expire_date": "2025-10-09T18:47:08.811Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "51udq1jogst5skzgog3skm9t9tauoahc",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1w0tyN:AQDbEmc5-bb5M0AeGVeRFhAq2aA6mx1GMnTLbo-oVe0",
+    "expire_date": "2026-03-27T04:18:03.947Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5d7yksevq2zyb9bnyn3asmaa115n45jc",
+  "fields": {
+    "session_data": ".eJxVjsEOgyAQRP9lzw0B0UU89t5vMAsslbaRBvVk_Pdq46E9zsybyazQ0zIP_TJx6VOADiq4_HqO_JPHIwgPGu9Z-DzOJTlxIOJMJ3HLgV_Xk_0bGGga9jaaiIgGrYrakFYmyBi9bxo2jK2sMejatpqplruy1tUmEHtmhxXZGPdRT6WkOUO3QtVCp7YLvDmkkL_Hldw-7qRCVQ:1wUX1V:K2F7Jz3VONwuJED4Lg1I3hhPd3vJLw_fidx1wGWh_cE",
+    "expire_date": "2026-06-16T21:51:45.680Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5k96n4vag9aq2oh65lkhqp272tik9t9i",
+  "fields": {
+    "session_data": "eyJ0aXBvX2NsaWVudGUiOiJpbnZpdGFkbyIsImNhcnJpdG8iOnt9LCJwZWRpZG9faWQiOjM2LCJpbnZpdGFkbyI6dHJ1ZX0:1wZIoG:TxfO7VnNKfovC4YV0nB8jcPiPgkoGJi62nPlC5BHi34",
+    "expire_date": "2026-06-30T01:41:48.366Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6xfmnbbmm1mhoh9pcfz58edm9xh6iqjs",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1vuckg:WFnGKHWOtXGd8k1oyOnLK9hn19ud0OxKxE9tR6tKeE8",
+    "expire_date": "2026-03-09T20:41:58.779Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bu6r1ny1gis3g4x6t5mtvaoz3v0inw4j",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1w5RZ1:zXd7XRcTDEtA49FvPEz1E7nrfZGxELo9gX_Y5m5GhmM",
+    "expire_date": "2026-04-08T16:58:39.783Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cmgl5p1m2bkeii4afm28ua26ky8mrsza",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1vagsk:Fg4jvoEO-FnIpt_i1O2GPvHmqP-HaAH0oEk-xmNIiNY",
+    "expire_date": "2026-01-13T21:03:54.264Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cvuhlphh1uz3r5p3fdr07p1mf5z16ag1",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1voU80:eHO_NXb5zkvgSjxwtf7S80Y-pFU3hBE4HvEfKJC7Oh4",
+    "expire_date": "2026-02-20T22:16:40.747Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "e8z9u43j624jeb6eusu3a9k98wnwher5",
+  "fields": {
+    "session_data": ".eJxVjsEOgyAQRP-Fc0NEcBGPvfcbzMIulbaRBvVk_Pdq46E9zsybyayix2Ue-mXi0icSnajF5dfzGJ48HgE9cLxnGfI4l-TlgcgzneQtE7-uJ_s3MOA07G2wEQAsOBW1Ra0sVTGG0DRsGdrKAGnjWs1oql05540l5MDsoUYX4z4asJQ0Z9Gtom5Fp7aLeDMlyt_jym0f7rZCXg:1wUXgo:RV1-JIfXUt39R4tn54BqawcNCJ9OFKGCDV-ZkB7XnMs",
+    "expire_date": "2026-06-16T22:34:26.779Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g6uudqjr3zjetoiwssppl9bgbexm5xtb",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1wIFcT:qJUEahkqfIgkUbxT57bygEueutyAk_IsfaQrAFP8-HQ",
+    "expire_date": "2026-05-14T00:51:09.275Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gdscsbfvyx8pie4c0s2vd525duv063dg",
+  "fields": {
+    "session_data": "eyJ0aXBvX2NsaWVudGUiOiJpbnZpdGFkbyIsImNhcnJpdG8iOnt9LCJwZWRpZG9faWQiOjQyfQ:1wZWDt:rJO0RNVrsx9Eh4L-GjQYLYMJoOqIVAVPC9Eo3v3s6As",
+    "expire_date": "2026-06-30T16:01:09.719Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ghw05n181agnql3qrre8cso9lhe2c3qr",
+  "fields": {
+    "session_data": "eyJ0aXBvX2NsaWVudGUiOiJpbnZpdGFkbyIsImNhcnJpdG8iOnsiMjkiOjF9fQ:1wZGZM:Y7fc5lud4DkVI8UZWGx7QkOQWGKzDwvp3pOtyCiWz3k",
+    "expire_date": "2026-06-29T23:18:16.865Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ip8suscemvni48jsy0ltlj9kkz00dx50",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1v964s:s4XF888yiqWPyUvtbfRi96ieYqH5FNEJTiX1-ErWRQs",
+    "expire_date": "2025-10-29T18:18:22.190Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m3n0umjz76r4xl7l0a43gukqmahes64b",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1wCLBK:GtjbMqMXR3OGmEx-1hsQKs53CZg_mjhdSLb-Bx3X4Mc",
+    "expire_date": "2026-04-27T17:34:42.291Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m6vpl4mha1ya3prqcrkig9t792gqaneu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1wHagd:eNmqCp_k1vZGkIPloZ1bh1VNkOr6yDsSXUIGQ2kxuUU",
+    "expire_date": "2026-05-12T05:08:43.393Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nfbag1yrxfik16eegdq8mpzkgwqp4fmv",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnGf1PSc4ZovbvBAWRLcVIh7o4spYD2zcx7iwn2rUx753VaSFyEFqffLQM-uQ5AD6j3JrHVbV2yHIo8aJe3Rvy6Hu7fQYFeRm19cEwhG1YGPJ3VnCkpcgmQHFidfQoaGYkhWIg6q-BcNJERZoxefL4ByjjH:1wozAF:pZMEP3r_twOt_8iC94H9aZVvv2oAqkPWM2czwk9Y-sc",
+    "expire_date": "2026-08-12T07:57:19.617Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pfc46ltb3gp3qxl77peduv43bzbusz3b",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1vEzIH:6OyE5NhGF70hA--_2qUUCz2J8CWZEYXvwLNbXLtMO_c",
+    "expire_date": "2025-11-15T00:16:33.191Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tg64qc95cg7692h5riz0u3m9rwx71k0j",
+  "fields": {
+    "session_data": ".eJxVjr0OgzAQg9_l5ioiBPLD2L3PgC65S0lbkSrAhHj3QsXQjrY_W16hx2Ue-mXi0ieCDmq4_Hoew5PHI6AHjvcsQh7nkrw4EHGmk7hl4tf1ZP8GBpyGva1N1Fob7WRUBpU0VMUYQtuyYW2rRpNqnFWMTbUr53xjCDkwe12ji3EfDVhKmjN0K9QWOrld4M2UKH-PS7t9AO60Ql0:1wUXft:CTT_ok4hE-n2XpYIjKWm8bo0q92mRwb-RfaWLoh3HoM",
+    "expire_date": "2026-06-16T22:33:29.179Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wsrc0261zc675g0duok3fbcj61jph26z",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGSiku3XsGMsxMpWogKe3KeHfbpAvd_vfef6uI65Lj2mSOE6uLAnX63RLSU8oO-IHlXjXVssxT0ruiD9r0rbK8rof7d5Cx5a02HY6BCIeRtig5b8DTWfrBSrIAxCRiIaBnS96ZQL5PQI6d850jQPX5AhMlOLI:1w06ng:b2SbQDfhIBb6NaNcmkFMtLzNAREEz53FF4OETJpMSqA",
+    "expire_date": "2026-03-24T23:47:44.737Z"
+  }
+},
+{
+  "model": "finanzas.proveedor",
+  "pk": 1,
+  "fields": {
+    "nombre": "aliexpress",
+    "contacto": "www.aliexpress.com",
+    "creado": "2026-01-27T20:32:32.065Z"
+  }
+},
+{
+  "model": "finanzas.compra",
+  "pk": 2,
+  "fields": {
+    "proveedor": null,
+    "fecha_ingreso": "2026-01-26T22:14:17.760Z",
+    "impuesto_total": 0,
+    "envio_total": 0,
+    "otros_costos": 0,
+    "estado": "BORRADOR"
+  }
+},
+{
+  "model": "finanzas.compraitem",
+  "pk": 2,
+  "fields": {
+    "compra": 2,
+    "producto": 14,
+    "cantidad": 1,
+    "costo_unit_base": 90601,
+    "costo_unit_real": 0
+  }
+},
+{
+  "model": "finanzas.compraitem",
+  "pk": 3,
+  "fields": {
+    "compra": 2,
+    "producto": 15,
+    "cantidad": 1,
+    "costo_unit_base": 123263,
+    "costo_unit_real": 0
+  }
+},
+{
+  "model": "finanzas.compraitem",
+  "pk": 4,
+  "fields": {
+    "compra": 2,
+    "producto": 16,
+    "cantidad": 1,
+    "costo_unit_base": 132746,
+    "costo_unit_real": 0
+  }
+},
+{
+  "model": "finanzas.compraitem",
+  "pk": 5,
+  "fields": {
+    "compra": 2,
+    "producto": 13,
+    "cantidad": 1,
+    "costo_unit_base": 178051,
+    "costo_unit_real": 0
+  }
+},
+{
+  "model": "finanzas.venta",
+  "pk": 1,
+  "fields": {
+    "fecha": "2026-01-26T22:00:30.696Z",
+    "cliente": "matia",
+    "total_venta": 63000,
+    "total_costo": 38794,
+    "ganancia_total": 24206
+  }
+},
+{
+  "model": "finanzas.ventaitem",
+  "pk": 1,
+  "fields": {
+    "venta": 1,
+    "producto": 6,
+    "cantidad": 1,
+    "precio_unitario": 17000,
+    "costo_unitario": 11453
+  }
+},
+{
+  "model": "finanzas.ventaitem",
+  "pk": 2,
+  "fields": {
+    "venta": 1,
+    "producto": 12,
+    "cantidad": 1,
+    "precio_unitario": 46000,
+    "costo_unitario": 27341
+  }
+},
+{
+  "model": "crud.marca",
+  "pk": 1,
+  "fields": {
+    "nombre": "BMW",
+    "creado": "2025-09-25T18:48:28.915Z",
+    "actualizado": "2025-09-25T18:48:28.915Z"
+  }
+},
+{
+  "model": "crud.marca",
+  "pk": 2,
+  "fields": {
+    "nombre": "Universal",
+    "creado": "2026-01-27T20:31:16.262Z",
+    "actualizado": "2026-01-27T20:31:16.262Z"
+  }
+},
+{
+  "model": "crud.categoria",
+  "pk": 1,
+  "fields": {
+    "nombre": "Interior",
+    "creado": "2026-05-18T04:27:00.038Z",
+    "actualizado": "2026-06-15T19:16:15.859Z"
+  }
+},
+{
+  "model": "crud.categoria",
+  "pk": 3,
+  "fields": {
+    "nombre": "Aspecto",
+    "creado": "2026-06-15T19:17:17.872Z",
+    "actualizado": "2026-06-15T19:17:17.872Z"
+  }
+},
+{
+  "model": "crud.categoria",
+  "pk": 4,
+  "fields": {
+    "nombre": "Iluminación",
+    "creado": "2026-06-15T19:17:42.130Z",
+    "actualizado": "2026-06-15T19:17:42.130Z"
+  }
+},
+{
+  "model": "crud.categoria",
+  "pk": 5,
+  "fields": {
+    "nombre": "Performance",
+    "creado": "2026-06-15T19:18:09.553Z",
+    "actualizado": "2026-06-15T19:18:09.553Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Nuevo Emblema BMW Par (82mm y 74mm) Blue Withe",
+    "descripcion": "PARA CAPOT O MALETERO",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 19000,
+    "calificacion": "0.0",
+    "costo_promedio": 9092,
+    "stock": 3,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_0582.JPEG",
+    "creado": "2025-09-25T18:49:28.281Z",
+    "actualizado": "2026-06-08T22:19:06.027Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Cubierta filtro de aceite BMW 3 4",
+    "descripcion": "Cubierta de filtro de aceite BMW serie 3,4. Aluminio muy buena calidad viene con su o'ring.\r\n\r\nmotores N20/N26/N52/N54/N55/S55 F30\r\nE60 E90 F30 E82 E83 E70 Z4",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 35000,
+    "calificacion": "0.0",
+    "costo_promedio": 16927,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_5333.JPEG",
+    "creado": "2025-09-25T18:51:05.785Z",
+    "actualizado": "2026-06-08T22:18:49.409Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Anillos Led BMW E90 E92 2007-2013",
+    "descripcion": "Anillos Led   E90 E92 2007-2013 \r\ncon app multicolor con intermitentes m4",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 90000,
+    "calificacion": "0.0",
+    "costo_promedio": 40718,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_6757.JPEG",
+    "creado": "2025-09-25T18:52:10.187Z",
+    "actualizado": "2026-01-26T21:28:45.601Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 4,
+  "fields": {
+    "nombre": "Emblema 50aniv grupo BMW 2PCS",
+    "descripcion": "Front and Rear 82/74mm.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": false,
+    "precio": 19000,
+    "calificacion": "0.0",
+    "costo_promedio": 8300,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260319_151620_qDn7JHW.JPEG",
+    "creado": "2025-09-25T20:20:27.495Z",
+    "actualizado": "2026-06-08T22:19:41.124Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 5,
+  "fields": {
+    "nombre": "Funda para llave BMW 2006- 2013",
+    "descripcion": "🔑 Funda Protectora TPU para Llave BMW – Diseño Premium.\r\n\r\nFabricada con TPU flexible y resistente.\r\n\r\n🚘 Compatibilidad:\r\nBMW Series E90 / E91 / E92 / E93\r\nBMW E60 / E61 / E70 / E71 / E82 / E87\r\n(Confirma el modelo de tu llave antes de comprar)",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 9990,
+    "calificacion": "0.0",
+    "costo_promedio": 3242,
+    "stock": 3,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260423_125605.JPEG",
+    "creado": "2025-10-14T01:29:20.533Z",
+    "actualizado": "2026-04-24T02:35:06.192Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 6,
+  "fields": {
+    "nombre": "Ambientador Aire Natural BMW DESERT",
+    "descripcion": "El aroma Desert ofrece una sensación fresca y natural, ideal para quienes buscan un ambiente limpio y relajante dentro del vehículo.\r\n\r\n📦 Incluye:\r\n\r\n1 Soporte (Bracket Holder) de diseño elegante y aerodinámico\r\n\r\n1 Barra aromática “Desert Aromatherapy Stick”",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 17000,
+    "calificacion": "0.0",
+    "costo_promedio": 11453,
+    "stock": 3,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260421_214148.JPEG",
+    "creado": "2025-10-14T01:30:39.942Z",
+    "actualizado": "2026-06-02T02:15:15.015Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Emblema 50aniv grupo BMW  2PCS",
+    "descripcion": "front and rear 82/74mm.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 19000,
+    "calificacion": "0.0",
+    "costo_promedio": 15471,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260319_145810.JPEG",
+    "creado": "2025-10-15T18:20:48.103Z",
+    "actualizado": "2026-03-20T22:01:23.047Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 8,
+  "fields": {
+    "nombre": "luz led de cortesia bmw (M)",
+    "descripcion": "luz led de cortesia bmw (M)",
+    "categoria": 4,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": false,
+    "precio": 18000,
+    "calificacion": "0.0",
+    "costo_promedio": 10412,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/imagen_2025-10-15_152537919.png",
+    "creado": "2025-10-15T18:26:15.957Z",
+    "actualizado": "2026-06-15T19:20:00.256Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 9,
+  "fields": {
+    "nombre": "Amortiguador BMW 3 E90' 07-12 Nuevo Par (Traseros)",
+    "descripcion": "Amortiguador A-Premium. \r\nBMW 3  E90' 07-12 Nuevo Par (Traseros)\r\n\r\nModelos: E90/E92/E93 2006-2013.\r\n316i,318,320,330,335i. \r\n\r\nMejora considerablemente el auto\r\nGARANTIZADO. 📑✔️",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 159900,
+    "calificacion": "0.0",
+    "costo_promedio": 84047,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_5824.JPEG",
+    "creado": "2025-10-26T00:06:43.391Z",
+    "actualizado": "2026-04-23T17:05:06.530Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Nuevo Par suspension delantera BMW e90,e92",
+    "descripcion": "A-Premium.\r\nNuevo Upgrade Set Amortiguador BMW 3\r\n\r\n(Delanteros)\r\n\r\nMejora considerablemente el auto\r\n\r\nGARANTIZADO. 📑✔️\r\n\r\nModelos: E90/E92/E93 2006-2013.\r\n316i,318,320,330,335i.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 215000,
+    "calificacion": "0.0",
+    "costo_promedio": 123594,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_5832.JPEG",
+    "creado": "2025-12-30T21:06:47.902Z",
+    "actualizado": "2026-02-06T02:03:15.767Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 11,
+  "fields": {
+    "nombre": "Nuevos Coilovers maXpeedingrod para BMW Serie 3 E90-E92",
+    "descripcion": "🔥 Coilovers Ajustables BMW Serie 3 E90 / E91 / E92 / E93 🔥\r\n\r\nMejora el rendimiento de tu BMW este kit de Coilovers deportivos. Ajusta la altura de 1 a 3 pulgadas para una postura más agresiva y un manejo más firme y preciso Fabricados en aluminio 6061 T6, resistentes y durables, con diseño de doble tubo que ofrece mayor confort y estabilidad en la conducción diaria.",
+    "categoria": 5,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 499990,
+    "calificacion": "0.0",
+    "costo_promedio": 378622,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 4,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_161336.JPEG",
+    "creado": "2025-12-30T21:08:51.058Z",
+    "actualizado": "2026-06-15T19:19:48.122Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 12,
+  "fields": {
+    "nombre": "Sensor de Posición del Cigüeñal BMW – APremium",
+    "descripcion": "Sensor de Posición del Cigüeñal BMW – APremium\r\n\r\nSensor de posición del cigüeñal nuevo, compatible con múltiples modelos BMW. Componente esencial para el correcto funcionamiento del motor, encargado de sincronizar encendido e inyección.\r\n\r\n🚗 Compatibilidad\r\n\r\nCompatible con BMW:\r\n\r\nSerie 1: 128i\r\nSerie 3: 323i, 325i, 328i, 330i, 335i\r\nSerie 5: 525i, 528i, 530i, 535i\r\nSerie 7: 740i\r\nX3, X5, X6\r\nZ4\r\nM5, M6\r\n(Años aprox. 2006–2013, según motorización)\r\n\r\n📦 Producto nuevo, entrega inmediata en Chile.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 39990,
+    "calificacion": "0.0",
+    "costo_promedio": 28584,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260227_145314.JPEG",
+    "creado": "2026-01-08T22:25:20.353Z",
+    "actualizado": "2026-04-22T20:10:08.922Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 13,
+  "fields": {
+    "nombre": "Brazos Suspensión Delantera BMW E9X -E82",
+    "descripcion": "brazos de suspensión delanteros reforzados, fabricados en acero aleado para mayor durabilidad y estabilidad. \r\nDiseñado como reemplazo directo OEM, mejora la precisión de la dirección y reduce vibraciones y ruidos al conducir.\r\n✅ Compatibilidad: BMW Serie 1 y Serie 3 RWD BMW E90: 328i / 335i / 335is (2007–2013, no Xi) BMW E82: 128i / 135i \r\n📦 Incluye: 4 brazos de control, 2 brazos de dirección mas sus cubre polvo",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 275000,
+    "calificacion": "0.0",
+    "costo_promedio": 178051,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260413_140548.JPEG",
+    "creado": "2026-01-26T19:07:36.411Z",
+    "actualizado": "2026-04-30T02:26:39.536Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 14,
+  "fields": {
+    "nombre": "Escáner OBD2 Bluetooth 4.0",
+    "descripcion": "UniCarScan UCSI-2100c\r\n\r\nBimmerCode y MotoScan, funciona con iOS, Android y Windows",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 159990,
+    "calificacion": "0.0",
+    "costo_promedio": 90601,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_163755.JPEG",
+    "creado": "2026-01-26T22:07:18.124Z",
+    "actualizado": "2026-04-30T00:51:37.757Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 15,
+  "fields": {
+    "nombre": "Cuerpo electrónico acelerador bmw 335i...",
+    "descripcion": "Compatible con BMW E87 1 Series M 2011 L6 3.0L, E87 135i 2008-2010 L6 3.0L, E90 335i 2007-2010 L6 3.0L, E90 335i xDrive 2009-2009-2010 10W x 6L 3.0L, F30 335is 2011-2013 L6 3.0L, E60 535i 2008-2010 L6 3.0L, E60 535i xDrive 2009-2010 L6 3.0L, E60 535xi 2008 L6 3. 0L, E65 740i 2011-2012 L6 3.0L, E65 740Li 2011-2012 L6 3.0L, E71/E72/F16 X6 2008-2010 L6 3.0L, E85 Z4 20008-2010 9-201 0 L6 3.0L (Turboalimentado), E85 Z4 2011 L6 3.0L, E85 Z4 2012-2016 L6 3.0L (Turboalimentado)",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 210000,
+    "calificacion": "0.0",
+    "costo_promedio": 123263,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/71BImh6k94L._AC_SL1500_.jpg",
+    "creado": "2026-01-26T22:09:08.585Z",
+    "actualizado": "2026-04-13T17:50:06.869Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 16,
+  "fields": {
+    "nombre": "Brazos control superior trasero e9X",
+    "descripcion": "Compatible con BMW 128i y 135i 2008-2013, 323i 2006-2010, 325i y 325xi y 330i y 330xi 2006-2006, 328i 2007-2013, 328i xDrive y 335I xDrive 2009-2013, 328xi y 335xi 2007-2008, 335d 2009-2011, 335i 2007-2014, 335is 2011-2013, X1 2012-2014",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 199000,
+    "calificacion": "0.0",
+    "costo_promedio": 132746,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_164201.JPEG",
+    "creado": "2026-01-26T22:20:34.934Z",
+    "actualizado": "2026-04-28T05:13:52.073Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 19,
+  "fields": {
+    "nombre": "Alerones laterales parachoques trasero BMW performance",
+    "descripcion": "Convierte tu vehículo un aspecto agresivo y sofisticado con nuestros parachoques decorativos de alto rendimiento.\r\n\r\nDiseño Deportivo Premium\r\nCompatibilidad Universal\r\nMaterial TPU de Alta Resistencia\r\nProtección Todo Clima\r\n\r\nestilo fibra de carbono \r\nzeezton.cl",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 19990,
+    "calificacion": "0.0",
+    "costo_promedio": 12944,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/IMG_5357_eztxCr5.JPEG",
+    "creado": "2026-01-27T20:35:01.606Z",
+    "actualizado": "2026-04-23T17:19:25.753Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 20,
+  "fields": {
+    "nombre": "Aleron lateral tapabarro performance",
+    "descripcion": "Pegatinas de maletero lateral para guardabarros de carrocería negra de carbono para BMW Performance F30 F32 F36 F34 G20 G23 3 Serie F20 F22 F26 X5 X6 X7 X3 X1",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 29990,
+    "calificacion": "0.0",
+    "costo_promedio": 16957,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/IMG_5299.JPEG",
+    "creado": "2026-01-28T15:36:57.268Z",
+    "actualizado": "2026-04-22T20:16:10.479Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 21,
+  "fields": {
+    "nombre": "Aleron lateral de flujo de aire para auto universal",
+    "descripcion": "Aleron lateral de flujo de aire para auto universal",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 18000,
+    "calificacion": "0.0",
+    "costo_promedio": 7698,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/IMG_5346.JPEG",
+    "creado": "2026-01-29T01:33:21.239Z",
+    "actualizado": "2026-01-29T01:33:21.239Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 22,
+  "fields": {
+    "nombre": "Set Emblema BMW 50 Aniversario M",
+    "descripcion": "Set Emblema BMW 50 Aniversario M",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 43000,
+    "calificacion": "0.0",
+    "costo_promedio": 14553,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_5305.JPEG",
+    "creado": "2026-02-02T05:36:08.803Z",
+    "actualizado": "2026-06-08T22:17:55.760Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 23,
+  "fields": {
+    "nombre": "Sensor de Temperatura de Refrigerante BMW A-Premium",
+    "descripcion": "A-Premium\r\nseries: 1,2,3,4,5,6,7",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 49900,
+    "calificacion": "0.0",
+    "costo_promedio": 31918,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260227_144750.JPEG",
+    "creado": "2026-02-04T16:32:59.440Z",
+    "actualizado": "2026-03-13T15:55:54.147Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 24,
+  "fields": {
+    "nombre": "MPerformance vinilo impermeable 2 uds.",
+    "descripcion": "Dale un look M Performance auténtico a tu BMW con este sticker lateral de alta calidad. Ideal para realzar puertas, faldones o laterales del vehículo, manteniendo una estética deportiva y elegante.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": false,
+    "precio": 6990,
+    "calificacion": "0.0",
+    "costo_promedio": 2995,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_5631.JPEG",
+    "creado": "2026-02-04T16:42:17.253Z",
+    "actualizado": "2026-02-04T16:42:40.506Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 25,
+  "fields": {
+    "nombre": "Calcomanía de vinilo impermeable Kanji Japonés “愛 – Amor”",
+    "descripcion": "Dale un estilo único y con significado a tu auto o accesorios con este kanji japonés 愛 (Amor), símbolo de pasión, fuerza y conexión.\r\n\r\n✨ Características:\r\n\r\nVinilo impermeable y resistente al sol\r\nNo se decolora ni se despega\r\nTamaño: 16 cm\r\nFácil instalación, no deja residuos\r\nIdeal para autos, vidrios, notebooks, motos\r\n\r\n📦 Producto nuevo, listo para entrega.\r\n🔥 Stock limitado.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": false,
+    "precio": 6990,
+    "calificacion": "0.0",
+    "costo_promedio": 2995,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/IMG_5648.JPEG",
+    "creado": "2026-02-04T16:44:06.709Z",
+    "actualizado": "2026-02-04T16:44:06.709Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 26,
+  "fields": {
+    "nombre": "Extractor Inyectores BMW N54-N55 -S65",
+    "descripcion": "Herramienta especializada para extracción de inyectores, diseñada para facilitar el retiro seguro sin dañar el inyector ni la culata. Ideal para mantenimiento y reparaciones en motores BMW.",
+    "categoria": 5,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 19900,
+    "calificacion": "0.0",
+    "costo_promedio": 12547,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260423_125417.JPEG",
+    "creado": "2026-02-04T16:50:11.757Z",
+    "actualizado": "2026-06-15T19:19:02.043Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 27,
+  "fields": {
+    "nombre": "Tela alcantara autoadhesiva 50x150cm",
+    "descripcion": "50x150cm autoadhesiva para interior de vehículo.\r\nIdeal para forrar piezas, paneles o detalles interiores.\r\nFácil instalación, excelente terminación.",
+    "categoria": 1,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 38990,
+    "calificacion": "0.0",
+    "costo_promedio": 26774,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 1,
+    "marca": 2,
+    "imagen": "productos/imagen_2026-02-05_195718107.png",
+    "creado": "2026-02-05T22:57:20.938Z",
+    "actualizado": "2026-06-02T02:14:27.869Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 28,
+  "fields": {
+    "nombre": "Ambientador colgante estilo JDM / Anime 🚗🔥",
+    "descripcion": "Aroma agradable, diseño llamativo.\r\nIdeal para espejo retrovisor.\r\nProducto nuevo – entrega inmediata.\r\n\r\n1 unidad: $5.990\r\n2 unidades: $10.990\r\n3 unidades: $14.990",
+    "categoria": 1,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 3990,
+    "calificacion": "0.0",
+    "costo_promedio": 1900,
+    "stock": 4,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/Photoroom_20260423_125130.JPEG",
+    "creado": "2026-02-05T22:59:02.824Z",
+    "actualizado": "2026-06-15T19:19:11.344Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 29,
+  "fields": {
+    "nombre": "Pomo botón de inicio BMW E9X LHD",
+    "descripcion": "LED iluminada, diseño moderno y deportivo 🔥\r\nExcelente agarre, terminación premium y fácil instalación.",
+    "categoria": 1,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 79990,
+    "calificacion": "0.0",
+    "costo_promedio": 61732,
+    "stock": 9,
+    "orden": 1,
+    "orden_destacado": 6,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260313_000138.JPEG",
+    "creado": "2026-02-05T23:00:26.129Z",
+    "actualizado": "2026-06-16T02:12:06.849Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 30,
+  "fields": {
+    "nombre": "Cubierta lateral Fibra Carbon E9X",
+    "descripcion": "Marco de boton Asiento Piloto y Pasjero.\r\nSerie: 3 E90 (2005–2012) y X1 E84 (2010–2015).\r\n\r\nMaterial ABS de alta calidad, instalación fácil con cinta 3M.\r\n\r\n📍 Entrega inmediata en Chile.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 69990,
+    "calificacion": "0.0",
+    "costo_promedio": 54864,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 5,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_163120.JPEG",
+    "creado": "2026-02-05T23:01:35.562Z",
+    "actualizado": "2026-06-02T02:16:47.647Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 32,
+  "fields": {
+    "nombre": "Set Clips Retenedor Plasticos Interior",
+    "descripcion": "800Uds sujetador 16 tamaños más comunes que cubren los tamaños de orificios de 5 mm a 10 mm que pueden reemplazar exactamente el OEM\r\n\r\n📦 incluye herramientas de extracción.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 39990,
+    "calificacion": "0.0",
+    "costo_promedio": 29099,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/Photoroom_20260423_130321.JPEG",
+    "creado": "2026-02-10T17:13:47.505Z",
+    "actualizado": "2026-04-23T17:12:12.232Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 33,
+  "fields": {
+    "nombre": "Bomba Agua Electrica REVO BMW 135i, 335i, 535i, 640i, 740i, X1 X3 X5 X6 Z4",
+    "descripcion": "Aluminio \r\n\r\ncompatible:  135i, 335i, 535i, 640i, 740i, X1 X3 X5 X6 Z4\r\n\r\n1 año de garantia",
+    "categoria": 5,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 232765,
+    "calificacion": "0.0",
+    "costo_promedio": 112765,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_162041.JPEG",
+    "creado": "2026-02-17T18:07:01.291Z",
+    "actualizado": "2026-06-15T19:18:53.939Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 34,
+  "fields": {
+    "nombre": "Discos perforados Ranurados BMW E9X",
+    "descripcion": "Traseros E9X 330I - 335I (2009 -2013)\r\n\r\nIzquierdo-Derecho + Nuevas Patilla.\r\n\r\nCompatible con BMW: 330i, 330xi \r\n2006, 335d 2009-2011, 335i 2007-2013, 335i xDrive 2009-2013, 335is 2011-2013, 335xi 2007-2008, X1 2013-2015---L6 3.0L;",
+    "categoria": 5,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 244702,
+    "calificacion": "0.0",
+    "costo_promedio": 129702,
+    "stock": 0,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_155719.JPEG",
+    "creado": "2026-02-18T20:07:56.587Z",
+    "actualizado": "2026-06-15T19:18:43.212Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 35,
+  "fields": {
+    "nombre": "kit Cubierta Protectora Carroceria 2uds.",
+    "descripcion": "Color negro Material: ABS\r\nIncluye: Cinta Adhesiva",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": false,
+    "precio": 17000,
+    "calificacion": "0.0",
+    "costo_promedio": 6530,
+    "stock": 2,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/Photoroom_20260225_160553.JPEG",
+    "creado": "2026-02-19T17:29:35.170Z",
+    "actualizado": "2026-03-13T15:43:20.505Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 36,
+  "fields": {
+    "nombre": "Ambientador BMW 50 anv black",
+    "descripcion": "Aromas\r\n-Purple Elegant Fragance\r\n-Green Light Fragance\r\n-Blue Fresh Muxiang\r\n-Yellow Floral Fragance",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 17000,
+    "calificacion": "0.0",
+    "costo_promedio": 6184,
+    "stock": 4,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260302_130738.JPEG",
+    "creado": "2026-02-19T17:39:38.855Z",
+    "actualizado": "2026-03-03T20:33:45.438Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 37,
+  "fields": {
+    "nombre": "Angulo Difusor Trasero BMW E90,E92",
+    "descripcion": "Parachoques trasero",
+    "categoria": 3,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 19000,
+    "calificacion": "0.0",
+    "costo_promedio": 8396,
+    "stock": 2,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/Photoroom_20260313_002311.JPEG",
+    "creado": "2026-02-20T20:14:16.152Z",
+    "actualizado": "2026-06-15T19:19:31.164Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 38,
+  "fields": {
+    "nombre": "Bolso Organizadora para Maletero BMW",
+    "descripcion": "para Maletero \r\n\r\nMedidas: 50x15x24cm",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 19990,
+    "calificacion": "0.0",
+    "costo_promedio": 12164,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 4,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_154626.JPEG",
+    "creado": "2026-02-20T20:15:21.665Z",
+    "actualizado": "2026-06-02T02:15:37.637Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 39,
+  "fields": {
+    "nombre": "Parpado Embellecedor Faro Delantero BMW E92",
+    "descripcion": "Faro Delantero E92 LCI Tipo Carbono\r\n\r\nIncluye cinta adhesiva",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 19990,
+    "calificacion": "0.0",
+    "costo_promedio": 9270,
+    "stock": 2,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_0648.JPEG",
+    "creado": "2026-02-20T20:17:12.064Z",
+    "actualizado": "2026-04-22T20:15:30.902Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 40,
+  "fields": {
+    "nombre": "Cubierta de Pedal BMW",
+    "descripcion": "Compatible: F20 F21 F22 F23 F24 F30 F31 F32 F33 F34 F35 \r\nF36 F80 F82 F83 E81 E82 E88 E90 E91 E92 E93",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": true,
+    "super_oferta": true,
+    "precio": 19900,
+    "calificacion": "0.0",
+    "costo_promedio": 6126,
+    "stock": 3,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/IMG_0651.JPEG",
+    "creado": "2026-02-20T20:58:29.981Z",
+    "actualizado": "2026-04-22T20:09:25.391Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 41,
+  "fields": {
+    "nombre": "Set Emblema BMW new black",
+    "descripcion": "7 piezas. 74/82 mm , cubre llantas 68 mm, volante 46mm.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 43000,
+    "calificacion": "0.0",
+    "costo_promedio": 14553,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260225_151643.JPEG",
+    "creado": "2026-02-25T19:09:50.272Z",
+    "actualizado": "2026-03-13T03:42:06.971Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 42,
+  "fields": {
+    "nombre": "Emblema black grupo BMW 2PCS",
+    "descripcion": "Front and Rear 82/74mm.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 19000,
+    "calificacion": "0.0",
+    "costo_promedio": 8300,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260319_152605.JPEG",
+    "creado": "2026-03-03T21:54:09.187Z",
+    "actualizado": "2026-03-20T21:59:21.255Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 43,
+  "fields": {
+    "nombre": "Emblema Fibra de Carbono 50 Aniv Grupo BMW 7PCS",
+    "descripcion": "7 piezas. 74/82 mm, Cubierta llantas de 68 mm, Emblema 45 mm para Volante\r\n\r\nmodelos: 2 3 4 5 7 series X 1 2 3 4 5 7",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": true,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 44990,
+    "calificacion": "0.0",
+    "costo_promedio": 33367,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260310_201641.jpg",
+    "creado": "2026-03-10T23:54:35.036Z",
+    "actualizado": "2026-04-28T05:13:33.932Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 44,
+  "fields": {
+    "nombre": "Emblema 50 Aniversario Grupo BMW",
+    "descripcion": "7 piezas. 74/82 mm, Cubierta llantas de 68 mm, Emblema 45 mm para Volante\r\n\r\nmodelos: 2 3 4 5 7 series X 1 2 3 4 5 7",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 43000,
+    "calificacion": "0.0",
+    "costo_promedio": 24807,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260310_201954.jpg",
+    "creado": "2026-03-10T23:57:38.085Z",
+    "actualizado": "2026-03-13T03:38:53.020Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 45,
+  "fields": {
+    "nombre": "Emblema Fibra de Carbono Grupo BMW",
+    "descripcion": "7 piezas 74/82 mm, Cubierta llantas de 68 mm, Emblema 45 mm para Volante \r\n\r\nmodelos: 2 3 4 5 7 series X 1 2 3 4 5 7",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 44990,
+    "calificacion": "0.0",
+    "costo_promedio": 35105,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260310_200114.jpg",
+    "creado": "2026-03-11T00:02:55.262Z",
+    "actualizado": "2026-06-08T22:20:11.218Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 46,
+  "fields": {
+    "nombre": "Emblema fibra de carbono grupo BMW 2PCS",
+    "descripcion": "Front and rear 82/74mm.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 23990,
+    "calificacion": "0.0",
+    "costo_promedio": 15376,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260319_144549.JPEG",
+    "creado": "2026-03-19T17:51:49.156Z",
+    "actualizado": "2026-03-19T23:06:56.688Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 47,
+  "fields": {
+    "nombre": "Emblema 50aniv Fibra de carbono grupo BMW  2PCS",
+    "descripcion": "front and rear 82/74mm.",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 23990,
+    "calificacion": "0.0",
+    "costo_promedio": 15471,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 1,
+    "imagen": "productos/Photoroom_20260319_190641.JPEG",
+    "creado": "2026-03-19T22:10:47.255Z",
+    "actualizado": "2026-06-15T19:16:30.361Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 48,
+  "fields": {
+    "nombre": "Alerón divisor parachoques delantero BMW M3 M4 F80 F82 F83",
+    "descripcion": "BMW M3 M4",
+    "categoria": null,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 32000,
+    "calificacion": "0.0",
+    "costo_promedio": 20000,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "productos/imagen_2026-04-19_231355327.png",
+    "creado": "2026-04-20T03:13:57.954Z",
+    "actualizado": "2026-04-20T03:17:46.311Z"
+  }
+},
+{
+  "model": "crud.producto",
+  "pk": 51,
+  "fields": {
+    "nombre": "Tela Alcantara Techo de Auto",
+    "descripcion": "250x150 cm Tela de Revestimiento para Techo de Auto con Respaldo de Espuma Antideslizante",
+    "categoria": 1,
+    "subcategoria": null,
+    "modelo_auto": null,
+    "destacado": false,
+    "oferta": false,
+    "super_oferta": false,
+    "precio": 89990,
+    "calificacion": "4.0",
+    "costo_promedio": 58902,
+    "stock": 1,
+    "orden": 0,
+    "orden_destacado": 0,
+    "marca": 2,
+    "imagen": "",
+    "creado": "2026-05-19T22:25:50.874Z",
+    "actualizado": "2026-06-11T16:19:18.299Z"
+  }
+},
+{
+  "model": "crud.imagenproducto",
+  "pk": 7,
+  "fields": {
+    "producto": 51,
+    "imagen": "productos/galeria/interior2_OeFdw7d.jpg",
+    "principal": false,
+    "orden": 0,
+    "creado": "2026-05-19T22:25:50.879Z"
+  }
+},
+{
+  "model": "crud.imagenproducto",
+  "pk": 8,
+  "fields": {
+    "producto": 51,
+    "imagen": "productos/galeria/interior_Yw0qUCP.jpg",
+    "principal": false,
+    "orden": 0,
+    "creado": "2026-05-19T22:25:50.881Z"
+  }
+},
+{
+  "model": "crud.imagenproducto",
+  "pk": 9,
+  "fields": {
+    "producto": 29,
+    "imagen": "productos/galeria/pomoe90.png",
+    "principal": true,
+    "orden": 0,
+    "creado": "2026-06-02T02:11:40.590Z"
+  }
+},
+{
+  "model": "crud.reseña",
+  "pk": 1,
+  "fields": {
+    "producto": null,
+    "nombre": "Matia Gonzalez",
+    "email": "m.delcanto10@outlook.com",
+    "comentario": "muy buena pagina moderna simple elegante y muy racing  \\o/",
+    "calificacion": 5,
+    "creado": "2025-10-11T04:40:59.007Z",
+    "aprobada": false
+  }
+},
+{
+  "model": "crud.reseña",
+  "pk": 2,
+  "fields": {
+    "producto": null,
+    "nombre": "DavidGer",
+    "email": "no.reply.WernerMercier@gmail.com",
+    "comentario": "Good day! zeezton.cl, \r\nI found zeezton.cl while looking through web pages. \r\nOur tool helps companies connect with websites in different niches. \r\nThis type of outreach allows companies to reach websites across many industries. \r\n  \r\n  \r\nYou are welcome to contact us if this is relevant for you. \r\n \r\nThanks for taking a moment to read this. \r\nContact us. \r\nTelegram - https://t.me/FeedbackFormEU \r\nWhatsApp - +375259112693 \r\nWhatsApp  https://wa.me/+375259112693 \r\nWe only use chat for communication.",
+    "calificacion": 5,
+    "creado": "2026-03-10T08:54:30.966Z",
+    "aprobada": false
+  }
+},
+{
+  "model": "crud.reseña",
+  "pk": 3,
+  "fields": {
+    "producto": null,
+    "nombre": "DavidGer",
+    "email": "no.reply.JonasGarcia@gmail.com",
+    "comentario": "Greetings! zeezton.cl, \r\nI discovered zeezton.cl while browsing web pages. \r\nOur service is designed to help companies reach relevant websites directly. \r\nOur platform is designed to support communication with websites. \r\n  \r\n  \r\nFeel free to get in touch if you are interested. \r\n \r\nThanks for reading. \r\nContact us. \r\nTelegram - https://t.me/FeedbackFormEU \r\nWhatsApp - +375259112693 \r\nWhatsApp  https://wa.me/+375259112693",
+    "calificacion": 5,
+    "creado": "2026-04-03T00:00:33.226Z",
+    "aprobada": false
+  }
+},
+{
+  "model": "crud.cliente",
+  "pk": 1,
+  "fields": {
+    "numero_documento": "534187310",
+    "nombre": "Matia",
+    "apellido": "Del Canto",
+    "fecha_nacimiento": "1993-03-18",
+    "rut": "183594354",
+    "email": "m.delcanto10@outlook.com",
+    "telefono": "964333347",
+    "direccion": "Til til",
+    "numero": "1980",
+    "comuna": "Ñuñoa",
+    "departamento": "301",
+    "informacion_adicional": "Dejar en consergeria",
+    "creado": "2026-04-25T23:28:40.748Z",
+    "actualizado": "2026-04-25T23:28:40.749Z"
+  }
+},
+{
+  "model": "crud.perfilusuario",
+  "pk": 3,
+  "fields": {
+    "usuario": [
+      "matia"
+    ],
+    "imagen": "",
+    "telefono": "",
+    "direccion": "",
+    "creado": "2026-05-31T05:24:12.586Z"
+  }
+},
+{
+  "model": "crud.venta",
+  "pk": 23,
+  "fields": {
+    "cliente": null,
+    "tipo_documento": "BOLETA",
+    "fecha": "2026-06-11T16:16:40.084Z",
+    "total": 89990
+  }
+},
+{
+  "model": "crud.detalleventa",
+  "pk": 24,
+  "fields": {
+    "venta": 23,
+    "producto": 51,
+    "cantidad": 1,
+    "precio_unitario": 89990,
+    "subtotal": 89990
+  }
+},
+{
+  "model": "crud.direccionentrega",
+  "pk": 4,
+  "fields": {
+    "usuario": [
+      "matia"
+    ],
+    "nombre_completo": "matia del canto",
+    "telefono": "964333347",
+    "region": "Región Metropolitana de Santiago",
+    "comuna": "Ñuñoa",
+    "calle": "Til Til",
+    "numero": "1980",
+    "referencia": "edificio",
+    "predeterminada": true,
+    "creado": "2026-06-01T23:43:48.744Z",
+    "actualizado": "2026-06-01T23:43:48.744Z"
+  }
+},
+{
+  "model": "crud.tarifaenvio",
+  "pk": 1,
+  "fields": {
+    "comuna": "Ñuñoa",
+    "costo": 3990,
+    "activo": true,
+    "creado": "2026-06-08T18:20:14.678Z",
+    "actualizado": "2026-06-08T18:20:14.678Z"
+  }
+},
+{
+  "model": "crud.tarifaenvio",
+  "pk": 2,
+  "fields": {
+    "comuna": "Santiago Centro",
+    "costo": 4990,
+    "activo": true,
+    "creado": "2026-06-08T18:25:58.169Z",
+    "actualizado": "2026-06-08T18:25:58.169Z"
+  }
+},
+{
+  "model": "crud.informe",
+  "pk": 1,
+  "fields": {
+    "titulo": "buenisima",
+    "descripcion": "execelente plataforma",
+    "tipo": "Mejora",
+    "prioridad": "Baja",
+    "estado": "Pendiente",
+    "creado": "2026-05-03T18:31:45.178Z",
+    "actualizado": "2026-05-03T18:31:45.178Z"
+  }
+},
+{
+  "model": "crud.suscriptor",
+  "pk": 1,
+  "fields": {
+    "email": "m.delcanto10@outlook.com",
+    "nombre": "Matia",
+    "marca": "BMW",
+    "modelo": "335i",
+    "activo": true,
+    "creado": "2026-05-03T22:03:04.239Z",
+    "actualizado": "2026-06-05T16:59:23.995Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 381,
+  "fields": {
+    "action_time": "2026-06-02T02:11:40.591Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "29",
+    "object_repr": "Pomo botón de inicio BMW E9X LHD",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"imagen producto\", \"object\": \"Imagen de Pomo bot\\u00f3n de inicio BMW E9X LHD\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 382,
+  "fields": {
+    "action_time": "2026-06-02T02:13:29.910Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "29",
+    "object_repr": "Pomo botón de inicio BMW E9X LHD",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 383,
+  "fields": {
+    "action_time": "2026-06-02T02:13:56.980Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "11",
+    "object_repr": "Nuevos Coilovers maXpeedingrod para BMW Serie 3 E90-E92",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 384,
+  "fields": {
+    "action_time": "2026-06-02T02:14:27.872Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "27",
+    "object_repr": "Tela alcantara autoadhesiva 50x150cm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 385,
+  "fields": {
+    "action_time": "2026-06-02T02:14:43.204Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "6",
+    "object_repr": "Ambientador Aire Natural BMW DESERT",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 386,
+  "fields": {
+    "action_time": "2026-06-02T02:15:15.018Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "6",
+    "object_repr": "Ambientador Aire Natural BMW DESERT",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 387,
+  "fields": {
+    "action_time": "2026-06-02T02:15:37.640Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "38",
+    "object_repr": "Bolso Organizadora para Maletero BMW",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 388,
+  "fields": {
+    "action_time": "2026-06-02T02:16:16.297Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "29",
+    "object_repr": "Pomo botón de inicio BMW E9X LHD",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 389,
+  "fields": {
+    "action_time": "2026-06-02T02:16:47.650Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "30",
+    "object_repr": "Cubierta lateral Fibra Carbon E9X",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 390,
+  "fields": {
+    "action_time": "2026-06-02T02:17:15.859Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "29",
+    "object_repr": "Pomo botón de inicio BMW E9X LHD",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 391,
+  "fields": {
+    "action_time": "2026-06-02T02:17:49.064Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "11",
+    "object_repr": "Nuevos Coilovers maXpeedingrod para BMW Serie 3 E90-E92",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Orden destacado\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 392,
+  "fields": {
+    "action_time": "2026-06-08T18:20:14.682Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "tarifaenvio"
+    ],
+    "object_id": "1",
+    "object_repr": "Ñuñoa - $3990",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 393,
+  "fields": {
+    "action_time": "2026-06-08T18:25:58.171Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "tarifaenvio"
+    ],
+    "object_id": "2",
+    "object_repr": "Santiago Centro - $4990",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 394,
+  "fields": {
+    "action_time": "2026-06-08T22:16:31.709Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "51",
+    "object_repr": "Tela Alcantara Techo de Auto",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 395,
+  "fields": {
+    "action_time": "2026-06-08T22:17:09.705Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "33",
+    "object_repr": "Bomba Agua Electrica REVO BMW 135i, 335i, 535i, 640i, 740i, X1 X3 X5 X6 Z4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 396,
+  "fields": {
+    "action_time": "2026-06-08T22:17:55.763Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "22",
+    "object_repr": "Set Emblema BMW 50 Aniversario M",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 397,
+  "fields": {
+    "action_time": "2026-06-08T22:18:14.990Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "11",
+    "object_repr": "Nuevos Coilovers maXpeedingrod para BMW Serie 3 E90-E92",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 398,
+  "fields": {
+    "action_time": "2026-06-08T22:18:49.413Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "2",
+    "object_repr": "Cubierta filtro de aceite BMW 3 4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 399,
+  "fields": {
+    "action_time": "2026-06-08T22:19:06.030Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "1",
+    "object_repr": "Nuevo Emblema BMW Par (82mm y 74mm) Blue Withe",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 400,
+  "fields": {
+    "action_time": "2026-06-08T22:19:41.126Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "4",
+    "object_repr": "Emblema 50aniv grupo BMW 2PCS",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 401,
+  "fields": {
+    "action_time": "2026-06-08T22:20:11.221Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "45",
+    "object_repr": "Emblema Fibra de Carbono Grupo BMW",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 402,
+  "fields": {
+    "action_time": "2026-06-11T16:14:12.137Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "51",
+    "object_repr": "Tela Alcantara Techo de Auto",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 403,
+  "fields": {
+    "action_time": "2026-06-11T16:19:18.301Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "51",
+    "object_repr": "Tela Alcantara Techo de Auto",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 404,
+  "fields": {
+    "action_time": "2026-06-15T19:16:04.284Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "categoria"
+    ],
+    "object_id": "2",
+    "object_repr": "estetica",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 405,
+  "fields": {
+    "action_time": "2026-06-15T19:16:12.005Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "categoria"
+    ],
+    "object_id": "2",
+    "object_repr": "Estetica",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 406,
+  "fields": {
+    "action_time": "2026-06-15T19:16:15.861Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "categoria"
+    ],
+    "object_id": "1",
+    "object_repr": "Interior",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 407,
+  "fields": {
+    "action_time": "2026-06-15T19:16:30.364Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "47",
+    "object_repr": "Emblema 50aniv Fibra de carbono grupo BMW  2PCS",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 408,
+  "fields": {
+    "action_time": "2026-06-15T19:17:17.875Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "categoria"
+    ],
+    "object_id": "3",
+    "object_repr": "Aspecto",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 409,
+  "fields": {
+    "action_time": "2026-06-15T19:17:42.135Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "categoria"
+    ],
+    "object_id": "4",
+    "object_repr": "Iluminación",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 410,
+  "fields": {
+    "action_time": "2026-06-15T19:17:54.528Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "categoria"
+    ],
+    "object_id": "2",
+    "object_repr": "Estetica",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 411,
+  "fields": {
+    "action_time": "2026-06-15T19:18:09.555Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "categoria"
+    ],
+    "object_id": "5",
+    "object_repr": "Performance",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 412,
+  "fields": {
+    "action_time": "2026-06-15T19:18:43.128Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "34",
+    "object_repr": "Discos perforados Ranurados BMW E9X",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 413,
+  "fields": {
+    "action_time": "2026-06-15T19:18:43.219Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "34",
+    "object_repr": "Discos perforados Ranurados BMW E9X",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 414,
+  "fields": {
+    "action_time": "2026-06-15T19:18:53.822Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "33",
+    "object_repr": "Bomba Agua Electrica REVO BMW 135i, 335i, 535i, 640i, 740i, X1 X3 X5 X6 Z4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 415,
+  "fields": {
+    "action_time": "2026-06-15T19:18:53.944Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "33",
+    "object_repr": "Bomba Agua Electrica REVO BMW 135i, 335i, 535i, 640i, 740i, X1 X3 X5 X6 Z4",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 416,
+  "fields": {
+    "action_time": "2026-06-15T19:19:02.046Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "26",
+    "object_repr": "Extractor Inyectores BMW N54-N55 -S65",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 417,
+  "fields": {
+    "action_time": "2026-06-15T19:19:11.346Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "28",
+    "object_repr": "Ambientador colgante estilo JDM / Anime 🚗🔥",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 418,
+  "fields": {
+    "action_time": "2026-06-15T19:19:21.194Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "29",
+    "object_repr": "Pomo botón de inicio BMW E9X LHD",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 419,
+  "fields": {
+    "action_time": "2026-06-15T19:19:31.168Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "37",
+    "object_repr": "Angulo Difusor Trasero BMW E90,E92",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 420,
+  "fields": {
+    "action_time": "2026-06-15T19:19:48.126Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "11",
+    "object_repr": "Nuevos Coilovers maXpeedingrod para BMW Serie 3 E90-E92",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 421,
+  "fields": {
+    "action_time": "2026-06-15T19:20:00.145Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "8",
+    "object_repr": "luz led de cortesia bmw (M)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Categoria\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 422,
+  "fields": {
+    "action_time": "2026-06-15T19:20:00.261Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "8",
+    "object_repr": "luz led de cortesia bmw (M)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 423,
+  "fields": {
+    "action_time": "2026-06-16T02:12:06.851Z",
+    "user": [
+      "matia"
+    ],
+    "content_type": [
+      "crud",
+      "producto"
+    ],
+    "object_id": "29",
+    "object_repr": "Pomo botón de inicio BMW E9X LHD",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+}
+]

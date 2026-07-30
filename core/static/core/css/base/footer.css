@@ -368,6 +368,11 @@
 
 @media (max-width:768px){
 
+  
+  .z-footer-contact{
+    display:none;
+  }
+
   .z-footer{
     padding:58px 24px 24px;
   }

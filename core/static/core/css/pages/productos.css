@@ -449,7 +449,7 @@
   }
 
   .producto-card{
-    min-height:300px;
+    min-height:246px;
     border-radius:16px;
   }
 
@@ -513,6 +513,8 @@
     min-height:395px;
   }
 }
+
+
 
 /* =========================================================
    MÓVIL MUY PEQUEÑO — HASTA 380px

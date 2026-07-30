@@ -1,12 +1,17 @@
 /* ==========================================================================
-   HOME — ZEEZTON PREMIUM (Desktop + Tablet + Mobile)
+   HOME — ZEEZTON STORE
+   Orden: base/escritorio → notebook → tablet → móvil
    ========================================================================== */
 
 :root {
-  --neon-cyan: #0fcfd9;
-  --neon-blue: #2457ff;
-  --glow-cyan: rgba(15, 207, 217, 0.25);
+  --home-cyan: #0fcfd9;
+  --home-blue: #2457ff;
+  --home-glow: rgba(15, 207, 217, 0.25);
 }
+
+/* ==========================================================================
+   HERO Y CARRUSEL
+   ========================================================================== */
 
 .home-hero {
   position: relative;
@@ -24,62 +29,54 @@
 }
 
 .home-carousel-img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  object-position: center;
 }
 
-/* Overlay cinematográfico */
 .home-hero::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: 
+  background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.65), transparent 60%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.5));
 }
 
-
 /* ==========================================================================
-   CONTENEDOR Y TÍTULO HERO
+   CONTENIDO DEL HERO
    ========================================================================== */
 
 .home-hero-content {
   position: absolute;
   z-index: 4;
-
   top: 46%;
   left: 8%;
-  transform: translateY(-50%);
-
-  max-width: 760px;
-
+  width: min(760px, 84%);
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-
-  margin: 0;
-  padding: 0;
+  transform: translateY(-50%);
 }
 
 .home-kicker {
   display: block;
-
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
   padding: 0;
-
-  color: var(--neon-cyan);
+  color: var(--home-cyan);
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.35em;
   line-height: 1;
-
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  text-shadow: 0 0 10px var(--glow-cyan);
+  text-shadow: 0 0 10px var(--home-glow);
 }
 
 .home-title {
@@ -87,76 +84,60 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-
   margin: 0 !important;
   padding: 0;
+}
 
-  line-height: 0.88;
+.home-title-main,
+.home-title-sub {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-family: "Michroma", sans-serif;
+  text-transform: uppercase;
 }
 
 .home-title-main {
-  display: block;
-
-  margin: 0;
-  padding: 0;
-
-  font-family: "Michroma", sans-serif;
+  color: #fff;
   font-size: clamp(2.5rem, 5.5vw, 3.8rem);
   line-height: 0.88;
-
-  color: #fff;
-  text-transform: uppercase;
   letter-spacing: -1px;
-
   text-shadow:
-    0 0 20px rgba(255,255,255,.15),
-    0 0 40px rgba(15,207,217,.12),
-    0 10px 25px rgba(0,0,0,.65);
+    0 0 20px rgba(255, 255, 255, 0.15),
+    0 0 40px rgba(15, 207, 217, 0.12),
+    0 10px 25px rgba(0, 0, 0, 0.65);
 }
 
 .home-title-sub {
-  display: block;
-
-  margin: 25px 0 0 0;
-  padding: 0;
-
-  font-family: "Michroma", sans-serif;
+  margin-top: 25px;
+  color: var(--home-cyan);
   font-size: clamp(1.1rem, 2vw, 1.5rem);
   line-height: 1;
-
-  color: var(--neon-cyan);
   letter-spacing: 0.5rem;
-  text-transform: uppercase;
-
-  text-shadow:
-    0 0 15px rgba(15,207,217,.35);
+  text-shadow: 0 0 15px rgba(15, 207, 217, 0.35);
 }
 
-/* ==========================================================================
-   ANIMACIÓN HERO — SUAVE Y LIMPIA
-   ========================================================================== */
-
-.home-hero-content {
-  animation: heroContentFade 0.9s ease-out both;
-  animation-delay: 0.25s;
+/*
+  El contenedor no se anima con transform porque eso anulaba el
+  translateX(-50%) usado para centrarlo en tablet y móvil.
+*/
+.home-kicker,
+.home-title-main,
+.home-title-sub {
+  opacity: 0;
+  animation: homeFadeUp 0.8s ease-out both;
 }
 
 .home-kicker {
-  opacity: 0;
-  animation: heroFadeUp 0.7s ease-out both;
-  animation-delay: 0.35s;
+  animation-delay: 0.25s;
 }
 
 .home-title-main {
-  opacity: 0;
-  animation: heroFadeUp 0.8s ease-out both;
-  animation-delay: 0.5s;
+  animation-delay: 0.4s;
 }
 
 .home-title-sub {
-  opacity: 0;
-  animation: heroFadeUp 0.8s ease-out both;
-  animation-delay: 0.65s;
+  animation-delay: 0.55s;
 }
 
 .slot-word,
@@ -173,21 +154,7 @@
   animation: none;
 }
 
-@keyframes heroContentFade {
-  from {
-    opacity: 0;
-    transform: translateY(-46%) scale(0.98);
-    filter: blur(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes heroFadeUp {
+@keyframes homeFadeUp {
   from {
     opacity: 0;
     transform: translateY(22px);
@@ -202,7 +169,7 @@
 }
 
 /* ==========================================================================
-   ACCIONES TEXTO PREMIUM
+   ACCIONES DEL HERO
    ========================================================================== */
 
 .home-actions {
@@ -210,40 +177,34 @@
   z-index: 6;
   left: 50%;
   bottom: 100px;
-  transform: translateX(-50%);
-
   display: flex;
   align-items: center;
   gap: 70px;
-
-  animation: magicButtons 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  animation-delay: 1s;
+  transform: translateX(-50%);
+  animation: homeButtonsIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s both;
 }
 
 .home-btn-primary,
 .home-btn-secondary {
   position: relative;
-
-  padding: 0;
   min-width: auto;
   min-height: auto;
-
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-
-  color: rgba(255,255,255,.9);
-  text-decoration: none !important;
-
-  font-family: "Michroma", sans-serif;
-  font-size: .72rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-
+  padding: 0;
   overflow: visible;
-  transition: .35s ease;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Michroma", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease,
+    text-shadow 0.35s ease;
 }
 
 .home-btn-primary::before,
@@ -252,23 +213,19 @@
   position: absolute;
   left: 50%;
   bottom: -12px;
-
   width: 0;
   height: 2px;
-
-  transform: translateX(-50%);
-
-  background: linear-gradient(90deg, #42e8ff, #2457ff);
   border-radius: 999px;
-
-  transition: .35s ease;
+  background: linear-gradient(90deg, #42e8ff, var(--home-blue));
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
 }
 
 .home-btn-primary:hover,
 .home-btn-secondary:hover {
   color: #fff;
+  text-shadow: 0 0 18px rgba(66, 232, 255, 0.45);
   transform: translateY(-3px);
-  text-shadow: 0 0 18px rgba(66,232,255,.45);
 }
 
 .home-btn-primary:hover::before,
@@ -280,7 +237,7 @@
   display: none;
 }
 
-@keyframes magicButtons {
+@keyframes homeButtonsIn {
   from {
     opacity: 0;
     transform: translateX(-50%) translateY(30px);
@@ -294,408 +251,336 @@
   }
 }
 
-
 /* ==========================================================================
-   CARRUSEL E INDICADORES
+   USUARIO
    ========================================================================== */
 
-.carousel-indicators{
-    bottom: 22px;
-    gap: 12px;
-}
-
-.carousel-indicators button{
-    width: 30px !important;
-    height: 5px !important;
-
-    border: none !important;
-    border-radius: 999px;
-
-    background: rgba(255,255,255,.25) !important;
-    opacity: 1 !important;
-
-    transition: all .35s ease;
-}
-
-.carousel-indicators .active{
-    width: 49px !important;
-
-    background: linear-gradient(
-        90deg,
-        #0bd1ea,
-        #2457ff
-    ) !important;
-
-    box-shadow:
-        0 0 12px rgba(11,209,234,.5);
-}
-
-.carousel-control-prev,
-.carousel-control-next{
-    display:none;
-}
-
-
-/* ==========================================================================
-   BLOQUE DE PRESENTACIÓN
-   ========================================================================== */
-
-.home-presentation {
-  padding: 120px 20px;
-  background:
-    radial-gradient(circle at top left, rgba(15,207,217,0.08), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(120,14,106,0.3), transparent 40%),
-    linear-gradient(180deg, #030303, #090909);
-}
-
-.home-presentation-box {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  border-radius: 24px;
-  text-align: center;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-  border: 1px solid rgba(15, 207, 217, 0.15);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-}
-
-.home-presentation-box h2 {
-  margin: 0 0 20px;
-  color: var(--neon-cyan);
-  font-family: "Michroma", sans-serif;
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-  text-transform: uppercase;
-  text-shadow: 0 0 20px var(--glow-cyan);
-}
-
-.home-presentation-box p {
-  color: rgba(255, 255, 255, 0.75);
-  font-family: "Michroma", sans-serif;
-  font-size: 0.85rem;
-  line-height: 2;
-  letter-spacing: 0.5px;
-}
-
-/* ==========================================================================
-   BOTÓN USUARIO PREMIUM
-   ========================================================================== */
-.home-user-action{
+.home-user-action {
   position: absolute;
   z-index: 7;
-
   left: 50%;
   bottom: 190px;
-  transform: translateX(-50%);
-
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateX(-50%);
 }
 
-.home-login-form{
+.home-login-form {
   margin: 0;
   padding: 0;
 }
 
-.home-login-text{
-  border: none;
+.home-login-text {
+  padding: 0;
+  border: 0;
   background: transparent;
-
-  color: rgba(255,255,255,.82);
-
+  color: rgba(255, 255, 255, 0.82);
   font-family: "Michroma", sans-serif;
-  font-size: .72rem;
-  letter-spacing: .22em;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-
+  white-space: nowrap;
   cursor: pointer;
-
   opacity: 0;
-  animation: loginFadeUp .8s ease-out forwards;
-  animation-delay: .9s;
-
-  transition: .3s ease;
+  animation: homeLoginIn 0.8s ease-out 0.8s forwards;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
-.home-login-text:hover{
+.home-login-text:hover {
   color: #0bd1ea;
-  text-shadow: 0 0 18px rgba(11,209,234,.55);
+  text-shadow: 0 0 18px rgba(11, 209, 234, 0.55);
   transform: translateY(-2px);
 }
 
-.logout-text:hover{
+.logout-text:hover {
   color: #ff4d4d;
-  text-shadow: 0 0 18px rgba(255,77,77,.45);
+  text-shadow: 0 0 18px rgba(255, 77, 77, 0.45);
 }
 
-@keyframes loginFadeUp{
-  from{
+@keyframes homeLoginIn {
+  from {
     opacity: 0;
     transform: translateY(14px);
   }
 
-  to{
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* ==========================================================================
+   INDICADORES DEL CARRUSEL
+   ========================================================================== */
 
+.home-carousel .carousel-indicators {
+  bottom: 22px;
+  gap: 12px;
+  margin-bottom: 0;
+}
 
-/* ==========================
-  FADE BACK NUEVO M3
-========================== */
+.home-carousel .carousel-indicators button {
+  width: 30px !important;
+  height: 5px !important;
+  border: 0 !important;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25) !important;
+  opacity: 1 !important;
+  transition: all 0.35s ease;
+}
 
-.home-m3{
+.home-carousel .carousel-indicators .active {
+  width: 49px !important;
+  background: linear-gradient(90deg, #0bd1ea, var(--home-blue)) !important;
+  box-shadow: 0 0 12px rgba(11, 209, 234, 0.5);
+}
+
+.home-carousel .carousel-control-prev,
+.home-carousel .carousel-control-next {
+  display: none;
+}
+
+/* ==========================================================================
+   SECCIÓN BMW M3
+   ========================================================================== */
+
+.home-m3 {
+  width: calc(100% - 80px);
   max-width: 1400px;
   margin: 140px auto;
   padding: 90px 40px;
-
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  gap: 0px 72px;
   align-items: center;
-
-  background:
-    radial-gradient(circle at 78% 45%, rgba(11,209,234,.18), transparent 35%),
-    linear-gradient(135deg, #050505, #101827);
-
+  gap: 0 72px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 36px;
-  border: 1px solid rgba(255,255,255,.08);
-
-  box-shadow:
-    0 30px 90px rgba(0,0,0,.45);
+  background:
+    radial-gradient(circle at 78% 45%, rgba(11, 209, 234, 0.18), transparent 35%),
+    linear-gradient(135deg, #050505, #101827);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
 }
 
-.m3-content h2{
-  font-size: clamp(2.4rem,5vw,4.8rem);
-  line-height: 1;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 25px;
+.m3-content {
+  min-width: 0;
 }
 
-.m3-content p{
-  font-size: 1.05rem;
-  color: rgba(255,255,255,.75);
-  line-height: 1.8;
-  max-width: 550px;
-}
-
-.m3-badge{
+.m3-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
+  margin-bottom: 20px;
   padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
-
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-
+  background: rgba(255, 255, 255, 0.05);
   color: #0bd1ea;
-  font-size: .8rem;
+  font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-
-  margin-bottom: 20px;
 }
 
-.m3-btn{
+.m3-content h2 {
+  margin: 0 0 25px;
+  color: #fff;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.m3-content p {
+  max-width: 550px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.m3-actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 35px;
+}
+
+.m3-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  margin-top: 35px;
   padding: 14px 32px;
-
   border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-
   background: linear-gradient(135deg, #0bd1ea, #00a2ff);
-  color: white;
-
-  transition: .35s;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.m3-btn:hover{
+.m3-btn:hover {
+  color: #fff;
+  box-shadow: 0 15px 35px rgba(11, 209, 234, 0.25);
   transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(11,209,234,.25);
 }
 
-.m3-slider{
+.m3-more-btn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #0bd1ea;
+  font-family: "Michroma", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.m3-more-btn:hover {
+  color: #fff;
+  text-shadow: 0 0 18px rgba(11, 209, 234, 0.7);
+}
+
+.m3-slider {
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 28px;
-  border: 1px solid rgba(255,255,255,.1);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.55);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
 }
 
-.m3-track{
+.m3-track {
   display: flex;
   width: 100%;
   animation: m3Slide 18s infinite ease-in-out;
 }
 
-.m3-track img{
+.m3-track img {
+  display: block;
   flex: 0 0 100%;
   width: 100%;
   height: 620px;
   object-fit: cover;
-  display: block;
+  object-position: center;
 }
 
-@keyframes m3Slide{
-  0%, 20%{
+@keyframes m3Slide {
+  0%,
+  20% {
     transform: translateX(0);
   }
 
-  25%, 45%{
+  25%,
+  45% {
     transform: translateX(-100%);
   }
 
-  50%, 70%{
+  50%,
+  70% {
     transform: translateX(-200%);
   }
 
-  75%, 95%{
+  75%,
+  95% {
     transform: translateX(-300%);
   }
 
-  100%{
+  100% {
     transform: translateX(0);
   }
 }
 
-/* ==========================
-   ACCIONES M3
-========================== */
+/* ==========================================================================
+   PANEL DESPLEGABLE M3
+   ========================================================================== */
 
-.m3-actions{
-  display:flex;
-  align-items:center;
-  gap:40px;
-  margin-top:35px;
-}
-
-.m3-more-btn{
-  border:none;
-  background:transparent;
-
-  color:#0bd1ea;
-
-  font-family:"Michroma",sans-serif;
-  font-size:.72rem;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-top: 33px;
-  cursor:pointer;
-  transition:.3s ease;
-}
-
-.m3-more-btn:hover{
-  color:#fff;
-  text-shadow:0 0 18px rgba(11,209,234,.7);
-}
-
-/* ==========================
-   PANEL DESPLEGABLE
-========================== */
-
-.m3-extra{
-  grid-column:1 / -1;
-
-  max-height:0;
-  overflow:hidden;
-
-  opacity:0;
-
+.m3-extra {
+  grid-column: 1 / -1;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
   transition:
-    max-height .7s ease,
-    opacity .4s ease,
-    margin-top .4s ease;
+    max-height 0.7s ease,
+    opacity 0.4s ease,
+    margin-top 0.4s ease;
 }
 
-.m3-extra.active{
-  max-height:1200px;
-  opacity:1;
-  margin-top:40px;
+.m3-extra.active {
+  max-height: 1400px;
+  margin-top: 40px;
+  opacity: 1;
 }
 
-.m3-extra-gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+.m3-extra-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
-.m3-extra-gallery img{
-  width:100%;
-  height:280px;
-
-  object-fit:cover;
-
-  border-radius:22px;
-
-  border:1px solid rgba(255,255,255,.08);
-
-  box-shadow:
-    0 20px 45px rgba(0,0,0,.45);
-
-  transition:.35s ease;
+.m3-extra-gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  transition: transform 0.35s ease;
 }
 
-.m3-extra-gallery img:hover{
-  transform:translateY(-6px);
+.m3-extra-gallery img:hover {
+  transform: translateY(-6px);
 }
 
-.m3-specs{
+.m3-specs {
   margin-top: 30px;
   padding: 26px 24px;
-
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
-  background: rgba(8, 15, 28, .86);
-  border: 1px solid rgba(255,255,255,.08);
-
-  box-shadow: 0 20px 45px rgba(0,0,0,.45);
+  background: rgba(8, 15, 28, 0.86);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
 }
 
-.m3-article-tag{
+.m3-article-tag {
   display: block;
   margin-bottom: 14px;
-
   color: #0bd1ea !important;
   font-family: "Michroma", sans-serif;
-  font-size: .62rem;
+  font-size: 0.62rem;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-.m3-specs h3{
+.m3-specs h3 {
+  margin: 0 0 18px;
   color: #fff !important;
   font-family: "Michroma", sans-serif;
   font-size: clamp(1.1rem, 3.8vw, 1.7rem);
   line-height: 1.25;
-  margin-bottom: 18px;
 }
 
-.m3-specs p{
-  color: rgba(255,255,255,.78) !important;
-  font-size: .95rem;
+.m3-specs p {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 0.95rem;
   line-height: 1.8;
-  margin-bottom: 16px;
 }
 
+.m3-specs p:last-child {
+  margin-bottom: 0;
+}
 
-
-
-
+/* ==========================================================================
+   NOTEBOOK — 1025px A 1366px
+   ========================================================================== */
 
 @media (min-width: 1025px) and (max-width: 1366px) {
-
   .home-hero {
     height: 100vh;
     height: 100svh;
@@ -709,14 +594,6 @@
     height: 100%;
   }
 
-  .home-carousel-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  /* Oscurecimiento para mejorar la lectura */
   .home-hero::after {
     background:
       linear-gradient(
@@ -725,57 +602,33 @@
         rgba(0, 0, 0, 0.38) 45%,
         rgba(0, 0, 0, 0.08) 75%
       ),
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.12) 0%,
-        rgba(0, 0, 0, 0.48) 100%
-      );
+      linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.48));
   }
 
-  /* Contenido principal */
   .home-hero-content {
     top: 43%;
     left: 7%;
-    transform: translateY(-50%);
-
-    width: auto;
-    max-width: 620px;
-
-    align-items: flex-start;
-    text-align: left;
-    gap: 8px;
+    width: min(620px, 86%);
   }
 
   .home-kicker {
-    margin-bottom: 6px;
-
     font-size: 0.68rem;
     letter-spacing: 0.32em;
-  }
-
-  .home-title {
-    align-items: flex-start;
   }
 
   .home-title-main {
     font-size: clamp(2.5rem, 4.2vw, 3.35rem);
     line-height: 0.9;
-    letter-spacing: -1px;
   }
 
   .home-title-sub {
     margin-top: 20px;
-
     font-size: clamp(1rem, 1.6vw, 1.3rem);
-    line-height: 1.1;
     letter-spacing: 0.42rem;
   }
 
-  /* Ingreso o sesión de usuario */
   .home-user-action {
-    left: 50%;
     bottom: 145px;
-    transform: translateX(-50%);
   }
 
   .home-login-text {
@@ -783,12 +636,8 @@
     letter-spacing: 0.2em;
   }
 
-  /* Acciones inferiores */
   .home-actions {
-    left: 50%;
     bottom: 70px;
-    transform: translateX(-50%);
-
     gap: 54px;
   }
 
@@ -796,362 +645,384 @@
   .home-btn-secondary {
     font-size: 0.66rem;
     letter-spacing: 3.5px;
-    white-space: nowrap;
   }
 
-  /* Indicadores del carrusel */
-  .carousel-indicators {
+  .home-carousel .carousel-indicators {
     bottom: 18px;
-    margin-bottom: 0;
   }
 
-  .carousel-indicators button {
+  .home-carousel .carousel-indicators button {
     width: 28px !important;
   }
 
-  .carousel-indicators .active {
+  .home-carousel .carousel-indicators .active {
     width: 46px !important;
   }
-}
 
-/* =========================================================
-   SECCIÓN M3 — NOTEBOOK PEQUEÑO
-   Desde 1025px hasta 1366px
-========================================================= */
-
-@media (min-width: 1025px) and (max-width: 1366px) {
-
-  .home-m3{
+  .home-m3 {
     width: calc(100% - 64px);
     max-width: 1240px;
-
     margin: 90px auto;
     padding: 58px 34px;
-
     grid-template-columns: 0.95fr 1.05fr;
-    gap: 0px 72px;
-
+    gap: 0 72px;
     border-radius: 30px;
   }
 
-  .m3-content{
-    min-width: 0;
-  }
-
-  .m3-badge{
+  .m3-badge {
     margin-bottom: 16px;
     padding: 7px 14px;
-
     font-size: 0.66rem;
     letter-spacing: 1.8px;
   }
 
-  .m3-content h2{
+  .m3-content h2 {
     margin-bottom: 20px;
-
     font-size: clamp(2.4rem, 4vw, 3.5rem);
     line-height: 1.05;
   }
 
-  .m3-content p{
-    max-width: 500px;
-
+  .m3-content p {
     font-size: 0.94rem;
     line-height: 1.7;
   }
 
-  .m3-slider{
+  .m3-slider {
     border-radius: 24px;
   }
 
-  .m3-track img{
+  .m3-track img {
     height: 470px;
-    object-position: center;
   }
 
-  .m3-actions{
+  .m3-actions {
     gap: 32px;
     margin-top: 28px;
   }
 
-  .m3-btn{
-    margin-top: 0;
+  .m3-btn {
     padding: 13px 26px;
-
     font-size: 0.85rem;
   }
 
-  .m3-more-btn{
-    margin-top: 0;
-
+  .m3-more-btn {
     font-size: 0.66rem;
     letter-spacing: 2.5px;
   }
 
-  /* Panel desplegable */
-  .m3-extra.active{
+  .m3-extra.active {
     margin-top: 32px;
   }
 
-  .m3-extra-gallery{
+  .m3-extra-gallery {
     gap: 16px;
   }
 
-  .m3-extra-gallery img{
+  .m3-extra-gallery img {
     height: 220px;
     border-radius: 18px;
   }
 
-  .m3-specs{
+  .m3-specs {
     margin-top: 24px;
     padding: 24px;
   }
 
-  .m3-specs h3{
+  .m3-specs h3 {
     font-size: 1.35rem;
   }
 
-  .m3-specs p{
+  .m3-specs p {
     font-size: 0.9rem;
     line-height: 1.7;
   }
 }
 
+/* ==========================================================================
+   TABLET — HASTA 1024px
+   ========================================================================== */
 
-
-/* TABLET */
-@media (max-width: 1024px){
-
-  .home-hero-content{
-    left: 50%;
+@media (max-width: 1024px) {
+  .home-hero-content {
     top: 42%;
-    transform: translate(-50%, -50%);
+    left: 50%;
+    width: min(90%, 720px);
     align-items: center;
     text-align: center;
-    width: min(90%, 720px);
+    transform: translate(-50%, -50%);
   }
 
-  .home-title{
+  .home-title {
+    width: 100%;
     align-items: center;
+    text-align: center;
   }
 
-  .home-actions{
-    left: 50%;
+  .home-actions {
     bottom: 70px;
-    transform: translateX(-50%);
     gap: 48px;
   }
 
-  .home-user-action{
+  .home-user-action {
     bottom: 150px;
   }
 
-  .home-m3{
-    grid-template-columns: 1fr;
-    max-width: calc(100% - 50px);
+  .home-m3 {
+    width: calc(100% - 50px);
     margin: 90px auto;
     padding: 60px 30px;
+    grid-template-columns: 1fr;
     gap: 45px;
   }
 
-  .m3-content{
+  .m3-content {
     text-align: center;
   }
 
-  .m3-content p{
-    margin-left: auto;
+  .m3-content p {
     margin-right: auto;
+    margin-left: auto;
   }
 
-  .m3-track img{
+  .m3-actions {
+    justify-content: center;
+  }
+
+  .m3-track img {
     height: 480px;
   }
 }
 
+/* ==========================================================================
+   TABLET PEQUEÑA Y MÓVIL — HASTA 768px
+   ========================================================================== */
 
-
-
-/* IPHONE / MOBILE */
-@media (max-width: 768px){
-
-  .home-hero{
-    min-height: 100svh;
-  }
-
-  .home-carousel,
-  .home-carousel .carousel-inner,
-  .home-carousel .carousel-item{
-    height: 100svh;
-  }
-
-  .home-carousel-img{
-    object-position: center;
-  }
-
-  .home-hero-content{
+@media (max-width: 768px) {
+  .home-hero-content {
     top: 40%;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -50%);
     width: calc(100% - 36px);
-    align-items: center;
+    max-width: none;
+  }
+
+  .home-kicker {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+  }
+
+  .home-title-main {
+    width: 100%;
+    font-size: clamp(2.1rem, 11vw, 3.2rem);
+    line-height: 1;
+    letter-spacing: 0.06em;
     text-align: center;
-  }
-
-  .home-kicker{
-    font-size: .62rem;
-    letter-spacing: .32em;
-  }
-
-  .home-title-main{
-    font-size: clamp(2.1rem, 12vw, 3.2rem);
-  }
-
-  .home-title-sub{
-    margin-top: 18px;
-    font-size: .9rem;
-    letter-spacing: .45rem;
-  }
-
-  .home-user-action{
-    bottom: 170px;
-  }
-
-  .home-login-text{
-    font-size: .62rem;
-    letter-spacing: .24em;
-  }
-
-  .home-actions{
-    left: 50%;
-    right: auto;
-    bottom: 72px;
-    transform: translateX(-50%);
-
-    flex-direction: row;
-    justify-content: center;
-    gap: 34px;
-
-    width: calc(100% - 30px);
-    animation-name: magicButtons;
-  }
-
-  .home-btn-primary,
-  .home-btn-secondary{
-    width: auto;
-    min-width: auto;
-    min-height: auto;
-    font-size: .58rem;
-    letter-spacing: 3px;
     white-space: nowrap;
   }
 
-  .carousel-indicators{
-    bottom: 18px;
-    margin-bottom: 0;
+  .home-title-sub {
+    margin-top: 16px;
+    padding-left: 0.42rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.42rem;
+    text-align: center;
   }
 
-  .carousel-indicators button{
+  .home-user-action {
+    bottom: 160px;
+  }
+
+  .home-login-text {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+  }
+
+  .home-actions {
+    bottom: 72px;
+    width: calc(100% - 30px);
+    justify-content: center;
+    gap: 34px;
+  }
+
+  .home-btn-primary,
+  .home-btn-secondary {
+    font-size: 0.58rem;
+    letter-spacing: 3px;
+  }
+
+  .home-carousel .carousel-indicators {
+    bottom: 18px;
+  }
+
+  .home-carousel .carousel-indicators button {
     width: 28px !important;
     height: 5px !important;
   }
 
-  .carousel-indicators .active{
+  .home-carousel .carousel-indicators .active {
     width: 44px !important;
   }
 
-  .home-m3{
-    max-width: calc(100% - 24px);
+  .home-m3 {
+    width: calc(100% - 24px);
     margin: 70px auto;
     padding: 42px 20px;
-    border-radius: 28px;
     gap: 32px;
+    border-radius: 28px;
   }
 
-  .m3-badge{
-    font-size: .68rem;
+  .m3-badge {
+    font-size: 0.68rem;
     letter-spacing: 1.5px;
   }
 
-  .m3-content h2{
+  .m3-content h2 {
     font-size: clamp(2rem, 10vw, 2.7rem);
     line-height: 1.05;
   }
 
-  .m3-content p{
-    font-size: .92rem;
+  .m3-content p {
+    font-size: 0.92rem;
     line-height: 1.7;
   }
 
-  .m3-btn{
-    padding: 13px 24px;
-    font-size: .85rem;
+  .m3-actions {
+    flex-direction: column;
+    gap: 15px;
   }
 
-  .m3-slider{
+  .m3-btn {
+    padding: 13px 24px;
+    font-size: 0.85rem;
+  }
+
+  .m3-slider {
     border-radius: 22px;
   }
 
-  .m3-track img{
+  .m3-track img {
     height: 360px;
   }
 
-  .m3-actions{
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
+  .m3-extra.active {
+    max-height: 2400px;
   }
 
-  .m3-extra-gallery{
-    grid-template-columns:1fr;
+  .m3-extra-gallery {
+    grid-template-columns: 1fr;
   }
 
-  .m3-extra-gallery img{
-    height:240px;
+  .m3-extra-gallery img {
+    height: 240px;
   }
 
-  .m3-specs{
-    padding:22px;
+  .m3-specs {
+    padding: 22px;
   }
 }
 
+/* ==========================================================================
+   MÓVIL PEQUEÑO — HASTA 480px
+   ========================================================================== */
 
-
-
-/* IPHONE PEQUEÑO */
-@media (max-width: 480px){
-
-  .home-hero-content{
+@media (max-width: 480px) {
+  .home-hero-content {
     top: 39%;
-    left:50%;
+    width: calc(100% - 24px);
   }
 
-  .home-title-main{
-    font-size: 2.35rem;
+  .home-kicker {
+    font-size: 0.54rem;
+    letter-spacing: 0.22em;
   }
 
-  .home-title-sub{
-    font-size: .78rem;
-    letter-spacing: .38rem;
+  .home-title-main {
+    font-size: clamp(1.9rem, 10.5vw, 2.35rem);
+    letter-spacing: 0.04em;
   }
 
-  .home-actions{
+  .home-title-sub {
+    margin-top: 14px;
+    padding-left: 0.3rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .home-user-action {
+    bottom: 150px;
+  }
+
+  .home-login-text {
+    font-size: 0.56rem;
+    letter-spacing: 0.18em;
+  }
+
+  .home-actions {
     bottom: 68px;
-    gap: 24px;
+    width: calc(100% - 20px);
+    gap: 22px;
   }
 
   .home-btn-primary,
-  .home-btn-secondary{
-    font-size: .52rem;
-    letter-spacing: 2.7px;
+  .home-btn-secondary {
+    font-size: 0.5rem;
+    letter-spacing: 2.2px;
   }
 
-  .home-user-action{
-    bottom: 155px;
+  .home-carousel .carousel-indicators {
+    bottom: 16px;
   }
 
-  .m3-track img{
+  .home-carousel .carousel-indicators button {
+    width: 24px !important;
+    height: 4px !important;
+  }
+
+  .home-carousel .carousel-indicators .active {
+    width: 38px !important;
+  }
+
+  .home-m3 {
+    width: calc(100% - 20px);
+    margin: 55px auto;
+    padding: 34px 16px;
+    gap: 26px;
+    border-radius: 22px;
+  }
+
+  .m3-content h2 {
+    font-size: clamp(1.85rem, 10vw, 2.35rem);
+  }
+
+  .m3-content p {
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .m3-track img {
     height: 300px;
+  }
+
+  .m3-extra-gallery img {
+    height: 220px;
+  }
+
+  .m3-specs {
+    padding: 18px;
   }
 }
 
+/* ==========================================================================
+   ACCESIBILIDAD: REDUCIR MOVIMIENTO
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-kicker,
+  .home-title-main,
+  .home-title-sub,
+  .home-actions,
+  .home-login-text,
+  .m3-track {
+    animation: none;
+    opacity: 1;
+    filter: none;
+  }
+}

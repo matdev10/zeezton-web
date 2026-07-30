@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="{% static 'core/css/pages/productos.css' %}?v={{ version }}">
 <link rel="stylesheet" href="{% static 'core/css/components/pagination.css' %}?v={{ version }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+
 {% endblock %}
 
 {% block main_content %}
@@ -70,7 +72,7 @@
 
 
 {% if productos_destacados %}
-<section class="destacados-section">
+<section class="destacados-section destacados-section--principal">
 
   <div class="destacados-header">
     <span class="section-badge">Selección premium</span>
@@ -180,33 +182,45 @@
 
 
 
-<div class="catalogo-categorias catalogo-categorias-circulares">
+<div class="catalogo-categorias-wrap">
 
-  <a href="{% url 'product' %}"
-     class="{% if not categoria_seleccionada %}active{% endif %}">
-    <i class="fa-solid fa-border-all"></i>
-    <span>Todos</span>
-  </a>
+  <!-- ENLACE TODOS ARRIBA A LA DERECHA -->
+  <div class="catalogo-categorias-superior">
+    <a href="{% url 'product' %}"
+       class="catalogo-ver-todos {% if not categoria_seleccionada %}active{% endif %}">
+      <span aria-hidden="true">—</span>
+      Todos
+    </a>
+  </div>
 
-  {% for categoria in categorias %}
-  <a href="?categoria={{ categoria.id }}"
-     class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}">
+  <!-- CATEGORÍAS CIRCULARES -->
+  <div class="catalogo-categorias catalogo-categorias-circulares">
 
-    {% if categoria.nombre == "Aspecto" %}
-      <i class="fa-solid fa-wand-magic-sparkles"></i>
-    {% elif categoria.nombre == "Iluminación" %}
-      <i class="fa-solid fa-lightbulb"></i>
-    {% elif categoria.nombre == "Interior" %}
-      <i class="fa-solid fa-car-side"></i>
-    {% elif categoria.nombre == "Performance" %}
-      <i class="fa-solid fa-gauge-high"></i>
-    {% else %}
-      <i class="fa-solid fa-tag"></i>
-    {% endif %}
+    {% for categoria in categorias %}
+      <a href="?categoria={{ categoria.id }}"
+         class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}">
 
-    <span>{{ categoria.nombre }}</span>
-  </a>
-  {% endfor %}
+        {% if categoria.nombre == "Aspecto" %}
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+        {% elif categoria.nombre == "Iluminación" %}
+          <i class="fa-solid fa-lightbulb"></i>
+
+        {% elif categoria.nombre == "Interior" %}
+          <i class="fa-solid fa-car-side"></i>
+
+        {% elif categoria.nombre == "Performance" %}
+          <i class="fa-solid fa-gauge-high"></i>
+
+        {% else %}
+          <i class="fa-solid fa-tag"></i>
+        {% endif %}
+
+        <span>{{ categoria.nombre }}</span>
+      </a>
+    {% endfor %}
+
+  </div>
 
 </div>
 
@@ -214,7 +228,7 @@
 
 
 
-  <div class="productos-grid">
+  <div class="productos-grid" id="productos-grid">
 
     {% for p in productos %}
     <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
@@ -306,51 +320,98 @@
 
 {% block js %}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const swiperEl = document.querySelector(".destacados-swiper");
+  const productosGrid = document.querySelector("#productos-grid");
 
-  if (!swiperEl) return;
+  const destacadosOriginales = Array.from(
+    document.querySelectorAll(
+      ".destacados-section--principal .destacado-showcase"
+    )
+  );
 
-  const cantidadSlides =
-    swiperEl.querySelectorAll(".swiper-slide").length;
+  if (!productosGrid || destacadosOriginales.length === 0) return;
 
-  new Swiper(swiperEl, {
-    slidesPerView: 1,
-    spaceBetween: 24,
-    speed: 750,
-    grabCursor: cantidadSlides > 1,
-    loop: cantidadSlides > 1,
-    autoHeight: true,
-    observer: true,
-    observeParents: true,
+  const responsiveQuery = window.matchMedia("(max-width: 820px)");
 
-    autoplay: cantidadSlides > 1
-      ? {
-          delay: 5000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }
-      : false,
+  function quitarDestacadosIntercalados() {
+    productosGrid
+      .querySelectorAll(".catalogo-destacado-intercalado")
+      .forEach((destacado) => destacado.remove());
+  }
 
-    navigation: {
-      nextEl: ".destacados-next",
-      prevEl: ".destacados-prev",
-    },
+  function insertarDestacados() {
+    quitarDestacadosIntercalados();
 
-    pagination: {
-      el: ".destacados-pagination",
-      clickable: true,
-    },
+    const productos = Array.from(
+      productosGrid.querySelectorAll(":scope > .producto-link")
+    );
 
-    keyboard: {
-      enabled: true,
-    },
-  });
+    /*
+      Escritorio: cada 8 productos.
+      Tablet y móvil: cada 4 productos.
+    */
+    const productosPorBloque = responsiveQuery.matches ? 4 : 8;
+
+    const parametros = new URLSearchParams(window.location.search);
+    const paginaActual = Number.parseInt(
+      parametros.get("page") || "1",
+      10
+    );
+
+    const destacadosPorPagina = Math.floor(
+      productos.length / productosPorBloque
+    );
+
+    productos.forEach((producto, index) => {
+      const cantidadProcesada = index + 1;
+      const esFinDeBloque =
+        cantidadProcesada % productosPorBloque === 0;
+
+      if (!esFinDeBloque) return;
+
+      const numeroDeBloque = Math.floor(
+        index / productosPorBloque
+      );
+
+      const indiceDestacado =
+        (
+          (paginaActual - 1) * destacadosPorPagina
+          + numeroDeBloque
+        ) % destacadosOriginales.length;
+
+      const destacado =
+        destacadosOriginales[indiceDestacado].cloneNode(true);
+
+      destacado.classList.add(
+        "catalogo-destacado-intercalado"
+      );
+
+      const numero = destacado.querySelector(
+        ".destacado-showcase__numero"
+      );
+
+      if (numero) {
+        numero.textContent = String(
+          indiceDestacado + 1
+        ).padStart(2, "0");
+      }
+
+      producto.insertAdjacentElement(
+        "afterend",
+        destacado
+      );
+    });
+  }
+
+  insertarDestacados();
+
+  responsiveQuery.addEventListener(
+    "change",
+    insertarDestacados
+  );
 });
 </script>
-
 
 
 
