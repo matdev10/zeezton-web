@@ -184,14 +184,6 @@
 
 <div class="catalogo-categorias-wrap">
 
-  <!-- ENLACE TODOS ARRIBA A LA DERECHA -->
-  <div class="catalogo-categorias-superior">
-    <a href="{% url 'product' %}"
-       class="catalogo-ver-todos {% if not categoria_seleccionada %}active{% endif %}">
-      <span aria-hidden="true">—</span>
-      Todos
-    </a>
-  </div>
 
   <!-- CATEGORÍAS CIRCULARES -->
   <div class="catalogo-categorias catalogo-categorias-circulares">
@@ -221,6 +213,25 @@
     {% endfor %}
 
   </div>
+
+  <!-- NAVEGACIÓN SUPERIOR: OFERTAS / TODOS -->
+<div class="catalogo-categorias-superior">
+
+  <a
+    href="{% url 'offers' %}"
+    class="catalogo-nav-offers"
+  >
+    Ofertas
+  </a>
+
+  <a
+    href="{% url 'product' %}"
+    class="catalogo-ver-todos {% if not categoria_seleccionada %}active{% endif %}"
+  >
+    Todos
+  </a>
+
+</div> 
 
 </div>
 

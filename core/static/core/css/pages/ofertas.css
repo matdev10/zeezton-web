@@ -40,6 +40,7 @@
     );
 }
 
+
 .ofertas-main::before{
   content:"";
   position:absolute;
@@ -169,101 +170,176 @@
 }
 
 /* =========================================================
-   BUSCADOR
+   FILTRO / BUSCADOR DE OFERTAS
+   MISMAS MEDIDAS QUE CATÁLOGO
 ========================================================= */
 
-.ofertas-main .zfiltro-wrap{
-  width:min(1080px, 100%);
-  margin:46px auto 0;
+/* Evita que padding y bordes aumenten el ancho */
+
+.ofertas-main .zfiltro,
+.ofertas-main .zfiltro *,
+.ofertas-main .zfiltro *::before,
+.ofertas-main .zfiltro *::after{
+  box-sizing:border-box;
 }
 
-.ofertas-main .zfiltro{
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.ofertas-main .ofertas-header-main .zfiltro-wrap{
+  width:100%;
+  max-width:none;
+  min-width:0;
+  margin:33px auto 38px;
+}
+
+
+/* =========================================================
+   BARRA PRINCIPAL
+========================================================= */
+
+.ofertas-main .zfiltro,
+.ofertas-main .zfiltro-form{
+  width:100%;
+  min-width:0;
+  padding:7px;
+
   display:grid;
-  grid-template-columns:1.2fr .9fr auto;
+  grid-template-columns:minmax(0, 1.6fr) 280px 160px;
+  align-items:center;
   gap:12px;
 
-  padding:14px;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.09),
+    rgba(255,255,255,.035)
+  );
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.085),
-      rgba(255,255,255,.025)
-    );
-
-  border:1px solid rgba(255,255,255,.11);
-  border-radius:100px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
 
   -webkit-backdrop-filter:blur(18px);
   backdrop-filter:blur(18px);
 
   box-shadow:
-    0 28px 70px rgba(0,0,0,.38),
-    0 0 34px rgba(255,47,146,.08);
+    0 28px 70px rgba(0,0,0,.42),
+    0 0 32px rgba(255,47,146,.08);
 }
 
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
 .ofertas-main .zfiltro-field{
-  min-height:56px;
-  padding:0 19px;
+  position:relative;
+
+  width:100%;
+  min-width:0;
+  min-height:44px;
+  padding:0 18px;
 
   display:flex;
   align-items:center;
   gap:12px;
 
   background:rgba(0,0,0,.58);
-  border:1px solid rgba(255,255,255,.075);
-  border-radius:28px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;
 
   transition:
+    background .22s ease,
     border-color .22s ease,
-    box-shadow .22s ease,
-    background .22s ease;
+    box-shadow .22s ease;
 }
 
 .ofertas-main .zfiltro-field:focus-within{
   background:rgba(0,0,0,.72);
-  border-color:rgba(255,47,146,.52);
-
-  box-shadow:
-    0 0 22px rgba(255,47,146,.12);
+  border-color:rgba(255,47,146,.58);
+  box-shadow:0 0 22px rgba(217,0,255,.14);
 }
+
+
+/* =========================================================
+   ICONOS
+========================================================= */
 
 .ofertas-main .zfiltro-ico{
-  flex:0 0 auto;
-  color:#ff5da9;
-  font-size:.92rem;
+  flex-shrink:0;
+
+  color:#ff2f92;
+  font-size:.95rem;
 }
+
+
+/* =========================================================
+   INPUT Y SELECT
+========================================================= */
 
 .ofertas-main .zfiltro input,
 .ofertas-main .zfiltro select{
   width:100%;
+  min-width:0;
 
   color:#fff;
   background:transparent;
-
-  border:0;
-  outline:0;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
 
   font-family:"Michroma", sans-serif;
-  font-size:.7rem;
+  font-size:.72rem;
 }
 
 .ofertas-main .zfiltro input::placeholder{
-  color:rgba(255,255,255,.43);
+  color:rgba(255,255,255,.42);
 }
 
 .ofertas-main .zfiltro select{
+  padding-right:24px;
+
+  color:rgba(255,255,255,.9);
   cursor:pointer;
+
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
 }
 
 .ofertas-main .zfiltro select option{
   color:#fff;
-  background:#0b0509;
+  background:#080808;
 }
 
-.ofertas-main .zfiltro button{
-  min-height:56px;
-  padding:0 30px;
+
+/* Flecha del select */
+
+.ofertas-main .zfiltro-field:has(select)::after{
+  content:"⌄";
+
+  position:absolute;
+  top:50%;
+  right:18px;
+  transform:translateY(-50%);
+
+  color:rgba(255,255,255,.55);
+  font-size:1rem;
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+.ofertas-main .zfiltro button,
+.ofertas-main .zfiltro-form button{
+  width:100%;
+  min-width:0;
+  min-height:44px;
+  padding:0 24px;
 
   display:inline-flex;
   align-items:center;
@@ -271,26 +347,19 @@
   gap:9px;
 
   color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff2f92 0%,
-      #d900ff 100%
-    );
+  background:linear-gradient(
+    135deg,
+    #ff2f92 0%,
+    #d900ff 100%
+  );
 
   border:0;
   border-radius:999px;
 
   font-family:"Michroma", sans-serif;
-  font-size:.68rem;
-  font-weight:700;
-
+  font-size:.7rem;
+  font-weight:800;
   cursor:pointer;
-
-  box-shadow:
-    0 16px 34px rgba(255,47,146,.22),
-    0 0 28px rgba(217,0,255,.12);
 
   transition:
     transform .22s ease,
@@ -298,13 +367,19 @@
     box-shadow .22s ease;
 }
 
-.ofertas-main .zfiltro button:hover{
+.ofertas-main .zfiltro button:hover,
+.ofertas-main .zfiltro-form button:hover{
   transform:translateY(-2px);
-  filter:brightness(1.08);
+  filter:brightness(1.06);
 
   box-shadow:
-    0 20px 42px rgba(255,47,146,.3),
-    0 0 36px rgba(217,0,255,.17);
+    0 22px 44px rgba(255,47,146,.24),
+    0 0 38px rgba(217,0,255,.18);
+}
+
+.ofertas-main .zfiltro button:active,
+.ofertas-main .zfiltro-form button:active{
+  transform:scale(.98);
 }
 
 /* =========================================================
@@ -513,46 +588,97 @@
   text-shadow:0 0 16px rgba(255,47,146,.7);
 }
 
+
 /* =========================================================
-   ENCABEZADO DE RESULTADOS
+   CÍRCULOS DE CATEGORÍAS
 ========================================================= */
 
-.ofertas-resultados-header{
-  width:min(1380px, calc(100% - 40px));
-  margin:0 auto 36px;
+.ofertas-categorias-section .ofertas-categorias{
+  width:100%;
+  margin:0 auto;
+}
 
+
+/* =========================================================
+   NAVEGACIÓN DEBAJO DE LOS CÍRCULOS — ESCRITORIO
+========================================================= */
+
+.ofertas-main .ofertas-categorias-nav{
+  width:min(1280px, calc(100% - 48px));
+  margin:28px auto 20px;
   display:flex;
-  align-items:flex-end;
+  align-items:center;
   justify-content:space-between;
-  gap:30px;
+  gap:20px;
 }
 
-.ofertas-resultados-header .section-badge{
-  margin-bottom:17px;
-}
 
-.ofertas-resultados-header h2{
-  margin:0;
+/* ESTILO GENERAL */
 
-  color:#fff;
+.ofertas-categorias-nav__link{
+  min-height:0;
+  padding:0;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
 
   font-family:"Michroma", sans-serif;
-  font-size:clamp(1.5rem, 3vw, 2.4rem);
-  font-weight:400;
-  line-height:1.2;
+  font-size:.62rem;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:8px;
+  text-decoration:none;
   text-transform:uppercase;
+
+  transition:
+    color .25s ease,
+    transform .25s ease;
 }
 
-.ofertas-resultados-header > p{
-  flex:0 0 auto;
-  margin:0 0 4px;
 
-  color:rgba(255,255,255,.52);
+/* CATÁLOGO — CELESTE */
 
-  font-family:"Michroma", sans-serif;
-  font-size:.63rem;
-  line-height:1.5;
+.ofertas-categorias-nav__link--catalogo{
+  color:#63d9ff;
 }
+
+.ofertas-categorias-nav__link--catalogo span,
+.ofertas-categorias-nav__link--catalogo i{
+  color:#63d9ff;
+}
+
+.ofertas-categorias-nav__link--catalogo:hover,
+.ofertas-categorias-nav__link--catalogo.active{
+  color:#9ceaff;
+  transform:translateX(3px);
+}
+
+
+/* TODAS — ROSADO */
+
+.ofertas-categorias-nav__link--todos{
+  color:#ff2f92;
+}
+
+.ofertas-categorias-nav__link--todos span,
+.ofertas-categorias-nav__link--todos i{
+  color:#d900ff;
+}
+
+.ofertas-categorias-nav__link--todos:hover,
+.ofertas-categorias-nav__link--todos.active{
+  color:#d900ff;
+  transform:translateX(-3px);
+}
+
+
 
 /* =========================================================
    TARJETAS DE OFERTA
@@ -561,10 +687,26 @@
 .ofertas-productos-grid{
   position:relative;
   z-index:2;
+
+  align-items:start;
+}
+
+/*
+  Mantiene las tarjetas de Ofertas sincronizadas con Catálogo:
+  1 línea de título + 2 líneas de descripción.
+*/
+
+.ofertas-productos-grid .producto-link{
+  height:auto;
+  align-self:start;
 }
 
 .oferta-producto-card{
   position:relative;
+
+  height:auto;
+  min-height:0;
+
   border-color:rgba(255,255,255,.1);
 
   background:
@@ -579,6 +721,30 @@
     transform .24s ease,
     border-color .24s ease,
     box-shadow .24s ease;
+}
+
+.oferta-producto-card .producto-info{
+  flex:0 0 auto;
+  min-height:0;
+}
+
+.oferta-producto-card .producto-info h3{
+  height:1.38em;
+  min-height:1.38em;
+
+  -webkit-line-clamp:1;
+}
+
+.oferta-producto-card .producto-info p{
+  height:3em;
+  min-height:3em;
+  margin-bottom:0;
+
+  -webkit-line-clamp:2;
+}
+
+.oferta-producto-card .producto-bottom{
+  margin-top:10px;
 }
 
 .oferta-producto-card:hover{
@@ -728,6 +894,102 @@
     0 12px 28px rgba(255,47,146,.22);
 }
 
+
+  .ofertas-destacado-intercalado{
+    grid-column:1 / -1;
+    width:100%;
+    min-width:0;
+    margin:18px 0;
+  }
+
+  .ofertas-destacado-intercalado .oferta-showcase{
+    width:100%;
+  }
+
+  @media (max-width:768px){
+    .ofertas-destacado-intercalado{
+      margin:10px 0;
+    }
+  }
+
+/* =========================================================
+   SUPER OFERTA INTERCALADA
+========================================================= */
+
+/* Contenedor exterior: no debe funcionar como otro grid */
+.productos-grid > .ofertas-destacado-intercalado{
+  grid-column:1 / -1;
+
+  width:100%;
+  height:auto !important;
+  min-height:0 !important;
+  min-width:0;
+  margin:18px 0;
+
+  display:block !important;
+  grid-template-columns:none !important;
+  grid-template-rows:none !important;
+
+  overflow:visible;
+  background:none;
+  border:0;
+  border-radius:0;
+}
+
+/* Tarjeta destacada real */
+.productos-grid
+> .ofertas-destacado-intercalado
+> .oferta-showcase{
+  width:100%;
+  max-width:none;
+  min-width:0;
+
+  height:390px;
+  min-height:390px;
+
+  display:grid;
+  grid-template-columns:minmax(0, 57%) minmax(0, 43%);
+}
+
+/* Imagen */
+.productos-grid
+> .ofertas-destacado-intercalado
+> .oferta-showcase
+> .destacado-showcase__imagen{
+  width:100%;
+  height:390px;
+  min-height:390px;
+  min-width:0;
+}
+
+/* Contenido */
+.productos-grid
+> .ofertas-destacado-intercalado
+> .oferta-showcase
+> .destacado-showcase__contenido{
+  width:100%;
+  max-width:none;
+  min-width:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================================
    NOTEBOOK — 1025px A 1366px
 ========================================================= */
@@ -753,7 +1015,115 @@
   .ofertas-resultados-header{
     width:min(1240px, calc(100% - 32px));
   }
+
+  .ofertas-productos-grid .producto-link{
+    height:auto;
+  }
+
+  .ofertas-productos-grid .oferta-producto-card{
+    height:auto;
+    min-height:0;
+  }
+
+  .ofertas-productos-grid .producto-info{
+    flex:0 0 auto;
+    min-height:0;
+  }
+
+  .ofertas-productos-grid .producto-info h3{
+    height:1.35em;
+    min-height:1.35em;
+
+    -webkit-line-clamp:1;
+  }
+
+  .ofertas-productos-grid .producto-info p{
+    height:3em;
+    min-height:3em;
+    margin:0;
+
+    -webkit-line-clamp:2;
+  }
+
+  .ofertas-productos-grid .producto-bottom{
+    margin-top:10px;
+  }
+
+    .ofertas-categorias-section{
+    width:min(960px, calc(100% - 32px));
+    margin:0 auto 42px;
+  }
 }
+
+/* =========================================================
+   BUSCADOR RESPONSIVE — TABLET / NOTEBOOK
+========================================================= */
+
+@media (max-width: 1024px){
+
+  .ofertas-main .zfiltro-wrap{
+    width:min(920px, calc(100% - 32px));
+    margin:30px auto 34px;
+  }
+
+  .ofertas-main .zfiltro{
+    grid-template-columns:minmax(0, 1fr) 240px 145px;
+    gap:9px;
+    padding:7px;
+  }
+
+  .ofertas-main .zfiltro-field{
+    min-width:0;
+    min-height:44px;
+    padding:0 15px;
+    gap:10px;
+  }
+
+  .ofertas-main .zfiltro input,
+  .ofertas-main .zfiltro select{
+    min-width:0;
+    font-size:.67rem;
+  }
+
+  .ofertas-main .zfiltro button{
+    min-height:44px;
+    padding:0 18px;
+    font-size:.66rem;
+  }
+
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* =========================================================
    TABLET — HASTA 1024px
@@ -761,110 +1131,167 @@
 
 @media (max-width:1024px){
 
+  /* =========================================================
+     PÁGINA
+  ========================================================= */
+
   .ofertas-main{
     padding:125px 0 85px;
   }
 
-  .ofertas-main .zfiltro{
-    grid-template-columns:1fr 1fr;
-    border-radius:30px;
-  }
 
-  .ofertas-main .zfiltro button{
-    grid-column:1 / -1;
-  }
-
-  .ofertas-destacados{
-    margin-bottom:76px;
-  }
-
-  .ofertas-resultados-header{
-    width:min(960px, calc(100% - 32px));
-  }
-}
-
-/* =========================================================
-   TABLET VERTICAL Y MÓVIL — HASTA 780px
-========================================================= */
-
-@media (max-width:780px){
-
-  .ofertas-main{
-    padding:112px 0 78px;
-  }
+  /* =========================================================
+     ENCABEZADO
+  ========================================================= */
 
   .ofertas-header-main{
-    margin-bottom:54px;
+    width:min(960px, calc(100% - 32px));
+    margin:0 auto 58px;
   }
 
-  .ofertas-header-main h2{
-    font-size:clamp(2rem, 9vw, 3.4rem);
+
+  /* =========================================================
+     BUSCADOR
+  ========================================================= */
+
+  .ofertas-main .ofertas-header-main .zfiltro-wrap{
+    width:100%;
+    max-width:none;
+    min-width:0;
+    margin:30px auto 34px;
   }
 
-  .ofertas-header-main p{
-    font-size:.7rem;
+  .ofertas-main .zfiltro,
+  .ofertas-main .zfiltro-form{
+    width:100%;
+    min-width:0;
+
+    grid-template-columns:minmax(0, 1fr) 220px 140px;
+    align-items:center;
+    gap:8px;
+
+    padding:7px;
+    border-radius:999px;
   }
 
-  .ofertas-main .zfiltro-wrap{
-    margin-top:36px;
+  .ofertas-main .zfiltro-field{
+    width:100%;
+    min-width:0;
+    min-height:44px;
+
+    padding:0 15px;
+    gap:10px;
+
+    border-radius:999px;
   }
 
-  .ofertas-main .zfiltro{
-    grid-template-columns:1fr;
-    padding:12px;
-    border-radius:28px;
+  .ofertas-main .zfiltro input,
+  .ofertas-main .zfiltro select{
+    width:100%;
+    min-width:0;
+
+    font-size:.66rem;
   }
 
-  .ofertas-main .zfiltro button{
+  .ofertas-main .zfiltro button,
+  .ofertas-main .zfiltro-form button{
+    width:100%;
+    min-width:0;
+    min-height:44px;
+
     grid-column:auto;
+
+    padding:0 17px;
+    border-radius:999px;
+
+    font-size:.64rem;
   }
 
-  .ofertas-main .zfiltro-field,
-  .ofertas-main .zfiltro button{
-    min-height:52px;
-    border-radius:20px;
+
+  /* =========================================================
+     CATEGORÍAS
+  ========================================================= */
+
+  .ofertas-categorias-section{
+    width:min(960px, calc(100% - 32px));
+    margin:0 auto 42px;
   }
+
+
+  /* =========================================================
+     NAVEGACIÓN — CATÁLOGO / TODAS
+  ========================================================= */
+
+  .ofertas-categorias-nav{
+    width:100%;
+    margin:28px 0 25px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+
+
+  /* =========================================================
+     PRODUCTOS DESTACADOS
+  ========================================================= */
 
   .ofertas-destacados{
     width:100%;
-    margin-bottom:65px;
+    margin-bottom:76px;
   }
 
   .ofertas-destacados .destacados-header{
     width:calc(100% - 32px);
+    margin-left:auto;
+    margin-right:auto;
   }
 
-  .ofertas-destacados .destacados-header h2{
-    font-size:clamp(1.8rem, 8vw, 2.8rem);
-  }
 
-  .oferta-showcase .destacado-showcase__imagen::after{
-    background:
-      linear-gradient(
-        0deg,
-        rgba(8,2,7,.82) 0%,
-        transparent 58%
-      );
-  }
+  /* =========================================================
+     ENCABEZADO DE RESULTADOS
+  ========================================================= */
 
   .ofertas-resultados-header{
-    width:calc(100% - 28px);
-
-    align-items:flex-start;
-    flex-direction:column;
-    gap:15px;
+    width:min(960px, calc(100% - 32px));
+    margin-left:auto;
+    margin-right:auto;
   }
 
-  .ofertas-resultados-header > p{
-    margin:0;
-  }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================================
-   MÓVIL — HASTA 520px
+   MÓVIL — HASTA 590px
 ========================================================= */
 
-@media (max-width:520px){
+@media (max-width:590px){
+
+  /* =========================================================
+     PÁGINA Y ENCABEZADO
+  ========================================================= */
 
   .ofertas-main{
     padding:102px 0 68px;
@@ -872,13 +1299,13 @@
 
   .ofertas-header-main{
     width:calc(100% - 24px);
-    margin-bottom:46px;
+    margin:0 auto 35px;
   }
 
   .ofertas-main .section-badge{
     min-height:28px;
-    padding:0 13px;
     margin-bottom:17px;
+    padding:0 13px;
 
     font-size:.54rem;
     letter-spacing:1.2px;
@@ -896,29 +1323,181 @@
     line-height:1.75;
   }
 
+
+  /* =========================================================
+     BUSCADOR — UNA SOLA LÍNEA
+  ========================================================= */
+
   .ofertas-main .zfiltro-wrap{
+    width:calc(100% - 24px) !important;
+    margin:24px auto 30px;
+  }
+
+  .ofertas-main .zfiltro,
+  .ofertas-main .zfiltro-form{
+    width:100% !important;
+    min-width:0 !important;
+
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    align-items:center;
+    gap:4px !important;
+
+    padding:4px !important;
+
+    box-sizing:border-box;
+    border-radius:999px !important;
+  }
+
+  .ofertas-main .zfiltro-field{
+    flex:1 1 0 !important;
+
+    width:auto !important;
+    min-width:0 !important;
+    min-height:42px !important;
+    padding:0 10px !important;
+
+    box-sizing:border-box;
+    border-radius:999px !important;
+  }
+
+  .ofertas-main .zfiltro-field:first-of-type{
+    flex-grow:1.35 !important;
+  }
+
+  .ofertas-main .zfiltro-field:nth-of-type(2){
+    flex-grow:.9 !important;
+  }
+
+  .ofertas-main .zfiltro input{
+    flex:1 1 auto;
+
     width:100%;
-    margin-top:30px;
+    min-width:0 !important;
+
+    font-size:.55rem;
   }
 
-  .ofertas-main .zfiltro{
-    gap:9px;
-    border-radius:23px;
+  .ofertas-main .zfiltro button,
+  .ofertas-main .zfiltro-form button{
+    width:78px !important;
+    min-width:78px !important;
+    min-height:42px !important;
+    flex:0 0 78px !important;
+
+    margin:0 !important;
+    padding:0 9px !important;
+
+    box-sizing:border-box;
+    border-radius:999px !important;
+
+    font-size:.52rem;
+
+    background:linear-gradient(
+      135deg,
+      #ff2f92 0%,
+      #d900ff 100%
+    ) !important;
   }
 
-  .ofertas-main .zfiltro input,
-  .ofertas-main .zfiltro select,
-  .ofertas-main .zfiltro button{
-    font-size:.6rem;
+
+  /* =========================================================
+     CONTENEDOR DE CATEGORÍAS
+  ========================================================= */
+
+  .ofertas-categorias-section{
+    width:calc(100% - 12px);
+    margin:0 auto;
   }
+
+
+  /* =========================================================
+     CATEGORÍAS — CUATRO EN UNA FILA
+  ========================================================= */
+
+  .ofertas-categorias-section .catalogo-categorias,
+  .ofertas-categorias-section .catalogo-categorias-circulares,
+  .ofertas-categorias-section .ofertas-categorias{
+    width:100%;
+    margin:0;
+    padding:8px 0 16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:nowrap;
+    gap:8px;
+  }
+
+  .ofertas-categorias-section .catalogo-categorias a,
+  .ofertas-categorias-section .catalogo-categorias-circulares a,
+  .ofertas-categorias-section .ofertas-categorias a{
+    width:70px;
+    height:70px;
+    flex:0 0 70px;
+
+    gap:7px;
+  }
+
+  .ofertas-categorias-section .catalogo-categorias a i,
+  .ofertas-categorias-section .catalogo-categorias-circulares a i,
+  .ofertas-categorias-section .ofertas-categorias a i{
+    font-size:1rem;
+  }
+
+  .ofertas-categorias-section .catalogo-categorias a span,
+  .ofertas-categorias-section .catalogo-categorias-circulares a span,
+  .ofertas-categorias-section .ofertas-categorias a span{
+    max-width:58px;
+
+    font-size:.4rem;
+    line-height:1.2;
+    text-align:center;
+  }
+
+
+  /* =========================================================
+     NAVEGACIÓN — CATÁLOGO / TODAS
+  ========================================================= */
+
+  .ofertas-categorias-nav{
+    width:96%;
+    margin:20px auto 26px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .ofertas-categorias-nav__link{
+    min-height:0;
+    padding:0;
+
+    gap:5px;
+
+    font-size:.5rem;
+    letter-spacing:.55px;
+  }
+
+  .ofertas-categorias-nav__link span{
+    font-size:inherit;
+  }
+
+
+  /* =========================================================
+     SECCIÓN DE DESTACADOS
+  ========================================================= */
 
   .ofertas-destacados{
+    width:100%;
     margin-bottom:56px;
   }
 
   .ofertas-destacados .destacados-header{
     width:calc(100% - 24px);
-    margin-bottom:27px;
+    margin:0 auto 27px;
   }
 
   .ofertas-destacados .destacados-header h2{
@@ -928,6 +1507,11 @@
   .ofertas-destacados .destacados-header p{
     font-size:.61rem;
   }
+
+
+  /* =========================================================
+     ETIQUETAS DE OFERTA
+  ========================================================= */
 
   .oferta-label{
     top:9px;
@@ -944,24 +1528,206 @@
     left:12px;
 
     padding:7px 11px;
+
     font-size:.47rem;
   }
 
-  .ofertas-resultados-header{
-    width:calc(100% - 24px);
-    margin-bottom:27px;
+
+  /* =========================================================
+     TARJETA DESTACADA — VERTICAL
+  ========================================================= */
+
+  .ofertas-destacado-intercalado{
+    margin:12px 0;
   }
 
-  .ofertas-resultados-header h2{
-    font-size:1.35rem;
+  .oferta-showcase{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+
+    display:grid !important;
+    grid-template-columns:minmax(0, 1fr) !important;
+    grid-template-rows:230px auto !important;
+
+    overflow:hidden !important;
+    border-radius:18px !important;
   }
 
-  .ofertas-resultados-header > p{
-    font-size:.56rem;
+
+  /* Imagen */
+
+  .oferta-showcase .destacado-showcase__imagen{
+    width:100% !important;
+    height:230px !important;
+    min-height:230px !important;
+
+    grid-column:1 !important;
+    grid-row:1 !important;
+
+    overflow:hidden !important;
   }
+
+  .oferta-showcase .destacado-showcase__imagen img{
+    width:100% !important;
+    height:100% !important;
+
+    display:block;
+
+    object-fit:cover;
+    object-position:center;
+  }
+
+  .oferta-showcase .destacado-showcase__imagen::after{
+    background:linear-gradient(
+      0deg,
+      rgba(8,2,7,.58) 0%,
+      transparent 45%
+    ) !important;
+  }
+
+
+  /* Contenido */
+
+  .oferta-showcase .destacado-showcase__contenido{
+    width:100% !important;
+    height:auto !important;
+    min-width:0 !important;
+    min-height:0 !important;
+
+    grid-column:1 !important;
+    grid-row:2 !important;
+
+    padding:17px 15px 15px !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+  }
+
+  .oferta-showcase .destacado-showcase__eyebrow{
+    margin-bottom:7px;
+
+    font-size:.47rem;
+    line-height:1.3;
+    letter-spacing:.8px;
+  }
+
+  .oferta-showcase .destacado-showcase__contenido h3{
+    margin:0 0 8px;
+
+    font-size:.82rem;
+    line-height:1.35;
+  }
+
+  .oferta-showcase .destacado-showcase__contenido p{
+    margin:0 0 15px;
+
+    display:-webkit-box;
+    overflow:hidden;
+
+    font-size:.54rem;
+    line-height:1.6;
+
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  }
+
+
+  /* Precio y botón */
+
+  .oferta-showcase .destacado-showcase__footer{
+    width:100%;
+    margin-top:auto;
+
+    display:grid;
+    grid-template-columns:auto minmax(0, 1fr);
+    align-items:end;
+    gap:12px;
+  }
+
+  .oferta-showcase .destacado-showcase__precio{
+    min-width:0;
+    margin:0;
+  }
+
+  .oferta-showcase .destacado-showcase__precio span{
+    display:block;
+    margin-bottom:2px;
+
+    font-size:.43rem;
+  }
+
+  .oferta-showcase .destacado-showcase__precio strong{
+    font-size:.78rem;
+    line-height:1;
+  }
+
+  .oferta-showcase .destacado-showcase__boton{
+    width:100%;
+    min-width:0;
+    min-height:38px;
+
+    margin:0;
+    padding:0 12px;
+
+    border-radius:999px;
+
+    font-size:.48rem;
+  }
+
+
+  /* =========================================================
+     TARJETAS NORMALES
+  ========================================================= */
+
+  .ofertas-productos-grid{
+    margin-top:0;
+    align-items:start;
+  }
+
+  .ofertas-productos-grid .producto-link,
+  .ofertas-productos-grid .oferta-producto-card{
+    height:auto;
+  }
+
+  .ofertas-productos-grid .oferta-producto-card{
+    min-height:0;
+  }
+
+  .ofertas-productos-grid .producto-info{
+    min-height:0;
+    flex:0 0 auto;
+  }
+
+  .ofertas-productos-grid .producto-info h3{
+    height:1.4em;
+    min-height:1.4em;
+    margin-bottom:5px;
+
+    -webkit-line-clamp:1;
+  }
+
+  .ofertas-productos-grid .producto-info p{
+    height:3em;
+    min-height:3em;
+    margin:0;
+
+    -webkit-line-clamp:2;
+  }
+
+  .ofertas-productos-grid .producto-bottom{
+    margin-top:7px;
+  }
+
+
+  /* =========================================================
+     ESTADO SIN PRODUCTOS
+  ========================================================= */
 
   .ofertas-empty{
     padding:55px 17px;
+
     border-radius:20px;
   }
 
@@ -979,13 +1745,31 @@
 
     font-size:.56rem;
   }
+
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================================
-   MÓVIL MUY PEQUEÑO — HASTA 380px
+   MÓVIL MUY PEQUEÑO — HASTA 390px
 ========================================================= */
 
-@media (max-width:380px){
+@media (max-width:390px){
+
+  /* =========================================================
+     ENCABEZADO
+  ========================================================= */
 
   .ofertas-header-main h2{
     font-size:1.72rem;
@@ -995,11 +1779,267 @@
     font-size:.58rem;
   }
 
-  .ofertas-destacados .destacados-header h2{
-    font-size:1.62rem;
+
+  /* =========================================================
+     BUSCADOR — UNA SOLA LÍNEA
+  ========================================================= */
+
+  .ofertas-main .zfiltro,
+  .ofertas-main .zfiltro-form{
+    gap:3px !important;
+    padding:3px !important;
   }
 
-  .ofertas-resultados-header h2{
-    font-size:1.2rem;
+  .ofertas-main .zfiltro-field{
+    min-width:0 !important;
+    min-height:40px !important;
+    padding:0 7px !important;
   }
+
+  .ofertas-main .zfiltro input{
+    min-width:0 !important;
+    font-size:.49rem;
+  }
+
+  .ofertas-main .zfiltro button,
+  .ofertas-main .zfiltro-form button{
+    width:68px !important;
+    min-width:68px !important;
+    flex:0 0 68px !important;
+
+    min-height:40px !important;
+    padding:0 6px !important;
+
+    font-size:.47rem;
+  }
+
+
+  /* =========================================================
+     CATEGORÍAS — CUATRO EN UNA FILA
+  ========================================================= */
+
+  .ofertas-categorias-section{
+    width:calc(100% - 10px);
+  }
+
+  .ofertas-categorias-section .catalogo-categorias,
+  .ofertas-categorias-section .catalogo-categorias-circulares,
+  .ofertas-categorias-section .ofertas-categorias{
+    flex-wrap:nowrap;
+    justify-content:center;
+    gap:5px;
+  }
+
+  .ofertas-categorias-section .catalogo-categorias a,
+  .ofertas-categorias-section .catalogo-categorias-circulares a,
+  .ofertas-categorias-section .ofertas-categorias a{
+    width:70px;
+    height:70px;
+    flex:0 0 70px;
+  }
+
+
+  /* =========================================================
+     NAVEGACIÓN — CATÁLOGO / TODAS
+  ========================================================= */
+
+  .ofertas-categorias-nav{
+    width:96%;
+    margin:18px auto 24px;
+    gap:12px;
+  }
+
+  .ofertas-categorias-nav__link{
+    min-height:0;
+    padding:0;
+    gap:5px;
+
+    font-size:.5rem;
+    letter-spacing:.55px;
+  }
+
+  .ofertas-categorias-nav__link span{
+    font-size:inherit;
+  }
+
+
+  /* =========================================================
+     TARJETA DESTACADA — VERTICAL
+  ========================================================= */
+
+  .oferta-showcase{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+
+    display:grid !important;
+    grid-template-columns:minmax(0, 1fr) !important;
+    grid-template-rows:205px auto !important;
+
+    overflow:hidden !important;
+    border-radius:16px !important;
+  }
+
+
+  /* Imagen */
+
+  .oferta-showcase .destacado-showcase__imagen{
+    width:100% !important;
+    height:205px !important;
+    min-height:205px !important;
+
+    grid-column:1 !important;
+    grid-row:1 !important;
+
+    overflow:hidden !important;
+  }
+
+  .oferta-showcase .destacado-showcase__imagen img{
+    width:100% !important;
+    height:100% !important;
+
+    display:block;
+    object-fit:cover;
+    object-position:center;
+  }
+
+  .oferta-showcase .destacado-showcase__imagen::after{
+    background:linear-gradient(
+      0deg,
+      rgba(8,2,7,.58) 0%,
+      transparent 45%
+    ) !important;
+  }
+
+
+  /* Contenido */
+
+  .oferta-showcase .destacado-showcase__contenido{
+    width:100% !important;
+    height:auto !important;
+    min-width:0 !important;
+    min-height:0 !important;
+
+    grid-column:1 !important;
+    grid-row:2 !important;
+
+    padding:14px 12px 13px !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+  }
+
+  .oferta-showcase .destacado-showcase__eyebrow{
+    margin-bottom:6px;
+
+    font-size:.44rem;
+    line-height:1.3;
+    letter-spacing:.7px;
+  }
+
+  .oferta-showcase .destacado-showcase__contenido h3{
+    margin:0 0 7px;
+
+    font-size:.73rem;
+    line-height:1.35;
+  }
+
+  .oferta-showcase .destacado-showcase__contenido p{
+    margin:0 0 13px;
+
+    display:-webkit-box;
+    overflow:hidden;
+
+    font-size:.49rem;
+    line-height:1.55;
+
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  }
+
+
+  /* Precio y botón */
+
+  .oferta-showcase .destacado-showcase__footer{
+    width:100%;
+    margin-top:auto;
+
+    display:grid;
+    grid-template-columns:auto minmax(0, 1fr);
+    align-items:end;
+    gap:9px;
+  }
+
+  .oferta-showcase .destacado-showcase__precio{
+    min-width:0;
+    margin:0;
+  }
+
+  .oferta-showcase .destacado-showcase__precio span{
+    display:block;
+    margin-bottom:2px;
+    font-size:.4rem;
+  }
+
+  .oferta-showcase .destacado-showcase__precio strong{
+    font-size:.72rem;
+    line-height:1;
+  }
+
+  .oferta-showcase .destacado-showcase__boton{
+    width:100%;
+    min-width:0;
+    min-height:34px;
+
+    margin:0;
+    padding:0 9px;
+
+    border-radius:999px;
+    font-size:.43rem;
+  }
+
+
+  /* =========================================================
+     TARJETAS NORMALES
+  ========================================================= */
+
+  .ofertas-productos-grid{
+    align-items:start;
+  }
+
+  .ofertas-productos-grid .producto-link,
+  .ofertas-productos-grid .oferta-producto-card{
+    height:auto;
+  }
+
+  .ofertas-productos-grid .oferta-producto-card{
+    min-height:0;
+  }
+
+  .ofertas-productos-grid .producto-info{
+    flex:0 0 auto;
+    min-height:0;
+  }
+
+  .ofertas-productos-grid .producto-info h3{
+    height:1.4em;
+    min-height:1.4em;
+    margin-bottom:5px;
+
+    -webkit-line-clamp:1;
+  }
+
+  .ofertas-productos-grid .producto-info p{
+    height:3em;
+    min-height:3em;
+    margin:0;
+
+    -webkit-line-clamp:2;
+  }
+
+  .ofertas-productos-grid .producto-bottom{
+    margin-top:7px;
+  }
+
 }

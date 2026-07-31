@@ -609,11 +609,18 @@
 
   .productos-grid{
     width:calc(100% - 18px);
+    align-items:start;
     gap:9px;
   }
 
+  .producto-link{
+    height:auto;
+  }
+
   .producto-card{
-    min-height:285px;
+    height:auto;
+    min-height:0;
+    border-radius:14px;
   }
 
   .producto-img-wrap{
@@ -621,18 +628,49 @@
   }
 
   .producto-info{
+    flex:0 0 auto;
+    min-height:0;
     padding:9px;
   }
 
+  /* Una línea reservada para el título */
   .producto-info h3{
+    height:1.4em;
+    min-height:1.4em;
+    margin-bottom:5px;
+
     font-size:.53rem;
+    line-height:1.4;
+
+    -webkit-line-clamp:1;
   }
 
+  /* Dos líneas reservadas para la descripción */
   .producto-info p{
+    height:3em;
+    min-height:3em;
+    margin:0;
+
     font-size:.43rem;
+    line-height:1.5;
+
+    -webkit-line-clamp:2;
+  }
+
+  .producto-bottom{
+    margin-top:7px;
+    gap:4px;
   }
 
   .producto-info strong{
     font-size:.69rem;
+  }
+
+  .producto-info strong span{
+    font-size:.47rem;
+  }
+
+  .producto-bottom em{
+    display:none;
   }
 }

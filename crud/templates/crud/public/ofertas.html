@@ -21,6 +21,8 @@
 
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+
 {% endblock %}
 
 
@@ -106,7 +108,10 @@
   ====================================================== -->
 
   {% if productos_super_ofertas %}
-  <section class="destacados-section ofertas-destacados">
+  <section
+    class="destacados-section ofertas-destacados ofertas-destacados--principal"
+    data-super-ofertas-originales
+  >
 
     <div class="destacados-header">
 
@@ -248,176 +253,184 @@
   {% endif %}
 
 
-  <!-- =====================================================
-       CATEGORÍAS
-  ====================================================== -->
+<!-- =====================================================
+     NAVEGACIÓN Y CATEGORÍAS
+====================================================== -->
 
+<section class="ofertas-categorias-section">
+
+  <!-- CÍRCULOS DE CATEGORÍAS -->
   <div class="catalogo-categorias catalogo-categorias-circulares ofertas-categorias">
 
-    <a
-      href="{% url 'offers' %}"
-      class="{% if not categoria_seleccionada %}active{% endif %}"
-    >
-      <i class="fa-solid fa-border-all"></i>
-      <span>Todas</span>
-    </a>
-
-
     {% for categoria in categorias %}
-    <a
-      href="?categoria={{ categoria.id }}"
-      class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}"
-    >
 
-      {% if categoria.nombre == "Aspecto" %}
+      <a
+        href="?categoria={{ categoria.id }}"
+        class="{% if categoria_seleccionada == categoria.id|stringformat:'s' %}active{% endif %}"
+      >
 
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        {% if categoria.nombre == "Aspecto" %}
 
-      {% elif categoria.nombre == "Iluminación" %}
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
 
-        <i class="fa-solid fa-lightbulb"></i>
+        {% elif categoria.nombre == "Iluminación" %}
 
-      {% elif categoria.nombre == "Interior" %}
+          <i class="fa-solid fa-lightbulb"></i>
 
-        <i class="fa-solid fa-car-side"></i>
+        {% elif categoria.nombre == "Interior" %}
 
-      {% elif categoria.nombre == "Performance" %}
+          <i class="fa-solid fa-car-side"></i>
 
-        <i class="fa-solid fa-gauge-high"></i>
+        {% elif categoria.nombre == "Performance" %}
 
-      {% else %}
+          <i class="fa-solid fa-gauge-high"></i>
 
-        <i class="fa-solid fa-tag"></i>
+        {% else %}
 
-      {% endif %}
+          <i class="fa-solid fa-tag"></i>
 
-      <span>{{ categoria.nombre }}</span>
+        {% endif %}
 
-    </a>
+        <span>{{ categoria.nombre }}</span>
+
+      </a>
+
     {% endfor %}
 
   </div>
+
+
+  <!-- NAVEGACIÓN DEBAJO DE LOS CÍRCULOS -->
+<div class="ofertas-categorias-nav">
+
+  <a
+    href="{% url 'catalogo' %}"
+    class="ofertas-categorias-nav__link ofertas-categorias-nav__link--catalogo"
+  >
+    <span>Catálogo</span>
+  </a>
+
+  <a
+    href="{% url 'offers' %}"
+    class="ofertas-categorias-nav__link ofertas-categorias-nav__link--todos {% if not categoria_seleccionada %}active{% endif %}"
+  >
+    <span>Todas</span>
+  </a>
+
+</div>
+
+</section>
 
 
   <!-- =====================================================
        RESULTADOS
   ====================================================== -->
 
-  <div class="ofertas-resultados-header">
 
-    <div>
-      <span class="section-badge">
-        Promociones disponibles
+
+
+<!-- =====================================================
+     CUADRÍCULA DE PRODUCTOS
+====================================================== -->
+
+<div
+  class="productos-grid ofertas-productos-grid"
+  id="ofertas-productos-grid"
+>
+
+  {% for p in productos %}
+
+  <a
+    href="{% url 'detalle_producto' p.pk %}"
+    class="producto-link"
+  >
+
+    <article class="producto-card oferta-producto-card">
+
+      <span class="oferta-label">
+        Oferta
       </span>
 
-      <h2>Todos los productos en oferta</h2>
-    </div>
+      <div class="producto-img-wrap">
 
-    <p>
-      {{ total_resultados }}
-      {% if total_resultados == 1 %}
-        producto encontrado
-      {% else %}
-        productos encontrados
-      {% endif %}
-    </p>
+        {% with img=p.imagenes.first %}
 
-  </div>
+          {% if img %}
+            <img
+              src="{{ img.imagen.url }}"
+              alt="{{ p.nombre }}"
+              loading="lazy"
+            >
 
+          {% elif p.imagen %}
+            <img
+              src="{{ p.imagen.url }}"
+              alt="{{ p.nombre }}"
+              loading="lazy"
+            >
 
-  <!-- =====================================================
-       CUADRÍCULA DE PRODUCTOS
-  ====================================================== -->
-
-  <div class="productos-grid ofertas-productos-grid">
-
-    {% for p in productos %}
-
-    <a
-      href="{% url 'detalle_producto' p.pk %}"
-      class="producto-link"
-    >
-
-      <article class="producto-card oferta-producto-card">
-
-        <span class="oferta-label">
-          Oferta
-        </span>
-
-        <div class="producto-img-wrap">
-
-          {% with img=p.imagenes.first %}
-
-            {% if img %}
-              <img
-                src="{{ img.imagen.url }}"
-                alt="{{ p.nombre }}"
-              >
-
-            {% elif p.imagen %}
-              <img
-                src="{{ p.imagen.url }}"
-                alt="{{ p.nombre }}"
-              >
-
-            {% else %}
-              <img
-                src="{% static 'core/img/image_not_found.jpg' %}"
-                alt="Sin imagen"
-              >
-            {% endif %}
-
-          {% endwith %}
-
-        </div>
-
-
-        <div class="producto-info">
-
-          <h3>{{ p.nombre }}</h3>
-
-          {% if p.marca %}
-            <p>{{ p.marca.nombre }}</p>
           {% else %}
-            <p>{{ p.descripcion|truncatewords:12 }}</p>
+            <img
+              src="{% static 'core/img/image_not_found.jpg' %}"
+              alt="Imagen no disponible"
+              loading="lazy"
+            >
           {% endif %}
 
-          <div class="producto-bottom">
+        {% endwith %}
 
-            <strong>
-              <span>$</span>{{ p.precio|clp }}
-            </strong>
+      </div>
 
-            <em>Ver oferta</em>
+      <div class="producto-info">
 
-          </div>
+        <!-- Siempre reserva una línea -->
+        <h3>{{ p.nombre }}</h3>
+
+        <!-- Siempre existe para reservar dos líneas -->
+        <p>
+          {% if p.marca %}
+            {{ p.marca.nombre }}
+          {% else %}
+            {{ p.descripcion|truncatewords:12 }}
+          {% endif %}
+        </p>
+
+        <div class="producto-bottom">
+
+          <strong>
+            <span>$</span>{{ p.precio|clp }}
+          </strong>
+
+          <em>Ver oferta</em>
 
         </div>
 
-      </article>
+      </div>
 
+    </article>
+
+  </a>
+
+  {% empty %}
+
+  <div class="catalogo-empty ofertas-empty">
+
+    <h3>No encontramos ofertas</h3>
+
+    <p>
+      Prueba con otra búsqueda, selecciona otra categoría
+      o revisa nuevamente más adelante.
+    </p>
+
+    <a href="{% url 'offers' %}" class="ofertas-empty__button">
+      Ver todas las ofertas
     </a>
 
-    {% empty %}
-
-    <div class="catalogo-empty ofertas-empty">
-
-      <h3>No encontramos ofertas</h3>
-
-      <p>
-        Prueba con otra búsqueda, selecciona otra categoría
-        o revisa nuevamente más adelante.
-      </p>
-
-      <a href="{% url 'offers' %}" class="ofertas-empty__button">
-        Ver todas las ofertas
-      </a>
-
-    </div>
-
-    {% endfor %}
-
   </div>
+
+  {% endfor %}
+
+</div>
 
 
   <!-- =====================================================
@@ -482,6 +495,139 @@
 {% block js %}
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<!-- Super Ofertas intercaladas entre los productos -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const productosGrid = document.querySelector(
+    "#ofertas-productos-grid"
+  );
+
+  const seccionOriginal = document.querySelector(
+    "[data-super-ofertas-originales]"
+  );
+
+  if (!productosGrid || !seccionOriginal) return;
+
+  const superOfertas = Array.from(
+    seccionOriginal.querySelectorAll(".oferta-showcase")
+  );
+
+  if (superOfertas.length === 0) return;
+
+  const numeroPagina = Number(
+    "{{ page_obj.number|default:1 }}"
+  ) || 1;
+
+  let ultimoModoMovil = null;
+  let resizeTimer = null;
+
+  function limpiarIntercaladas() {
+    productosGrid
+      .querySelectorAll(".ofertas-destacado-intercalado")
+      .forEach((elemento) => elemento.remove());
+  }
+
+  function crearSuperOferta(indice) {
+    const contenedor = document.createElement("div");
+
+    contenedor.className =
+      "catalogo-destacado-intercalado " +
+      "ofertas-destacado-intercalado";
+
+    const oferta = superOfertas[
+      indice % superOfertas.length
+    ].cloneNode(true);
+
+    oferta
+      .querySelectorAll("[id]")
+      .forEach((elemento) => elemento.removeAttribute("id"));
+
+    contenedor.appendChild(oferta);
+
+    return contenedor;
+  }
+
+  function intercalarSuperOfertas() {
+    limpiarIntercaladas();
+
+    const productos = Array.from(
+      productosGrid.children
+    ).filter((elemento) =>
+      elemento.matches(".producto-link")
+    );
+
+    if (productos.length === 0) {
+      seccionOriginal.hidden = false;
+      return;
+    }
+
+    const esTabletOMovil =
+      window.matchMedia("(max-width: 1024px)").matches;
+
+    const intervalo = esTabletOMovil ? 4 : 8;
+    const posiciones = [];
+
+    for (
+      let posicion = intervalo;
+      posicion <= productos.length;
+      posicion += intervalo
+    ) {
+      posiciones.push(posicion);
+    }
+
+    /*
+     * Si la última fila no completa 4 u 8 productos,
+     * igualmente colocamos una Super Oferta al terminarla.
+     */
+    if (
+      productos.length % intervalo !== 0 ||
+      posiciones.length === 0
+    ) {
+      posiciones.push(productos.length);
+    }
+
+    const bloquesAnteriores =
+      (numeroPagina - 1) *
+      Math.max(1, Math.ceil(productos.length / intervalo));
+
+    posiciones.forEach((posicion, indice) => {
+      const productoAnterior = productos[posicion - 1];
+
+      productoAnterior.insertAdjacentElement(
+        "afterend",
+        crearSuperOferta(bloquesAnteriores + indice)
+      );
+    });
+
+    /*
+     * Evita mostrar las mismas Super Ofertas dos veces:
+     * arriba y dentro de la cuadrícula.
+     */
+    seccionOriginal.hidden = true;
+  }
+
+  intercalarSuperOfertas();
+  ultimoModoMovil =
+    window.matchMedia("(max-width: 1024px)").matches;
+
+  window.addEventListener("resize", function () {
+    window.clearTimeout(resizeTimer);
+
+    resizeTimer = window.setTimeout(function () {
+      const modoMovilActual =
+        window.matchMedia("(max-width: 1024px)").matches;
+
+      if (modoMovilActual === ultimoModoMovil) return;
+
+      ultimoModoMovil = modoMovilActual;
+      intercalarSuperOfertas();
+    }, 150);
+  });
+});
+</script>
 
 
 <!-- Carrusel de Super Ofertas -->
