@@ -1,214 +1,405 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Contacto | Zeezton Store{% endblock %}
+{% block title %}
+Contacto | Zeezton Store
+{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'core/css/pages/contacto.css' %}?v=5">
+<link
+  rel="stylesheet"
+  href="{% static 'core/css/pages/contacto.css' %}?v={{ version }}"
+>
+{% endblock %}
+
+{% block js %}
+<script
+  src="{% static 'core/js/contacto.js' %}?v={{ version }}"
+  defer
+></script>
 {% endblock %}
 
 {% block main_content %}
 
-<section class="contact-hero">
+<!-- =========================================================
+     CONTACTO — FORMULARIO CENTRAL
+========================================================= -->
 
-  <div class="contact-hero-content">
+<section class="contact-page">
 
-    <span class="contact-badge">
-      Zeezton Feedback
-    </span>
+  <div class="contact-page-content">
 
-    <h1 class="contact-title">
-      Ayúdanos a mejorar
-    </h1>
+    <!-- =====================================================
+         ENCABEZADO
+    ====================================================== -->
 
-    <p class="contact-subtitle">
-      Tu experiencia es importante para nosotros.
-      Cada comentario nos ayuda a seguir evolucionando.
-    </p>
+    <header class="contact-header">
 
-  </div>
-
-</section>
-
-<section class="contact-section">
-
-  <div class="contact-grid">
-
-    <div class="contact-info-card">
-
-      <span class="contact-mini-badge">
-        Atención personalizada
+      <span class="contact-badge">
+        Zeezton Contacto
       </span>
 
-      <h2>Conectamos pasión automotriz y experiencia premium.</h2>
+      <h1 class="contact-title">
+        ¿Cómo podemos ayudarte?
+      </h1>
 
-      <p>
-        En Zeezton buscamos entregar una experiencia moderna,
-        cercana y enfocada en calidad. Tu opinión nos ayuda
-        a seguir mejorando cada detalle.
+      <p class="contact-subtitle">
+        Envíanos tu opinión, consulta la compatibilidad de un producto
+        o solicita un repuesto especial. Si no está disponible en nuestro
+        catálogo, revisaremos la posibilidad de conseguirlo para ti.
       </p>
 
-      <div class="contact-feature-list">
+    </header>
 
-        <div class="contact-feature">
-          <i class="fa fa-shield-halved"></i>
-          <span>Compra segura</span>
-        </div>
+    <!-- =====================================================
+         FORMULARIO
+    ====================================================== -->
 
-        <div class="contact-feature">
-          <i class="fa fa-car"></i>
-          <span>Productos seleccionados</span>
-        </div>
-
-        <div class="contact-feature">
-          <i class="fa fa-bolt"></i>
-          <span>Atención personalizada</span>
-        </div>
-
-      </div>
-
-    </div>
-
-    <form method="POST" class="zf-form">
+    <form
+      method="POST"
+      class="zf-form"
+      id="contactForm"
+    >
 
       {% csrf_token %}
 
-      <div class="form-header">
-        <span class="contact-mini-badge">
-          Formulario
+      <!-- ATENCIÓN PERSONALIZADA -->
+      <div class="contact-support-note">
+
+        <div class="contact-support-icon">
+
+          <i
+            class="fa-solid fa-car-side"
+            aria-hidden="true"
+          ></i>
+
+        </div>
+
+        <div class="contact-support-copy">
+
+          <span>
+            Atención personalizada
+          </span>
+
+          <p>
+            ¿No encuentras el repuesto que necesitas? Indícanos el modelo,
+            año y pieza de tu vehículo. Revisaremos su disponibilidad o la
+            posibilidad de importarlo especialmente para ti.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- ===================================================
+           TIPO DE MENSAJE
+      ==================================================== -->
+
+      <div class="zf-field">
+
+        <label for="{{ form.tipo_mensaje.id_for_label }}">
+          {{ form.tipo_mensaje.label }}
+        </label>
+
+        {{ form.tipo_mensaje }}
+
+        <span class="zf-field-help">
+          Selecciona la opción que mejor represente tu consulta.
         </span>
 
-        <h3>
-          Envíanos tu reseña
-        </h3>
-      </div>
-
-      <div class="zf-field">
-        <label for="{{ form.nombre.id_for_label }}">
-          {{ form.nombre.label }}
-        </label>
-
-        {{ form.nombre }}
-
-        {% if form.nombre.errors %}
+        {% if form.tipo_mensaje.errors %}
           <div class="zf-error">
-            {{ form.nombre.errors }}
+            {{ form.tipo_mensaje.errors }}
           </div>
         {% endif %}
+
       </div>
 
+      <!-- ===================================================
+           DATOS PERSONALES
+      ==================================================== -->
+
+      <div class="zf-fields-row">
+
+        <!-- NOMBRE -->
+        <div class="zf-field">
+
+          <label for="{{ form.nombre.id_for_label }}">
+            {{ form.nombre.label }}
+          </label>
+
+          {{ form.nombre }}
+
+          {% if form.nombre.errors %}
+            <div class="zf-error">
+              {{ form.nombre.errors }}
+            </div>
+          {% endif %}
+
+        </div>
+
+        <!-- CORREO -->
+        <div class="zf-field">
+
+          <label for="{{ form.email.id_for_label }}">
+            {{ form.email.label }}
+          </label>
+
+          {{ form.email }}
+
+          {% if form.email.errors %}
+            <div class="zf-error">
+              {{ form.email.errors }}
+            </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+      <!-- TELÉFONO -->
       <div class="zf-field">
-        <label for="{{ form.email.id_for_label }}">
-          {{ form.email.label }}
+
+        <label for="{{ form.telefono.id_for_label }}">
+          {{ form.telefono.label }}
+          <span class="zf-optional">
+            Opcional
+          </span>
         </label>
 
-        {{ form.email }}
+        {{ form.telefono }}
 
-        {% if form.email.errors %}
+        <span class="zf-field-help">
+          Puedes incluir tu teléfono si prefieres recibir atención por
+          WhatsApp.
+        </span>
+
+        {% if form.telefono.errors %}
           <div class="zf-error">
-            {{ form.email.errors }}
+            {{ form.telefono.errors }}
           </div>
         {% endif %}
+
       </div>
 
-      <div class="zf-field">
-        <label for="{{ form.calificacion.id_for_label }}">
-          {{ form.calificacion.label }}
-        </label>
+      <!-- ===================================================
+           IMPORTACIÓN O COMPATIBILIDAD
+      ==================================================== -->
 
-        {{ form.calificacion }}
+      <div
+        class="zf-conditional-group"
+        id="vehicleFields"
+        hidden
+      >
 
-        {% if form.calificacion.errors %}
-          <div class="zf-error">
-            {{ form.calificacion.errors }}
+        <div class="zf-conditional-header">
+
+          <span>
+            Información del vehículo
+          </span>
+
+          <p>
+            Estos datos nos ayudarán a revisar la compatibilidad y buscar
+            la pieza correcta.
+          </p>
+
+        </div>
+
+        <div class="zf-fields-row">
+
+          <!-- VEHÍCULO -->
+          <div class="zf-field">
+
+            <label for="{{ form.vehiculo.id_for_label }}">
+              {{ form.vehiculo.label }}
+            </label>
+
+            {{ form.vehiculo }}
+
+            <span class="zf-field-help">
+              Ejemplo: BMW 320i 2018.
+            </span>
+
+            {% if form.vehiculo.errors %}
+              <div class="zf-error">
+                {{ form.vehiculo.errors }}
+              </div>
+            {% endif %}
+
           </div>
-        {% endif %}
+
+          <!-- REPUESTO -->
+          <div class="zf-field">
+
+            <label for="{{ form.repuesto.id_for_label }}">
+              {{ form.repuesto.label }}
+            </label>
+
+            {{ form.repuesto }}
+
+            <span class="zf-field-help">
+              Puedes indicar el nombre o número de pieza.
+            </span>
+
+            {% if form.repuesto.errors %}
+              <div class="zf-error">
+                {{ form.repuesto.errors }}
+              </div>
+            {% endif %}
+
+          </div>
+
+        </div>
+
       </div>
 
+      <!-- ===================================================
+           CONSULTA DE PEDIDO
+      ==================================================== -->
+
+      <div
+        class="zf-conditional-group"
+        id="orderFields"
+        hidden
+      >
+
+        <div class="zf-conditional-header">
+
+          <span>
+            Información del pedido
+          </span>
+
+          <p>
+            Ingresa el número asociado a tu compra para revisar el caso.
+          </p>
+
+        </div>
+
+        <div class="zf-field">
+
+          <label for="{{ form.numero_pedido.id_for_label }}">
+            {{ form.numero_pedido.label }}
+          </label>
+
+          {{ form.numero_pedido }}
+
+          {% if form.numero_pedido.errors %}
+            <div class="zf-error">
+              {{ form.numero_pedido.errors }}
+            </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+      <!-- ===================================================
+           CALIFICACIÓN
+      ==================================================== -->
+
+      <div
+        class="zf-conditional-group"
+        id="ratingFields"
+        hidden
+      >
+
+        <div class="zf-conditional-header">
+
+          <span>
+            Tu experiencia
+          </span>
+
+          <p>
+            Selecciona una calificación y cuéntanos qué podemos mejorar.
+          </p>
+
+        </div>
+
+        <div class="zf-field">
+
+          <label for="{{ form.calificacion.id_for_label }}">
+            {{ form.calificacion.label }}
+          </label>
+
+          {{ form.calificacion }}
+
+          {% if form.calificacion.errors %}
+            <div class="zf-error">
+              {{ form.calificacion.errors }}
+            </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+      <!-- ===================================================
+           MENSAJE
+      ==================================================== -->
+
       <div class="zf-field">
+
         <label for="{{ form.comentario.id_for_label }}">
           {{ form.comentario.label }}
         </label>
 
         {{ form.comentario }}
 
+        <span
+          class="zf-field-help"
+          id="messageHelp"
+        >
+          Cuéntanos detalladamente cómo podemos ayudarte.
+        </span>
+
         {% if form.comentario.errors %}
           <div class="zf-error">
             {{ form.comentario.errors }}
           </div>
         {% endif %}
+
       </div>
 
-      <button type="submit" class="zf-btn">
-        <i class="fa fa-paper-plane"></i>
-        <span>Enviar reseña</span>
+      <!-- ===================================================
+           ERRORES GENERALES
+      ==================================================== -->
+
+      {% if form.non_field_errors %}
+
+        <div class="zf-error zf-error-general">
+          {{ form.non_field_errors }}
+        </div>
+
+      {% endif %}
+
+      <!-- ===================================================
+           ENVÍO
+      ==================================================== -->
+
+      <button
+        type="submit"
+        class="zf-btn"
+      >
+
+        <span>
+          Enviar mensaje
+        </span>
+
+        <i
+          class="fa-solid fa-arrow-right"
+          aria-hidden="true"
+        ></i>
+
       </button>
+
+      <p class="contact-form-footer">
+        Revisaremos tu mensaje y nos comunicaremos contigo a la brevedad.
+      </p>
 
     </form>
 
   </div>
 
 </section>
-
-<section class="reviews-section">
-
-  <div class="reviews-header">
-
-    <span class="contact-mini-badge">
-      Comunidad Zeezton
-    </span>
-
-    <h2>Últimas reseñas</h2>
-
-  </div>
-
-  {% if reseñas %}
-
-    <div class="reviews-grid">
-
-      {% for r in reseñas %}
-
-      <article class="review-card">
-
-        <div class="review-top">
-
-          <div class="review-avatar">
-            {{ r.nombre|slice:":1" }}
-          </div>
-
-          <div>
-
-            <h4>{{ r.nombre }}</h4>
-
-            <div class="review-stars">
-              {{ r.calificacion }} ★
-            </div>
-
-          </div>
-
-        </div>
-
-        <p class="review-text">
-          {{ r.comentario }}
-        </p>
-
-      </article>
-
-      {% endfor %}
-
-    </div>
-
-  {% else %}
-
-    <div class="reviews-empty">
-      <h3>No hay reseñas todavía</h3>
-      <p>Sé el primero en compartir tu experiencia.</p>
-    </div>
-
-  {% endif %}
-
-</section>
-
-{% include "core/partials/footer.html" %}
 
 {% endblock %}

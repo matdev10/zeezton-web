@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.shortcuts import redirect, render
 
-from crud.models import Reseña
-from crud.forms import ReseñaForm
+from crud.forms import MensajeContactoForm
 
 
 def root(request):
@@ -9,37 +9,53 @@ def root(request):
 
 
 def home(request):
-
     context = {
-        "abrir_login": request.session.pop("abrir_login", False),
+        "abrir_login": request.session.pop(
+            "abrir_login",
+            False,
+        ),
     }
 
     return render(
         request,
         "core/index.html",
-        context
+        context,
     )
 
 
 def about(request):
-    return render(request, "core/about.html")
+    return render(
+        request,
+        "core/about.html",
+    )
 
 
 def contact(request):
     if request.method == "POST":
-        form = ReseñaForm(request.POST)
+        form = MensajeContactoForm(request.POST)
 
         if form.is_valid():
-            reseña = form.save(commit=False)
-            reseña.aprobada = False
-            reseña.save()
+            form.save()
+
+            messages.success(
+                request,
+                (
+                    "Tu mensaje fue enviado correctamente. "
+                    "Nos comunicaremos contigo a la brevedad."
+                ),
+            )
+
             return redirect("contact")
+
     else:
-        form = ReseñaForm()
+        form = MensajeContactoForm()
 
-    reseñas = Reseña.objects.filter(aprobada=True).order_by("-creado")[:5]
-
-    return render(request, "core/contact.html", {
+    context = {
         "form": form,
-        "reseñas": reseñas,
-    })
+    }
+
+    return render(
+        request,
+        "core/contact.html",
+        context,
+    )

@@ -1400,6 +1400,17 @@
 
 @media (max-width:1024px){
 
+
+  .catalogo-header h2 {
+    width: min(100%, 650px);
+    max-width: 650px;
+    margin: 0 auto 18px;
+
+    font-size: 2.0rem;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
   /* Página */
 
   .catalogo-main{
@@ -1480,6 +1491,8 @@
     margin-left:auto;
     margin-right:auto;
   }
+
+
 
 }
 

@@ -36,6 +36,20 @@
   object-position: center;
 }
 
+.home-carousel-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.home-carousel-picture .home-carousel-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .home-hero::after {
   content: "";
   position: absolute;
@@ -54,90 +68,149 @@
 .home-hero-content {
   position: absolute;
   z-index: 4;
-  top: 46%;
-  left: 8%;
-  width: min(760px, 84%);
+
+  top: 50%;
+  left: 50%;
+
+  width: min(920px, calc(100% - 120px));
   margin: 0;
   padding: 0;
+
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  transform: translateY(-50%);
+  align-items: center;
+
+  text-align: center;
+
+  transform: translate(-50%, -50%);
 }
 
 .home-kicker {
   display: block;
-  margin: 0 0 8px;
+
+  margin: 0 0 18px;
   padding: 0;
+
   color: var(--home-cyan);
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.35em;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.3em;
+  text-align: center;
   text-transform: uppercase;
-  text-shadow: 0 0 10px var(--home-glow);
+
+  text-shadow: 0 0 12px var(--home-glow);
 }
 
 .home-title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
+  width: 100%;
   margin: 0 !important;
   padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+
+  text-align: center;
 }
 
 .home-title-main,
 .home-title-sub {
   display: block;
+  width: 100%;
+
   margin: 0;
   padding: 0;
-  font-family: "Michroma", sans-serif;
+
+  text-align: center;
   text-transform: uppercase;
 }
 
 .home-title-main {
   color: #fff;
-  font-size: clamp(2.5rem, 5.5vw, 3.8rem);
-  line-height: 0.88;
-  letter-spacing: -1px;
+
+  font-family: "Michroma", sans-serif;
+  font-size: clamp(2.35rem, 4.9vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+
   text-shadow:
-    0 0 20px rgba(255, 255, 255, 0.15),
-    0 0 40px rgba(15, 207, 217, 0.12),
-    0 10px 25px rgba(0, 0, 0, 0.65);
+    0 0 20px rgba(255, 255, 255, 0.12),
+    0 0 40px rgba(15, 207, 217, 0.1),
+    0 10px 25px rgba(0, 0, 0, 0.7);
 }
 
 .home-title-sub {
-  margin-top: 25px;
+  margin-top: 12px;
+
   color: var(--home-cyan);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  line-height: 1;
-  letter-spacing: 0.5rem;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(0.92rem, 1.65vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.23em;
+
   text-shadow: 0 0 15px rgba(15, 207, 217, 0.35);
 }
 
+.home-description {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 24px auto 0;
+
+  color: rgba(240, 244, 248, 0.74);
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.98rem;
+  font-style: normal;
+  line-height: 1.75;
+  text-align: center;
+
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.75);
+}
+
 /*
-  El contenedor no se anima con transform porque eso anulaba el
-  translateX(-50%) usado para centrarlo en tablet y móvil.
+  Se animan los elementos internos y no el contenedor, para conservar
+  correctamente su posicionamiento en escritorio, tablet y móvil.
 */
 .home-kicker,
 .home-title-main,
-.home-title-sub {
+.home-title-sub,
+.home-description,
+.home-actions,
+.home-benefits {
   opacity: 0;
   animation: homeFadeUp 0.8s ease-out both;
 }
 
 .home-kicker {
-  animation-delay: 0.25s;
+  animation-delay: 0.2s;
 }
 
 .home-title-main {
-  animation-delay: 0.4s;
+  animation-delay: 0.34s;
 }
 
 .home-title-sub {
-  animation-delay: 0.55s;
+  animation-delay: 0.48s;
+}
+
+.home-description {
+  animation-delay: 0.62s;
+}
+
+.home-actions {
+  animation-delay: 0.76s;
+}
+
+.home-benefits {
+  animation-delay: 0.9s;
 }
 
 .slot-word,
@@ -173,144 +246,124 @@
    ========================================================================== */
 
 .home-actions {
-  position: absolute;
-  z-index: 6;
-  left: 50%;
-  bottom: 100px;
+  position: static;
+  z-index: auto;
+  width: auto;
+  margin-top: 30px;
   display: flex;
   align-items: center;
-  gap: 70px;
-  transform: translateX(-50%);
-  animation: homeButtonsIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s both;
+  flex-wrap: wrap;
+  gap: 14px;
+  transform: none;
 }
 
 .home-btn-primary,
 .home-btn-secondary {
   position: relative;
-  min-width: auto;
-  min-height: auto;
-  padding: 0;
-  overflow: visible;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  color: rgba(255, 255, 255, 0.9);
-  font-family: "Michroma", sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 4px;
+  min-height: 50px;
+  padding: 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  overflow: hidden;
+  border-radius: 999px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.11em;
   text-decoration: none !important;
   text-transform: uppercase;
   white-space: nowrap;
   transition:
-    color 0.35s ease,
-    transform 0.35s ease,
-    text-shadow 0.35s ease;
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-.home-btn-primary::before,
-.home-btn-secondary::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -12px;
-  width: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #42e8ff, var(--home-blue));
-  transform: translateX(-50%);
-  transition: width 0.35s ease;
+.home-btn-primary {
+  border: 1px solid var(--home-cyan);
+  background: linear-gradient(135deg, #10e4ee, #08aebc);
+  box-shadow: 0 14px 34px rgba(15, 207, 217, 0.23);
+  color: #031014;
 }
 
-.home-btn-primary:hover,
-.home-btn-secondary:hover {
-  color: #fff;
-  text-shadow: 0 0 18px rgba(66, 232, 255, 0.45);
+.home-btn-primary:hover {
+  color: #031014;
+  box-shadow: 0 18px 42px rgba(15, 207, 217, 0.38);
   transform: translateY(-3px);
 }
 
-.home-btn-primary:hover::before,
-.home-btn-secondary:hover::before {
-  width: 80%;
+.home-btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(5, 8, 15, 0.48);
+  color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.shine {
-  display: none;
+.home-btn-secondary:hover {
+  border-color: var(--home-cyan);
+  background: rgba(15, 207, 217, 0.09);
+  color: var(--home-cyan);
+  box-shadow: 0 14px 34px rgba(15, 207, 217, 0.12);
+  transform: translateY(-3px);
 }
 
-@keyframes homeButtonsIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(30px);
-    filter: blur(10px);
-  }
+.home-btn-primary .shine,
+.home-btn-secondary .shine {
+  position: absolute;
+  top: -40%;
+  left: -35%;
+  width: 28%;
+  height: 180%;
+  display: block;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: rotate(18deg) translateX(-220%);
+  transition: transform 0.7s ease;
+}
 
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-    filter: blur(0);
-  }
+.home-btn-primary:hover .shine,
+.home-btn-secondary:hover .shine {
+  transform: rotate(18deg) translateX(620%);
 }
 
 /* ==========================================================================
-   USUARIO
+   BENEFICIOS DEL HERO
    ========================================================================== */
 
-.home-user-action {
-  position: absolute;
-  z-index: 7;
-  left: 50%;
-  bottom: 190px;
+.home-benefits {
+  margin-top: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transform: translateX(-50%);
+  flex-wrap: wrap;
+  gap: 14px 22px;
 }
 
-.home-login-form {
-  margin: 0;
-  padding: 0;
-}
-
-.home-login-text {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.82);
-  font-family: "Michroma", sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
+.home-benefit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.66);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.58rem;
+  line-height: 1.4;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  white-space: nowrap;
-  cursor: pointer;
-  opacity: 0;
-  animation: homeLoginIn 0.8s ease-out 0.8s forwards;
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease,
-    text-shadow 0.3s ease;
 }
 
-.home-login-text:hover {
-  color: #0bd1ea;
-  text-shadow: 0 0 18px rgba(11, 209, 234, 0.55);
-  transform: translateY(-2px);
-}
-
-.logout-text:hover {
-  color: #ff4d4d;
-  text-shadow: 0 0 18px rgba(255, 77, 77, 0.45);
-}
-
-@keyframes homeLoginIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.home-benefit i {
+  color: var(--home-cyan);
+  font-size: 0.82rem;
+  text-shadow: 0 0 12px rgba(15, 207, 217, 0.35);
 }
 
 /* ==========================================================================
@@ -352,7 +405,7 @@
   width: calc(100% - 80px);
   max-width: 1400px;
   margin: 140px auto;
-  padding: 90px 40px;
+  padding: 41px 42px 40px;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   align-items: center;
@@ -386,18 +439,26 @@
 
 .m3-content h2 {
   margin: 0 0 25px;
+
   color: #fff;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
-  font-weight: 900;
-  line-height: 1;
+
+  font-family: "Michroma", sans-serif;
+  font-size: clamp(2.1rem, 4.2vw, 4rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
 }
 
 .m3-content p {
   max-width: 550px;
   margin: 0;
   color: rgba(255, 255, 255, 0.75);
+  font-family: 'Orbitron';
   font-size: 1.05rem;
   line-height: 1.8;
+  margin-top: 50px;
 }
 
 .m3-actions {
@@ -406,6 +467,8 @@
   gap: 40px;
   margin-top: 35px;
 }
+
+
 
 .m3-btn {
   display: inline-flex;
@@ -521,7 +584,7 @@
 .m3-extra-gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
 .m3-extra-gallery img {
@@ -568,6 +631,7 @@
 .m3-specs p {
   margin: 0 0 16px;
   color: rgba(255, 255, 255, 0.78) !important;
+  font-family: 'Orbitron';
   font-size: 0.95rem;
   line-height: 1.8;
 }
@@ -576,6 +640,34 @@
   margin-bottom: 0;
 }
 
+
+/* ==========================================================================
+   CONTROLES DE LA NOTICIA
+   ========================================================================== */
+
+.m3-more-wrap,
+.m3-less-wrap {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m3-more-wrap {
+  margin-top: 50px;
+}
+
+.m3-less-wrap {
+  margin-top: 32px;
+}
+
+.m3-more-wrap[hidden],
+.m3-less-wrap[hidden] {
+  display: none !important;
+}
 /* ==========================================================================
    NOTEBOOK — 1025px A 1366px
    ========================================================================== */
@@ -606,47 +698,88 @@
   }
 
   .home-hero-content {
-    top: 43%;
-    left: 7%;
-    width: min(620px, 86%);
+    top: 48%;
+    left: 50%;
+
+    width: min(760px, calc(100% - 80px));
+
+    align-items: center;
+    text-align: center;
+
+    transform: translate(-50%, -50%);
   }
 
   .home-kicker {
-    font-size: 0.68rem;
-    letter-spacing: 0.32em;
+    margin-bottom: 14px;
+
+    font-size: 0.64rem;
+    letter-spacing: 0.27em;
+    text-align: center;
+  }
+
+  .home-title {
+    width: 100%;
+
+    align-items: center;
+    text-align: center;
   }
 
   .home-title-main {
-    font-size: clamp(2.5rem, 4.2vw, 3.35rem);
-    line-height: 0.9;
+    width: 100%;
+
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
+    line-height: 1.05;
+    text-align: center;
   }
 
   .home-title-sub {
-    margin-top: 20px;
-    font-size: clamp(1rem, 1.6vw, 1.3rem);
-    letter-spacing: 0.42rem;
-  }
+    width: 100%;
 
-  .home-user-action {
-    bottom: 145px;
-  }
+    margin-top: 10px;
 
-  .home-login-text {
-    font-size: 0.66rem;
+    font-size: clamp(0.82rem, 1.45vw, 1.08rem);
     letter-spacing: 0.2em;
+    text-align: center;
+  }
+
+  .home-description {
+    width: 100%;
+    max-width: 590px;
+
+    margin: 20px auto 0;
+
+    font-size: 0.88rem;
+    line-height: 1.65;
+    text-align: center;
   }
 
   .home-actions {
-    bottom: 70px;
-    gap: 54px;
+    width: 100%;
+    margin-top: 24px;
+
+    justify-content: center;
+    gap: 12px;
   }
 
   .home-btn-primary,
   .home-btn-secondary {
-    font-size: 0.66rem;
-    letter-spacing: 3.5px;
+    min-height: 46px;
+    padding: 0 21px;
+
+    font-size: 0.61rem;
   }
 
+  .home-benefits {
+    width: 100%;
+    margin-top: 24px;
+
+    justify-content: center;
+    gap: 12px 17px;
+  }
+
+  .home-benefit {
+    font-size: 0.52rem;
+  }
   .home-carousel .carousel-indicators {
     bottom: 18px;
   }
@@ -744,13 +877,15 @@
 
 @media (max-width: 1024px) {
   .home-hero-content {
-    top: 42%;
+    top: 47%;
     left: 50%;
     width: min(90%, 720px);
     align-items: center;
     text-align: center;
     transform: translate(-50%, -50%);
   }
+  
+
 
   .home-title {
     width: 100%;
@@ -758,13 +893,18 @@
     text-align: center;
   }
 
-  .home-actions {
-    bottom: 70px;
-    gap: 48px;
+  .home-description {
+    max-width: 610px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-  .home-user-action {
-    bottom: 150px;
+  .home-actions {
+    justify-content: center;
+  }
+
+  .home-benefits {
+    justify-content: center;
   }
 
   .home-m3 {
@@ -791,6 +931,27 @@
   .m3-track img {
     height: 480px;
   }
+
+  .m3-more-wrap {
+  grid-column: 1;
+  order: 3;
+
+  width: 100%;
+  margin-top: -22px;
+
+  display: flex;
+  justify-content: center;
+}
+}
+
+@media (max-width: 1024px) {
+
+  .home-carousel .carousel-indicators,
+  .home-carousel .carousel-control-prev,
+  .home-carousel .carousel-control-next {
+    display: none !important;
+  }
+
 }
 
 /* ==========================================================================
@@ -798,54 +959,101 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
+  .home-hero,
+  .home-carousel,
+  .home-carousel .carousel-inner,
+  .home-carousel .carousel-item {
+    min-height: 720px;
+    height: max(100svh, 720px);
+  }
+
+  .home-hero::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.16) 0%,
+        rgba(0, 0, 0, 0.46) 42%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+  }
+
   .home-hero-content {
-    top: 40%;
+    top: 49%;
+    left: 50%;
     width: calc(100% - 36px);
-    max-width: none;
+    max-width: 620px;
+    align-items: center;
+    text-align: center;
+    transform: translate(-50%, -50%);
   }
 
   .home-kicker {
-    font-size: 0.62rem;
-    letter-spacing: 0.28em;
+    margin-bottom: 12px;
+    font-size: 0.56rem;
+    line-height: 1.6;
+    letter-spacing: 0.22em;
   }
+
+  .home-title {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  
 
   .home-title-main {
     width: 100%;
-    font-size: clamp(2.1rem, 11vw, 3.2rem);
-    line-height: 1;
-    letter-spacing: 0.06em;
+    font-size: clamp(1.85rem, 9vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .home-title-sub {
-    margin-top: 16px;
-    padding-left: 0.42rem;
-    font-size: 0.82rem;
-    letter-spacing: 0.42rem;
+    margin-top: 10px;
+    padding: 0;
+    font-size: clamp(0.7rem, 3vw, 0.92rem);
+    line-height: 1.45;
+    letter-spacing: 0.16em;
     text-align: center;
   }
 
-  .home-user-action {
-    bottom: 160px;
-  }
-
-  .home-login-text {
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
+  .home-description {
+    max-width: 520px;
+    margin: 18px auto 0;
+    font-size: 0.84rem;
+    line-height: 1.6;
   }
 
   .home-actions {
-    bottom: 72px;
-    width: calc(100% - 30px);
+    width: 100%;
+    margin-top: 22px;
     justify-content: center;
-    gap: 34px;
+    gap: 10px;
   }
 
   .home-btn-primary,
   .home-btn-secondary {
+    min-height: 46px;
+    padding: 0 19px;
     font-size: 0.58rem;
-    letter-spacing: 3px;
+    letter-spacing: 0.09em;
+  }
+
+  .home-benefits {
+    margin-top: 22px;
+    justify-content: center;
+    gap: 10px 15px;
+  }
+
+  .home-benefit {
+    font-size: 0.49rem;
+  }
+
+  .home-benefit i {
+    font-size: 0.72rem;
   }
 
   .home-carousel .carousel-indicators {
@@ -863,7 +1071,7 @@
 
   .home-m3 {
     width: calc(100% - 24px);
-    margin: 70px auto;
+    margin: 30px auto 30px;
     padding: 42px 20px;
     gap: 32px;
     border-radius: 28px;
@@ -904,6 +1112,7 @@
 
   .m3-extra.active {
     max-height: 2400px;
+    margin-top: 0px;
   }
 
   .m3-extra-gallery {
@@ -911,7 +1120,7 @@
   }
 
   .m3-extra-gallery img {
-    height: 240px;
+    height: 360px;
   }
 
   .m3-specs {
@@ -924,47 +1133,65 @@
    ========================================================================== */
 
 @media (max-width: 480px) {
+  .home-hero,
+  .home-carousel,
+  .home-carousel .carousel-inner,
+  .home-carousel .carousel-item {
+    min-height: 700px;
+    height: max(100svh, 700px);
+  }
+
   .home-hero-content {
-    top: 39%;
+    top: 49%;
     width: calc(100% - 24px);
   }
 
   .home-kicker {
-    font-size: 0.54rem;
-    letter-spacing: 0.22em;
-  }
-
-  .home-title-main {
-    font-size: clamp(1.9rem, 10.5vw, 2.35rem);
-    letter-spacing: 0.04em;
-  }
-
-  .home-title-sub {
-    margin-top: 14px;
-    padding-left: 0.3rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.3rem;
-  }
-
-  .home-user-action {
-    bottom: 150px;
-  }
-
-  .home-login-text {
-    font-size: 0.56rem;
+    margin-bottom: 10px;
+    font-size: 0.5rem;
     letter-spacing: 0.18em;
   }
 
+  .home-title-main {
+    font-size: clamp(1.65rem, 8.8vw, 2.15rem);
+    line-height: 1.1;
+  }
+
+  .home-title-sub {
+    margin-top: 9px;
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+  }
+
+  .home-description {
+    margin-top: 15px;
+    font-size: 0.76rem;
+    line-height: 1.55;
+  }
+
   .home-actions {
-    bottom: 68px;
-    width: calc(100% - 20px);
-    gap: 22px;
+    width: min(100%, 330px);
+    margin-top: 19px;
+    flex-direction: column;
+    gap: 9px;
   }
 
   .home-btn-primary,
   .home-btn-secondary {
-    font-size: 0.5rem;
-    letter-spacing: 2.2px;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 0.54rem;
+  }
+
+  .home-benefits {
+    max-width: 330px;
+    margin-top: 18px;
+    gap: 9px 13px;
+  }
+
+  .home-benefit {
+    font-size: 0.44rem;
   }
 
   .home-carousel .carousel-indicators {
@@ -1018,8 +1245,9 @@
   .home-kicker,
   .home-title-main,
   .home-title-sub,
+  .home-description,
   .home-actions,
-  .home-login-text,
+  .home-benefits,
   .m3-track {
     animation: none;
     opacity: 1;

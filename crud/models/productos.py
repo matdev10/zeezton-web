@@ -230,6 +230,118 @@ class Reseña(models.Model):
 
     def __str__(self):
         if self.producto:
-            return f"{self.producto.nombre} - {self.nombre} - {self.calificacion}★"
+            return (
+                f"{self.producto.nombre} - "
+                f"{self.nombre} - "
+                f"{self.calificacion}★"
+            )
+
         return f"{self.nombre} - {self.calificacion}★"
-    
+
+
+class MensajeContacto(models.Model):
+    TIPO_IMPORTACION = "IMPORTACION"
+    TIPO_COMPATIBILIDAD = "COMPATIBILIDAD"
+    TIPO_PEDIDO = "PEDIDO"
+    TIPO_CALIFICACION = "CALIFICACION"
+    TIPO_SUGERENCIA = "SUGERENCIA"
+    TIPO_OTRO = "OTRO"
+
+    TIPOS_MENSAJE = [
+        (
+            TIPO_IMPORTACION,
+            "Importación o búsqueda de repuesto",
+        ),
+        (
+            TIPO_COMPATIBILIDAD,
+            "Consulta de compatibilidad",
+        ),
+        (
+            TIPO_PEDIDO,
+            "Consulta sobre una compra o pedido",
+        ),
+        (
+            TIPO_CALIFICACION,
+            "Calificación o reseña",
+        ),
+        (
+            TIPO_SUGERENCIA,
+            "Sugerencia para mejorar",
+        ),
+        (
+            TIPO_OTRO,
+            "Otra consulta",
+        ),
+    ]
+
+    tipo_mensaje = models.CharField(
+        max_length=20,
+        choices=TIPOS_MENSAJE,
+        default=TIPO_IMPORTACION,
+        verbose_name="Tipo de mensaje",
+    )
+
+    nombre = models.CharField(
+        max_length=100,
+        verbose_name="Nombre",
+    )
+
+    email = models.EmailField(
+        verbose_name="Correo electrónico",
+    )
+
+    telefono = models.CharField(
+        max_length=30,
+        blank=True,
+        verbose_name="Teléfono",
+    )
+
+    vehiculo = models.CharField(
+        max_length=160,
+        blank=True,
+        verbose_name="Vehículo",
+        help_text="Ejemplo: BMW 320i 2018",
+    )
+
+    repuesto = models.CharField(
+        max_length=200,
+        blank=True,
+        verbose_name="Repuesto solicitado",
+    )
+
+    numero_pedido = models.CharField(
+        max_length=80,
+        blank=True,
+        verbose_name="Número de pedido",
+    )
+
+    calificacion = models.IntegerField(
+        choices=[(i, f"{i} ★") for i in range(1, 6)],
+        blank=True,
+        null=True,
+        verbose_name="Calificación",
+    )
+
+    comentario = models.TextField(
+        verbose_name="Mensaje",
+    )
+
+    creado = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    atendido = models.BooleanField(
+        default=False,
+        verbose_name="Mensaje atendido",
+    )
+
+    class Meta:
+        ordering = ["-creado"]
+        verbose_name = "Mensaje de contacto"
+        verbose_name_plural = "Mensajes de contacto"
+
+    def __str__(self):
+        return (
+            f"{self.nombre} - "
+            f"{self.get_tipo_mensaje_display()}"
+        )

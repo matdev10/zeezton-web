@@ -3,21 +3,22 @@ from .productos import (
     ImagenProducto,
     Marca,
     Reseña,
+    MensajeContacto,
     Favorito,
     Categoria,
     Subcategoria,
-    ModeloAuto
+    ModeloAuto,
 )
 
 from .clientes import (
     Cliente,
     PerfilUsuario,
-    DireccionUsuario
+    DireccionUsuario,
 )
 
 from .ventas import (
     Venta,
-    DetalleVenta
+    DetalleVenta,
 )
 
 from .pedidos import (
@@ -28,6 +29,5 @@ from .pedidos import (
 )
 
 from .inventario import *
-
 from .informes import *
 from .suscriptores import *
