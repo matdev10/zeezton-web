@@ -179,15 +179,37 @@
   Se animan los elementos internos y no el contenedor, para conservar
   correctamente su posicionamiento en escritorio, tablet y móvil.
 */
+/*
+  Los títulos, botones y beneficios mantienen el efecto
+  de desenfoque durante la entrada.
+*/
 .home-kicker,
 .home-title-main,
 .home-title-sub,
-.home-description,
 .home-actions,
 .home-benefits {
   opacity: 0;
   animation: homeFadeUp 0.8s ease-out both;
 }
+
+
+/*
+  La descripción utiliza una animación independiente
+  sin filter: blur(), para evitar que quede difuminada
+  permanentemente en navegadores móviles.
+*/
+.home-description {
+  opacity: 0;
+  animation:
+    homeDescriptionFadeUp
+    0.8s
+    ease-out
+    0.62s
+    both;
+}
+
+
+/* DELAYS DEL HERO */
 
 .home-kicker {
   animation-delay: 0.2s;
@@ -201,10 +223,6 @@
   animation-delay: 0.48s;
 }
 
-.home-description {
-  animation-delay: 0.62s;
-}
-
 .home-actions {
   animation-delay: 0.76s;
 }
@@ -212,6 +230,9 @@
 .home-benefits {
   animation-delay: 0.9s;
 }
+
+
+/* PALABRAS DEL TÍTULO */
 
 .slot-word,
 .slot-word-sub {
@@ -227,6 +248,9 @@
   animation: none;
 }
 
+
+/* ANIMACIÓN GENERAL DEL HERO */
+
 @keyframes homeFadeUp {
   from {
     opacity: 0;
@@ -237,7 +261,22 @@
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
+    filter: none;
+  }
+}
+
+
+/* ANIMACIÓN SEGURA PARA LA DESCRIPCIÓN */
+
+@keyframes homeDescriptionFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -1257,18 +1296,3 @@
 }
 
 
-/* =========================================================
-   CORRECCIÓN DESCRIPCIÓN HERO — MÓVIL
-========================================================= */
-
-@media (max-width: 520px) {
-  .home-description,
-  .home-description.is-visible,
-  .home-description.show,
-  .home-description.active {
-    opacity: 1 !important;
-    filter: none !important;
-    transform: translateY(0) !important;
-    animation: none !important;
-  }
-}
