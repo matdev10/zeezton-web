@@ -1567,9 +1567,8 @@
 
   .catalogo-header h2{
     margin-bottom:15px;
-
-    font-size:clamp(1.48rem, 7.2vw, 1.75rem);
-    line-height:1.17;
+    font-size: clamp(1rem, 5.5vw, 1.1rem);
+    line-height: 1.08;
   }
 
   .catalogo-header p{

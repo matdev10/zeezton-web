@@ -1249,8 +1249,26 @@
   .home-actions,
   .home-benefits,
   .m3-track {
-    animation: none;
-    opacity: 1;
-    filter: none;
+    animation: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   CORRECCIÓN DESCRIPCIÓN HERO — MÓVIL
+========================================================= */
+
+@media (max-width: 520px) {
+  .home-description,
+  .home-description.is-visible,
+  .home-description.show,
+  .home-description.active {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translateY(0) !important;
+    animation: none !important;
   }
 }
