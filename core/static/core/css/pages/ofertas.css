@@ -1772,7 +1772,7 @@
   ========================================================= */
 
   .ofertas-header-main h2{
-    font-size:1.72rem;
+    font-size: clamp(1rem, 5.5vw, 1.1rem);
   }
 
   .ofertas-header-main p{

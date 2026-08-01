@@ -1202,11 +1202,20 @@
     letter-spacing: 0.13em;
   }
 
-  .home-description {
-    margin-top: 15px;
-    font-size: 0.76rem;
-    line-height: 1.55;
-  }
+.home-description {
+  margin-top: 15px;
+
+  color: rgba(245, 248, 250, 0.84);
+
+  font-size: 0.76rem;
+  line-height: 1.55;
+
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.82);
+
+  filter: none;
+  -webkit-font-smoothing: antialiased;
+}
 
   .home-actions {
     width: min(100%, 330px);
